@@ -1,0 +1,10 @@
+C:\git-clone\University\DotNet\Labs\Lab 1.  Hello Windows Form\Lab 1.  Hello Windows Form\bin\Debug\Lab_1.Hello_Windows_Form.exe.config
+C:\git-clone\University\DotNet\Labs\Lab 1.  Hello Windows Form\Lab 1.  Hello Windows Form\bin\Debug\Lab_1.Hello_Windows_Form.exe
+C:\git-clone\University\DotNet\Labs\Lab 1.  Hello Windows Form\Lab 1.  Hello Windows Form\bin\Debug\Lab_1.Hello_Windows_Form.pdb
+C:\git-clone\University\DotNet\Labs\Lab 1.  Hello Windows Form\Lab 1.  Hello Windows Form\obj\Debug\Lab 1.  Hello Windows Form.csprojAssemblyReference.cache
+C:\git-clone\University\DotNet\Labs\Lab 1.  Hello Windows Form\Lab 1.  Hello Windows Form\obj\Debug\Lab_1.Hello_Windows_Form.Form1.resources
+C:\git-clone\University\DotNet\Labs\Lab 1.  Hello Windows Form\Lab 1.  Hello Windows Form\obj\Debug\Lab_1.Hello_Windows_Form.Properties.Resources.resources
+C:\git-clone\University\DotNet\Labs\Lab 1.  Hello Windows Form\Lab 1.  Hello Windows Form\obj\Debug\Lab 1.  Hello Windows Form.csproj.GenerateResource.cache
+C:\git-clone\University\DotNet\Labs\Lab 1.  Hello Windows Form\Lab 1.  Hello Windows Form\obj\Debug\Lab 1.  Hello Windows Form.csproj.CoreCompileInputs.cache
+C:\git-clone\University\DotNet\Labs\Lab 1.  Hello Windows Form\Lab 1.  Hello Windows Form\obj\Debug\Lab_1.Hello_Windows_Form.exe
+C:\git-clone\University\DotNet\Labs\Lab 1.  Hello Windows Form\Lab 1.  Hello Windows Form\obj\Debug\Lab_1.Hello_Windows_Form.pdb

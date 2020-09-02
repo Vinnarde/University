@@ -1,0 +1,8 @@
+C:\git-clone\University\DotNet\Labs\Lab 1. Empty Forms\Lab 1. Empty Forms\bin\Debug\Lab_1.Empty_Forms.exe.config
+C:\git-clone\University\DotNet\Labs\Lab 1. Empty Forms\Lab 1. Empty Forms\bin\Debug\Lab_1.Empty_Forms.exe
+C:\git-clone\University\DotNet\Labs\Lab 1. Empty Forms\Lab 1. Empty Forms\bin\Debug\Lab_1.Empty_Forms.pdb
+C:\git-clone\University\DotNet\Labs\Lab 1. Empty Forms\Lab 1. Empty Forms\obj\Debug\Lab_1.Empty_Forms.Properties.Resources.resources
+C:\git-clone\University\DotNet\Labs\Lab 1. Empty Forms\Lab 1. Empty Forms\obj\Debug\Lab 1. Empty Forms.csproj.GenerateResource.cache
+C:\git-clone\University\DotNet\Labs\Lab 1. Empty Forms\Lab 1. Empty Forms\obj\Debug\Lab 1. Empty Forms.csproj.CoreCompileInputs.cache
+C:\git-clone\University\DotNet\Labs\Lab 1. Empty Forms\Lab 1. Empty Forms\obj\Debug\Lab_1.Empty_Forms.exe
+C:\git-clone\University\DotNet\Labs\Lab 1. Empty Forms\Lab 1. Empty Forms\obj\Debug\Lab_1.Empty_Forms.pdb
