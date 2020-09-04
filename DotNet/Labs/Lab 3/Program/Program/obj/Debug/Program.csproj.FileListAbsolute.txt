@@ -1,0 +1,10 @@
+C:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\bin\Debug\Program.exe.config
+C:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\bin\Debug\Program.exe
+C:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\bin\Debug\Program.pdb
+C:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\obj\Debug\Program.csprojAssemblyReference.cache
+C:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\obj\Debug\Program.Form1.resources
+C:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\obj\Debug\Program.Properties.Resources.resources
+C:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\obj\Debug\Program.csproj.GenerateResource.cache
+C:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\obj\Debug\Program.csproj.CoreCompileInputs.cache
+C:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\obj\Debug\Program.exe
+C:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\obj\Debug\Program.pdb
