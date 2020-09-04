@@ -65,5 +65,52 @@ namespace Program
         {
             tab3_textbox3.Text = Convert.ToString(Convert.ToDouble(tab3_textbox1.Text) / Convert.ToDouble(tab3_textbox2.Text));
         }
+
+        private void tab4_button_Click(object sender, EventArgs e)
+        {
+            double d;
+
+            tab4_comboBox.Items.Clear();
+
+            foreach (string str in tab4_textBox.Lines)
+            {
+                if (double.TryParse(str,out d))
+                {
+                    tab4_comboBox.Items.Add(d);
+                }
+            }
+        }
+
+        private void tab5_button_Click(object sender, EventArgs e)
+        {
+            tab5_textBox.Clear();
+
+            decimal epsilon = tab5_numericUpDown.Value;
+            decimal sum = 0M;
+            decimal previous = -1;
+            
+            for (int i = 1; sum - previous > epsilon; i++)
+            {
+                previous = sum;
+                sum += 1M / i;
+
+               // tab5_textBox.Text += "x = " + i + ": " + sum + Environment.NewLine;
+
+            }
+            tab5_textBox.Text += "Result: " + sum + Environment.NewLine;
+        }
+
+        private void tab6_button_Click(object sender, EventArgs e)
+        {
+            tab6_textBox2.Clear();
+            for (int i = 0; i < tab6_textBox.Lines.Length; i++)
+            {
+                double d;
+                if (!double.TryParse(tab6_textBox.Lines[tab6_textBox.Lines.Length - 1 - i], out d))
+                {
+                    tab6_textBox2.Text += tab6_textBox.Lines[tab6_textBox.Lines.Length - 1 - i] + Environment.NewLine;
+                }
+            }
+        }
     }
 }

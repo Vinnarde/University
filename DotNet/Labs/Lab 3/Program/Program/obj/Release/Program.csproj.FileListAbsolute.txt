@@ -1,0 +1,13 @@
+D:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\bin\Release\Program.exe.config
+D:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\bin\Release\Program.exe
+D:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\bin\Release\Program.pdb
+D:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\bin\Release\en\Program.resources.dll
+D:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\obj\Release\Program.csprojAssemblyReference.cache
+D:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\obj\Release\Program.Form1.resources
+D:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\obj\Release\Program.Properties.Resources.resources
+D:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\obj\Release\Program.Form1.en.resources
+D:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\obj\Release\Program.csproj.GenerateResource.cache
+D:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\obj\Release\Program.csproj.CoreCompileInputs.cache
+D:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\obj\Release\en\Program.resources.dll
+D:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\obj\Release\Program.exe
+D:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\obj\Release\Program.pdb

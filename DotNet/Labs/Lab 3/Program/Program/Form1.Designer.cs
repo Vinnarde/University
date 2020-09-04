@@ -28,33 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tab3_textbox3 = new System.Windows.Forms.TextBox();
+            this.tab3_textbox2 = new System.Windows.Forms.TextBox();
+            this.tab3_textbox1 = new System.Windows.Forms.TextBox();
+            this.tab3_DivideButton = new System.Windows.Forms.Button();
+            this.tab3_MultiplyButton = new System.Windows.Forms.Button();
+            this.tab3_SubtractButton = new System.Windows.Forms.Button();
+            this.tab3_AddButton = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tab4_button = new System.Windows.Forms.Button();
+            this.tab4_textBox = new System.Windows.Forms.TextBox();
+            this.tab4_comboBox = new System.Windows.Forms.ComboBox();
+            this.tabPage5_button = new System.Windows.Forms.TabPage();
+            this.tab5_numericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.tab5_textBox = new System.Windows.Forms.TextBox();
+            this.tab5_button = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.tab3_AddButton = new System.Windows.Forms.Button();
-            this.tab3_SubtractButton = new System.Windows.Forms.Button();
-            this.tab3_MultiplyButton = new System.Windows.Forms.Button();
-            this.tab3_DivideButton = new System.Windows.Forms.Button();
-            this.tab3_textbox1 = new System.Windows.Forms.TextBox();
-            this.tab3_textbox2 = new System.Windows.Forms.TextBox();
-            this.tab3_textbox3 = new System.Windows.Forms.TextBox();
+            this.tab6_textBox = new System.Windows.Forms.TextBox();
+            this.tab6_textBox2 = new System.Windows.Forms.TextBox();
+            this.tab6_button = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.tabPage5_button.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tab5_numericUpDown)).BeginInit();
+            this.tabPage6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -63,29 +77,31 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage5_button);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage7);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1200, 692);
-            this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.numericUpDown1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage1.Size = new System.Drawing.Size(1192, 659);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "First";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            resources.ApplyResources(this.textBox1, "textBox1");
+            this.textBox1.Name = "textBox1";
+            // 
+            // numericUpDown1
+            // 
+            resources.ApplyResources(this.numericUpDown1, "numericUpDown1");
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // tabPage2
             // 
@@ -94,33 +110,41 @@
             this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.textBox3);
             this.tabPage2.Controls.Add(this.comboBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage2.Size = new System.Drawing.Size(1192, 659);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Second";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown1
+            // textBox2
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(41, 259);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(180, 26);
-            this.numericUpDown1.TabIndex = 0;
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            resources.ApplyResources(this.textBox2, "textBox2");
+            this.textBox2.Name = "textBox2";
             // 
-            // textBox1
+            // button2
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(4, 5);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(1184, 26);
-            this.textBox1.TabIndex = 1;
+            resources.ApplyResources(this.button2, "button2");
+            this.button2.Name = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox3
+            // 
+            resources.ApplyResources(this.textBox3, "textBox3");
+            this.textBox3.Name = "textBox3";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            resources.ApplyResources(this.comboBox1, "comboBox1");
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // tabPage3
             // 
@@ -131,180 +155,182 @@
             this.tabPage3.Controls.Add(this.tab3_MultiplyButton);
             this.tabPage3.Controls.Add(this.tab3_SubtractButton);
             this.tabPage3.Controls.Add(this.tab3_AddButton);
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1192, 659);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Third";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tab3_textbox3
+            // 
+            resources.ApplyResources(this.tab3_textbox3, "tab3_textbox3");
+            this.tab3_textbox3.Name = "tab3_textbox3";
+            // 
+            // tab3_textbox2
+            // 
+            resources.ApplyResources(this.tab3_textbox2, "tab3_textbox2");
+            this.tab3_textbox2.Name = "tab3_textbox2";
+            // 
+            // tab3_textbox1
+            // 
+            resources.ApplyResources(this.tab3_textbox1, "tab3_textbox1");
+            this.tab3_textbox1.Name = "tab3_textbox1";
+            // 
+            // tab3_DivideButton
+            // 
+            resources.ApplyResources(this.tab3_DivideButton, "tab3_DivideButton");
+            this.tab3_DivideButton.Name = "tab3_DivideButton";
+            this.tab3_DivideButton.UseVisualStyleBackColor = true;
+            this.tab3_DivideButton.Click += new System.EventHandler(this.tab3_DivideButton_Click);
+            // 
+            // tab3_MultiplyButton
+            // 
+            resources.ApplyResources(this.tab3_MultiplyButton, "tab3_MultiplyButton");
+            this.tab3_MultiplyButton.Name = "tab3_MultiplyButton";
+            this.tab3_MultiplyButton.UseVisualStyleBackColor = true;
+            this.tab3_MultiplyButton.Click += new System.EventHandler(this.tab3_MultiplyButton_Click);
+            // 
+            // tab3_SubtractButton
+            // 
+            resources.ApplyResources(this.tab3_SubtractButton, "tab3_SubtractButton");
+            this.tab3_SubtractButton.Name = "tab3_SubtractButton";
+            this.tab3_SubtractButton.UseVisualStyleBackColor = true;
+            this.tab3_SubtractButton.Click += new System.EventHandler(this.tab3_SubtractButton_Click);
+            // 
+            // tab3_AddButton
+            // 
+            resources.ApplyResources(this.tab3_AddButton, "tab3_AddButton");
+            this.tab3_AddButton.Name = "tab3_AddButton";
+            this.tab3_AddButton.UseVisualStyleBackColor = true;
+            this.tab3_AddButton.Click += new System.EventHandler(this.button3_Click);
             // 
             // tabPage4
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 29);
+            this.tabPage4.Controls.Add(this.tab4_button);
+            this.tabPage4.Controls.Add(this.tab4_textBox);
+            this.tabPage4.Controls.Add(this.tab4_comboBox);
+            resources.ApplyResources(this.tabPage4, "tabPage4");
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1192, 659);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // tabPage5
+            // tab4_button
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 29);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1192, 659);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "tabPage5";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.tab4_button, "tab4_button");
+            this.tab4_button.Name = "tab4_button";
+            this.tab4_button.UseVisualStyleBackColor = true;
+            this.tab4_button.Click += new System.EventHandler(this.tab4_button_Click);
+            // 
+            // tab4_textBox
+            // 
+            resources.ApplyResources(this.tab4_textBox, "tab4_textBox");
+            this.tab4_textBox.Name = "tab4_textBox";
+            // 
+            // tab4_comboBox
+            // 
+            resources.ApplyResources(this.tab4_comboBox, "tab4_comboBox");
+            this.tab4_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tab4_comboBox.FormattingEnabled = true;
+            this.tab4_comboBox.Name = "tab4_comboBox";
+            // 
+            // tabPage5_button
+            // 
+            this.tabPage5_button.Controls.Add(this.tab5_numericUpDown);
+            this.tabPage5_button.Controls.Add(this.tab5_textBox);
+            this.tabPage5_button.Controls.Add(this.tab5_button);
+            resources.ApplyResources(this.tabPage5_button, "tabPage5_button");
+            this.tabPage5_button.Name = "tabPage5_button";
+            this.tabPage5_button.UseVisualStyleBackColor = true;
+            // 
+            // tab5_numericUpDown
+            // 
+            this.tab5_numericUpDown.DecimalPlaces = 6;
+            this.tab5_numericUpDown.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            393216});
+            resources.ApplyResources(this.tab5_numericUpDown, "tab5_numericUpDown");
+            this.tab5_numericUpDown.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.tab5_numericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            393216});
+            this.tab5_numericUpDown.Name = "tab5_numericUpDown";
+            this.tab5_numericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            393216});
+            // 
+            // tab5_textBox
+            // 
+            resources.ApplyResources(this.tab5_textBox, "tab5_textBox");
+            this.tab5_textBox.Name = "tab5_textBox";
+            this.tab5_textBox.ReadOnly = true;
+            // 
+            // tab5_button
+            // 
+            resources.ApplyResources(this.tab5_button, "tab5_button");
+            this.tab5_button.Name = "tab5_button";
+            this.tab5_button.UseVisualStyleBackColor = true;
+            this.tab5_button.Click += new System.EventHandler(this.tab5_button_Click);
             // 
             // tabPage6
             // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 29);
+            this.tabPage6.Controls.Add(this.tab6_button);
+            this.tabPage6.Controls.Add(this.tab6_textBox2);
+            this.tabPage6.Controls.Add(this.tab6_textBox);
+            resources.ApplyResources(this.tabPage6, "tabPage6");
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1192, 659);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "tabPage6";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // tabPage7
             // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 29);
+            resources.ApplyResources(this.tabPage7, "tabPage7");
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(1192, 659);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "tabPage7";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // tab6_textBox
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(356, 201);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 28);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            resources.ApplyResources(this.tab6_textBox, "tab6_textBox");
+            this.tab6_textBox.Name = "tab6_textBox";
             // 
-            // textBox3
+            // tab6_textBox2
             // 
-            this.textBox3.Location = new System.Drawing.Point(501, 302);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(187, 26);
-            this.textBox3.TabIndex = 2;
+            resources.ApplyResources(this.tab6_textBox2, "tab6_textBox2");
+            this.tab6_textBox2.Name = "tab6_textBox2";
             // 
-            // button1
+            // tab6_button
             // 
-            this.button1.Location = new System.Drawing.Point(154, 447);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(187, 40);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(501, 447);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(187, 40);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Clear";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(154, 302);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(187, 26);
-            this.textBox2.TabIndex = 5;
-            // 
-            // tab3_AddButton
-            // 
-            this.tab3_AddButton.Location = new System.Drawing.Point(41, 139);
-            this.tab3_AddButton.MaximumSize = new System.Drawing.Size(150, 40);
-            this.tab3_AddButton.MinimumSize = new System.Drawing.Size(150, 40);
-            this.tab3_AddButton.Name = "tab3_AddButton";
-            this.tab3_AddButton.Size = new System.Drawing.Size(150, 40);
-            this.tab3_AddButton.TabIndex = 0;
-            this.tab3_AddButton.Text = "+";
-            this.tab3_AddButton.UseVisualStyleBackColor = true;
-            this.tab3_AddButton.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // tab3_SubtractButton
-            // 
-            this.tab3_SubtractButton.Location = new System.Drawing.Point(41, 206);
-            this.tab3_SubtractButton.MaximumSize = new System.Drawing.Size(150, 40);
-            this.tab3_SubtractButton.MinimumSize = new System.Drawing.Size(150, 40);
-            this.tab3_SubtractButton.Name = "tab3_SubtractButton";
-            this.tab3_SubtractButton.Size = new System.Drawing.Size(150, 40);
-            this.tab3_SubtractButton.TabIndex = 1;
-            this.tab3_SubtractButton.Text = "-";
-            this.tab3_SubtractButton.UseVisualStyleBackColor = true;
-            this.tab3_SubtractButton.Click += new System.EventHandler(this.tab3_SubtractButton_Click);
-            // 
-            // tab3_MultiplyButton
-            // 
-            this.tab3_MultiplyButton.Location = new System.Drawing.Point(41, 272);
-            this.tab3_MultiplyButton.MaximumSize = new System.Drawing.Size(150, 40);
-            this.tab3_MultiplyButton.MinimumSize = new System.Drawing.Size(150, 40);
-            this.tab3_MultiplyButton.Name = "tab3_MultiplyButton";
-            this.tab3_MultiplyButton.Size = new System.Drawing.Size(150, 40);
-            this.tab3_MultiplyButton.TabIndex = 2;
-            this.tab3_MultiplyButton.Text = "*";
-            this.tab3_MultiplyButton.UseVisualStyleBackColor = true;
-            this.tab3_MultiplyButton.Click += new System.EventHandler(this.tab3_MultiplyButton_Click);
-            // 
-            // tab3_DivideButton
-            // 
-            this.tab3_DivideButton.Location = new System.Drawing.Point(41, 337);
-            this.tab3_DivideButton.MaximumSize = new System.Drawing.Size(150, 40);
-            this.tab3_DivideButton.MinimumSize = new System.Drawing.Size(150, 40);
-            this.tab3_DivideButton.Name = "tab3_DivideButton";
-            this.tab3_DivideButton.Size = new System.Drawing.Size(150, 40);
-            this.tab3_DivideButton.TabIndex = 3;
-            this.tab3_DivideButton.Text = "/";
-            this.tab3_DivideButton.UseVisualStyleBackColor = true;
-            this.tab3_DivideButton.Click += new System.EventHandler(this.tab3_DivideButton_Click);
-            // 
-            // tab3_textbox1
-            // 
-            this.tab3_textbox1.Location = new System.Drawing.Point(507, 153);
-            this.tab3_textbox1.Name = "tab3_textbox1";
-            this.tab3_textbox1.Size = new System.Drawing.Size(200, 26);
-            this.tab3_textbox1.TabIndex = 4;
-            // 
-            // tab3_textbox2
-            // 
-            this.tab3_textbox2.Location = new System.Drawing.Point(507, 245);
-            this.tab3_textbox2.Name = "tab3_textbox2";
-            this.tab3_textbox2.Size = new System.Drawing.Size(200, 26);
-            this.tab3_textbox2.TabIndex = 5;
-            // 
-            // tab3_textbox3
-            // 
-            this.tab3_textbox3.Location = new System.Drawing.Point(507, 334);
-            this.tab3_textbox3.Name = "tab3_textbox3";
-            this.tab3_textbox3.Size = new System.Drawing.Size(200, 26);
-            this.tab3_textbox3.TabIndex = 6;
+            resources.ApplyResources(this.tab6_button, "tab6_button");
+            this.tab6_button.Name = "tab6_button";
+            this.tab6_button.UseVisualStyleBackColor = true;
+            this.tab6_button.Click += new System.EventHandler(this.tab6_button_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.tabControl1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
-            this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            this.tabPage5_button.ResumeLayout(false);
+            this.tabPage5_button.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tab5_numericUpDown)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -318,7 +344,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tabPage5_button;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TextBox textBox2;
@@ -333,6 +359,15 @@
         private System.Windows.Forms.TextBox tab3_textbox3;
         private System.Windows.Forms.TextBox tab3_textbox2;
         private System.Windows.Forms.TextBox tab3_textbox1;
+        private System.Windows.Forms.Button tab4_button;
+        private System.Windows.Forms.TextBox tab4_textBox;
+        private System.Windows.Forms.ComboBox tab4_comboBox;
+        private System.Windows.Forms.NumericUpDown tab5_numericUpDown;
+        private System.Windows.Forms.TextBox tab5_textBox;
+        private System.Windows.Forms.Button tab5_button;
+        private System.Windows.Forms.Button tab6_button;
+        private System.Windows.Forms.TextBox tab6_textBox2;
+        private System.Windows.Forms.TextBox tab6_textBox;
     }
 }
 
