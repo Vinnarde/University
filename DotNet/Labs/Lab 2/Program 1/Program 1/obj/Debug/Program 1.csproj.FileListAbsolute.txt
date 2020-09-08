@@ -8,3 +8,13 @@ D:\git-clone\University\DotNet\Labs\Lab 2\Program 1\Program 1\obj\Debug\Program 
 D:\git-clone\University\DotNet\Labs\Lab 2\Program 1\Program 1\obj\Debug\Program 1.csproj.CoreCompileInputs.cache
 D:\git-clone\University\DotNet\Labs\Lab 2\Program 1\Program 1\obj\Debug\Program 1.exe
 D:\git-clone\University\DotNet\Labs\Lab 2\Program 1\Program 1\obj\Debug\Program 1.pdb
+C:\git-clone\University\DotNet\Labs\Lab 2\Program 1\Program 1\bin\Debug\Program 1.exe.config
+C:\git-clone\University\DotNet\Labs\Lab 2\Program 1\Program 1\bin\Debug\Program 1.exe
+C:\git-clone\University\DotNet\Labs\Lab 2\Program 1\Program 1\bin\Debug\Program 1.pdb
+C:\git-clone\University\DotNet\Labs\Lab 2\Program 1\Program 1\obj\Debug\Program 1.csprojAssemblyReference.cache
+C:\git-clone\University\DotNet\Labs\Lab 2\Program 1\Program 1\obj\Debug\Program_1.Form1.resources
+C:\git-clone\University\DotNet\Labs\Lab 2\Program 1\Program 1\obj\Debug\Program_1.Properties.Resources.resources
+C:\git-clone\University\DotNet\Labs\Lab 2\Program 1\Program 1\obj\Debug\Program 1.csproj.GenerateResource.cache
+C:\git-clone\University\DotNet\Labs\Lab 2\Program 1\Program 1\obj\Debug\Program 1.csproj.CoreCompileInputs.cache
+C:\git-clone\University\DotNet\Labs\Lab 2\Program 1\Program 1\obj\Debug\Program 1.exe
+C:\git-clone\University\DotNet\Labs\Lab 2\Program 1\Program 1\obj\Debug\Program 1.pdb

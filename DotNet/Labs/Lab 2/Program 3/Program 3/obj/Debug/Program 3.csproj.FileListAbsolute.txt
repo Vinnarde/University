@@ -20,3 +20,14 @@ D:\git-clone\University\DotNet\Labs\Lab 2\Program 3\Program 3\obj\Debug\Program 
 D:\git-clone\University\DotNet\Labs\Lab 2\Program 3\Program 3\obj\Debug\Program 3.csproj.CoreCompileInputs.cache
 D:\git-clone\University\DotNet\Labs\Lab 2\Program 3\Program 3\obj\Debug\Program 3.exe
 D:\git-clone\University\DotNet\Labs\Lab 2\Program 3\Program 3\obj\Debug\Program 3.pdb
+C:\git-clone\University\DotNet\Labs\Lab 2\Program 3\Program 3\bin\Debug\Program 3.exe.config
+C:\git-clone\University\DotNet\Labs\Lab 2\Program 3\Program 3\bin\Debug\Program 3.exe
+C:\git-clone\University\DotNet\Labs\Lab 2\Program 3\Program 3\bin\Debug\Program 3.pdb
+C:\git-clone\University\DotNet\Labs\Lab 2\Program 3\Program 3\obj\Debug\Program 3.csprojAssemblyReference.cache
+C:\git-clone\University\DotNet\Labs\Lab 2\Program 3\Program 3\obj\Debug\Program_3.Form1.resources
+C:\git-clone\University\DotNet\Labs\Lab 2\Program 3\Program 3\obj\Debug\Program_3.Form2.resources
+C:\git-clone\University\DotNet\Labs\Lab 2\Program 3\Program 3\obj\Debug\Program_3.Properties.Resources.resources
+C:\git-clone\University\DotNet\Labs\Lab 2\Program 3\Program 3\obj\Debug\Program 3.csproj.GenerateResource.cache
+C:\git-clone\University\DotNet\Labs\Lab 2\Program 3\Program 3\obj\Debug\Program 3.csproj.CoreCompileInputs.cache
+C:\git-clone\University\DotNet\Labs\Lab 2\Program 3\Program 3\obj\Debug\Program 3.exe
+C:\git-clone\University\DotNet\Labs\Lab 2\Program 3\Program 3\obj\Debug\Program 3.pdb
