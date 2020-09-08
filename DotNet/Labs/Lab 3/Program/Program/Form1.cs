@@ -88,16 +88,20 @@ namespace Program
             decimal epsilon = tab5_numericUpDown.Value;
             decimal sum = 0M;
             decimal previous = -1;
-            
+
+            string temp_str = "";
+
             for (int i = 1; sum - previous > epsilon; i++)
             {
                 previous = sum;
                 sum += 1M / i;
 
-               // tab5_textBox.Text += "x = " + i + ": " + sum + Environment.NewLine;
+               //tab5_textBox.Text += "x = " + i + ": " + sum + Environment.NewLine;
+               temp_str += $"x = {i}:\t {sum:F6}" + Environment.NewLine;
 
             }
-            tab5_textBox.Text += "Result: " + sum + Environment.NewLine;
+            // tab5_textBox.Text += "Result: " + sum + Environment.NewLine;
+            tab5_textBox.Text = temp_str;
         }
 
         private void tab6_button_Click(object sender, EventArgs e)
@@ -111,6 +115,30 @@ namespace Program
                     tab6_textBox2.Text += tab6_textBox.Lines[tab6_textBox.Lines.Length - 1 - i] + Environment.NewLine;
                 }
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tab7_button_Click(object sender, EventArgs e)
+        {
+            double a, b, h;
+
+            double.TryParse(tab7_textBox_a.Text, out a);
+            double.TryParse(tab7_textBox_b.Text, out b);
+            double.TryParse(tab7_textBox_c.Text, out h);
+
+            string temp = "";
+
+            for (double i = a; i <= b; i+=h)
+            {
+                double f = Math.Sin(i) / (Math.Abs(i) + 1);
+
+                temp += $"x = {i:F4}\t f(x) = {f:F4}" + Environment.NewLine;
+            }
+            tab7_textBox_table.Text = temp;
         }
     }
 }

@@ -56,10 +56,18 @@
             this.tab5_textBox = new System.Windows.Forms.TextBox();
             this.tab5_button = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.tab6_textBox = new System.Windows.Forms.TextBox();
-            this.tab6_textBox2 = new System.Windows.Forms.TextBox();
             this.tab6_button = new System.Windows.Forms.Button();
+            this.tab6_textBox2 = new System.Windows.Forms.TextBox();
+            this.tab6_textBox = new System.Windows.Forms.TextBox();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.tab7_textBox_a = new System.Windows.Forms.TextBox();
+            this.tab7_textBox_c = new System.Windows.Forms.TextBox();
+            this.tab7_textBox_b = new System.Windows.Forms.TextBox();
+            this.tab7_textBox_table = new System.Windows.Forms.TextBox();
+            this.tab7_button = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -69,6 +77,7 @@
             this.tabPage5_button.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tab5_numericUpDown)).BeginInit();
             this.tabPage6.SuspendLayout();
+            this.tabPage7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -287,28 +296,81 @@
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // tabPage7
-            // 
-            resources.ApplyResources(this.tabPage7, "tabPage7");
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // tab6_textBox
-            // 
-            resources.ApplyResources(this.tab6_textBox, "tab6_textBox");
-            this.tab6_textBox.Name = "tab6_textBox";
-            // 
-            // tab6_textBox2
-            // 
-            resources.ApplyResources(this.tab6_textBox2, "tab6_textBox2");
-            this.tab6_textBox2.Name = "tab6_textBox2";
-            // 
             // tab6_button
             // 
             resources.ApplyResources(this.tab6_button, "tab6_button");
             this.tab6_button.Name = "tab6_button";
             this.tab6_button.UseVisualStyleBackColor = true;
             this.tab6_button.Click += new System.EventHandler(this.tab6_button_Click);
+            // 
+            // tab6_textBox2
+            // 
+            resources.ApplyResources(this.tab6_textBox2, "tab6_textBox2");
+            this.tab6_textBox2.Name = "tab6_textBox2";
+            this.tab6_textBox2.ReadOnly = true;
+            // 
+            // tab6_textBox
+            // 
+            resources.ApplyResources(this.tab6_textBox, "tab6_textBox");
+            this.tab6_textBox.Name = "tab6_textBox";
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.label3);
+            this.tabPage7.Controls.Add(this.label2);
+            this.tabPage7.Controls.Add(this.label1);
+            this.tabPage7.Controls.Add(this.tab7_button);
+            this.tabPage7.Controls.Add(this.tab7_textBox_table);
+            this.tabPage7.Controls.Add(this.tab7_textBox_b);
+            this.tabPage7.Controls.Add(this.tab7_textBox_c);
+            this.tabPage7.Controls.Add(this.tab7_textBox_a);
+            resources.ApplyResources(this.tabPage7, "tabPage7");
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // tab7_textBox_a
+            // 
+            resources.ApplyResources(this.tab7_textBox_a, "tab7_textBox_a");
+            this.tab7_textBox_a.Name = "tab7_textBox_a";
+            // 
+            // tab7_textBox_c
+            // 
+            resources.ApplyResources(this.tab7_textBox_c, "tab7_textBox_c");
+            this.tab7_textBox_c.Name = "tab7_textBox_c";
+            // 
+            // tab7_textBox_b
+            // 
+            resources.ApplyResources(this.tab7_textBox_b, "tab7_textBox_b");
+            this.tab7_textBox_b.Name = "tab7_textBox_b";
+            // 
+            // tab7_textBox_table
+            // 
+            resources.ApplyResources(this.tab7_textBox_table, "tab7_textBox_table");
+            this.tab7_textBox_table.Name = "tab7_textBox_table";
+            this.tab7_textBox_table.ReadOnly = true;
+            // 
+            // tab7_button
+            // 
+            resources.ApplyResources(this.tab7_button, "tab7_button");
+            this.tab7_button.Name = "tab7_button";
+            this.tab7_button.UseVisualStyleBackColor = true;
+            this.tab7_button.Click += new System.EventHandler(this.tab7_button_Click);
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
             // 
             // Form1
             // 
@@ -331,6 +393,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tab5_numericUpDown)).EndInit();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -368,6 +432,14 @@
         private System.Windows.Forms.Button tab6_button;
         private System.Windows.Forms.TextBox tab6_textBox2;
         private System.Windows.Forms.TextBox tab6_textBox;
+        private System.Windows.Forms.Button tab7_button;
+        private System.Windows.Forms.TextBox tab7_textBox_table;
+        private System.Windows.Forms.TextBox tab7_textBox_b;
+        private System.Windows.Forms.TextBox tab7_textBox_c;
+        private System.Windows.Forms.TextBox tab7_textBox_a;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 

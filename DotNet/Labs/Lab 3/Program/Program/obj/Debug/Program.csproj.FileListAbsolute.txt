@@ -21,3 +21,6 @@ D:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\obj\Debug\Program.pdb
 D:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\bin\Debug\en\Program.resources.dll
 D:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\obj\Debug\Program.Form1.en.resources
 D:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\obj\Debug\en\Program.resources.dll
+C:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\bin\Debug\en\Program.resources.dll
+C:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\obj\Debug\Program.Form1.en.resources
+C:\git-clone\University\DotNet\Labs\Lab 3\Program\Program\obj\Debug\en\Program.resources.dll
