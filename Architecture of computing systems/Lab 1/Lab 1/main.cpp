@@ -46,9 +46,9 @@ void task_2()
 #pragma omp parallel
 	{
 		int ThreadId = omp_get_thread_num();
-			
+
 		if (ThreadId == 0)
-			printf("I'm master!!! Number of my slaves: %d\n", omp_get_num_threads());
+			printf("I'm master!!! Number of my slaves(including me): %d\n", omp_get_num_threads());
 		else
 			printf("I'm thread #%d\n", ThreadId);
 	}
@@ -85,7 +85,7 @@ void task_4()
 		int ThreadId = omp_get_thread_num();
 
 		if (ThreadId == 0)
-			printf("I'm master!!! Number of my slaves: %d\n", omp_get_num_threads());
+			printf("I'm master!!! Number of my slaves(including me): %d\n", omp_get_num_threads());
 		else
 			printf("I'm thread #%d\n", ThreadId);
 	}
@@ -98,19 +98,35 @@ void task_4()
 		int ThreadId = omp_get_thread_num();
 
 		if (ThreadId == 0)
-			printf("I'm master!!! Number of my slaves: %d\n", omp_get_num_threads());
+			printf("I'm master!!! Number of my slaves(including me): %d\n", omp_get_num_threads());
 		else
 			printf("I'm thread #%d\n", ThreadId);
 	}
 }
 
-int main(int argc, char** argv)
+void task_5(const char* argv)
+{
+
+	omp_set_num_threads(8);
+
+#pragma omp parallel if (strcmp(argv,"parallel") == 0)
+	{
+		printf("This is parallel region\n");
+	}
+
+	printf("This is serial region\n");
+}
+
+int main(int argc, char* argv[])
 {
 #ifdef _OPENMP
-	printf("OPENMP is supported!\n");
+	printf("OPENMP is supported!\n\n\n");
 #endif // _OPENMP
 
 	//task_1();
-	task_4();
+	//task_2();
+
+	if (argc > 1)
+		task_5(argv[1]);
 
 }
