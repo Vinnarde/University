@@ -1,0 +1,2 @@
+D:\git-clone\University\Architecture of computing systems\Lab 2\lab 2\x64\Debug\lab 2.exe.lastcodeanalysissucceeded
+D:\git-clone\University\Architecture of computing systems\Lab 2\lab 2\lab 2\x64\Debug\NativeCodeAnalysis.read.1.tlog
