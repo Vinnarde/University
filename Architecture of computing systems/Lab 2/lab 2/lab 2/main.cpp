@@ -156,9 +156,9 @@ int main()
 	//task_3();
 	//task_3_nowait();
 
-	//task_4();
+	task_4();
 
 	//task_5();
 
-	task_6();
+	//task_6();
 }
