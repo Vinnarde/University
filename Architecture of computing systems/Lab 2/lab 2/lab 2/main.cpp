@@ -89,14 +89,31 @@ void task_4()
 #pragma omp parallel num_threads(3)
 	{
 		printf("Thread number %d. Begin\n", omp_get_thread_num());
-		
+
+#pragma omp single
+		{
+
+		}
+
 #pragma omp master
 		printf("Master thread. %d. \n", omp_get_thread_num());
+
+#pragma omp single
+		{
+
+		}
 
 		printf("Thread number %d. Middle\n", omp_get_thread_num());
 
+#pragma omp single
+		{}
 #pragma omp master
 		printf("Master thread. %d. \n", omp_get_thread_num());
+
+#pragma omp single
+		{
+
+		}
 
 		printf("Thread number %d. End\n", omp_get_thread_num());
 	}
