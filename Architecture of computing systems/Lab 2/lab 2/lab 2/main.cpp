@@ -57,6 +57,9 @@ void task_3()
 	{
 		printf("Thread number %d. Begin\n", omp_get_thread_num());
 
+#pragma omp barrier
+		{}
+
 #pragma omp single 
 		{
 			printf("Thread number %d. Single thread\n", omp_get_thread_num());
@@ -90,31 +93,25 @@ void task_4()
 	{
 		printf("Thread number %d. Begin\n", omp_get_thread_num());
 
-#pragma omp single
-		{
-
-		}
+#pragma omp barrier
+		{}
 
 #pragma omp master
 		printf("Master thread. %d. \n", omp_get_thread_num());
 
-#pragma omp single
-		{
-
-		}
+#pragma omp barrier
+		{}
 
 		printf("Thread number %d. Middle\n", omp_get_thread_num());
 
-#pragma omp single
+#pragma omp barrier 
 		{}
 #pragma omp master
 		printf("Master thread. %d. \n", omp_get_thread_num());
 
-#pragma omp single
-		{
-
-		}
-
+#pragma omp barrier
+		{}
+		
 		printf("Thread number %d. End\n", omp_get_thread_num());
 	}
 }
