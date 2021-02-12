@@ -7,7 +7,6 @@ void task_1()
 {
 	double a, b;
 	double result = 1;
-	const int c = 100000000;
 
 	std::cout << "Enter a: ";
 	std::cin >> a;
@@ -25,6 +24,7 @@ void task_1()
 	omp_set_num_threads(8);
 	result = 1;
 	t_0 = omp_get_wtime();
+	
 #pragma omp parallel for
 
 	for (int64_t i = 0; i < UINT32_MAX; ++i)
@@ -40,13 +40,13 @@ void task_1()
 
 void task_2()
 {
-	double t_0 = omp_get_wtime();
+	const double t_0 = omp_get_wtime();
 
 #pragma omp parallel num_threads(8)
 	{
 	}
 
-	double t_1 = omp_get_wtime();
+	const double t_1 = omp_get_wtime();
 
 	std::cout << "Time of creating parallel region is " << t_1 - t_0 << std::endl;
 }
@@ -122,9 +122,9 @@ void task_5()
 
 	printf("Serial region. n = %d\n\n", n);
 
-#pragma omp parallel num_threads(2), private(n)
+#pragma omp parallel num_threads(2), firstprivate(n)
 	{
-		//printf("Parallel region. ThreadId: %d. n = %d\n\n", omp_get_thread_num(), n);
+		printf("Parallel region. ThreadId: %d. n = %d\n\n", omp_get_thread_num(), n);
 
 		n = omp_get_thread_num();
 
@@ -136,11 +136,10 @@ void task_5()
 
 void task_6()
 {
-	std::array<int, 5> arr;
+	std::array<int, 5> arr{};
 
-	for (int i = 0; i < arr.size(); ++i)
+	for (size_t i = 0; i < arr.size(); ++i)
 	{
-		arr[i] = 0;
 		std::cout << "arr[" << i << "] = " << arr[i] << '\n';
 	}
 
@@ -149,7 +148,7 @@ void task_6()
 		arr.at(omp_get_thread_num()) = 1;
 	}
 
-	for (int i = 0; i < arr.size(); ++i)
+	for (size_t i = 0; i < arr.size(); ++i)
 	{
 		std::cout << "arr[" << i << "] = " << arr[i] << '\n';
 	}
@@ -157,7 +156,28 @@ void task_6()
 
 void task_7()
 {
+	auto reduction = 0;
 
+	omp_set_dynamic(1);
+
+#pragma omp parallel reduction(+:reduction)
+	{
+		reduction = 1;
+		printf("ThreadId: %d, var = %d\n", omp_get_thread_num(), reduction);
+	}
+	printf("\nvar = %d\n", reduction);
+}
+
+void task_8()
+{
+	auto sum = 0;
+
+#pragma omp parallel reduction(+:sum) num_threads(4)
+	{
+		sum = omp_get_thread_num();
+		printf("ThreadId: %d, var = %d\n", omp_get_thread_num(), sum);
+	}
+	printf("\nvar = %d\n", sum);
 }
 
 int main()
@@ -170,9 +190,9 @@ int main()
 	//task_3();
 	//task_3_nowait();
 
-	task_4();
+	//task_4();
 
-	//task_5();
+	task_5();
 
 	//task_6();
 }
