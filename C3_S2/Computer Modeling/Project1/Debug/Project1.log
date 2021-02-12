@@ -1,0 +1,13 @@
+﻿  main.cpp
+D:\git-clone\University\C3_S2\Project1\main.cpp(112,22): warning C4244: 'initializing': conversion from 'double' to 'size_t', possible loss of data
+D:\git-clone\University\C3_S2\Project1\main.cpp(129,16): warning C4244: 'initializing': conversion from '_Rep' to 'unsigned int', possible loss of data
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+D:\git-clone\University\C3_S2\Project1\main.cpp(136,66): warning C4244: '=': conversion from '_Rep' to 'unsigned int', possible loss of data
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+  Project1.vcxproj -> D:\git-clone\University\C3_S2\Project1\Debug\Project1.exe

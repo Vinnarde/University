@@ -1,0 +1,10 @@
+D:\git-clone\University\TestingDebug\Lab2\bin\Release\Lab2.exe.config
+D:\git-clone\University\TestingDebug\Lab2\bin\Release\Lab2.exe
+D:\git-clone\University\TestingDebug\Lab2\bin\Release\Lab2.pdb
+D:\git-clone\University\TestingDebug\Lab2\obj\Release\Lab2.Form1.resources
+D:\git-clone\University\TestingDebug\Lab2\obj\Release\Lab2.Properties.Resources.resources
+D:\git-clone\University\TestingDebug\Lab2\obj\Release\Lab2.csproj.GenerateResource.cache
+D:\git-clone\University\TestingDebug\Lab2\obj\Release\Lab2.csproj.CoreCompileInputs.cache
+D:\git-clone\University\TestingDebug\Lab2\obj\Release\Lab2.exe
+D:\git-clone\University\TestingDebug\Lab2\obj\Release\Lab2.pdb
+D:\git-clone\University\TestingDebug\Lab2\obj\Release\Lab2.csprojAssemblyReference.cache
