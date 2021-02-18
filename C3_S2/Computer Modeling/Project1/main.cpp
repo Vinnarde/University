@@ -14,7 +14,6 @@ struct Point
 class Timer
 {
 private:
-	// Псевдонимы типов используются для удобного доступа к вложенным типам
 	using clock_t = std::chrono::high_resolution_clock;
 	using second_t = std::chrono::duration<double, std::ratio<1> >;
 
@@ -74,6 +73,38 @@ void task_1_imitation(double speed, double angle, double delta = 0.001)
 
 void task_2_analytics()
 {
+	double radius, height, width;
+
+	radius = 8.0;
+	height = 26.0;
+	width = 8.0;
+
+	if (height >= width)
+		std::swap(height, width);
+
+	double diameter = radius * 2.0;
+	double diagonal = std::sqrt(height * height + width * width);
+
+	if (height >= diameter && width >= diameter)
+	{
+		std::cout << "Area: " << pi * radius * radius << "\n\n";	// circle inside rectangle
+	}
+	else if (diameter > diagonal)
+	{
+		std::cout << "Area: " << height * width << "\n\n"; // rectangle inside circle
+	}
+	else
+	{
+		double BO = height / 2;
+		double AB = std::sqrt(radius * radius - BO * BO);
+
+		double square_triangle = AB * BO / 2;
+		double alpha = 90 - 180 * std::acos(BO / radius) / pi;
+
+		double square_sector = pi * radius * radius * alpha / 360;
+
+		std::cout << "Area: " << 4 * (square_sector + square_triangle) << "\n\n";
+	}
 
 }
 
@@ -109,7 +140,7 @@ void task_2_imitation()
 	double width = std::abs(min_x - max_x);
 	double height = std::abs(min_y - max_y);
 
-	const size_t size = 1e7;
+	const size_t size = 500;
 
 	double x_eps = 1.0 / size;
 	double y_eps = 1.0 / size;
@@ -145,6 +176,7 @@ void task_2_imitation()
 	size_t counter_2 = 0;
 	size_t counter_3 = 0;
 
+	Timer t;
 
 	for (size_t i = 0; i < size; ++i)
 	{
@@ -161,7 +193,10 @@ void task_2_imitation()
 	}
 	result = static_cast<double>(counter) / (double)size * (double)(width * height);
 
-	std::cout << "N = " << size << "\t area: " << result;
+	std::cout << counter << '\n';
+	std::cout << "\nN = " << size << "\t area: " << result << '\n';
+	std::cout << "Time taken: " << t.elapsed() << '\n';
+
 }
 
 //Seed #1: 3058936951
@@ -186,7 +221,7 @@ void task_1_scenario()
 		std::cout << "Time elapsed: " << t.elapsed() << "\n\n";
 	}
 
-	std::array<double, 12> angle_arr = { {0.0, 15.0, 30.0, 45.0, 60.0, 75.0, 90.0, 105.0, 120.0, 135.0, 150.0, 165.0} };
+	std::array<double, 12> angle_arr = { {1e-15, 15.0, 30.0, 45.0, 60.0, 75.0, 90.0, 105.0, 120.0, 135.0, 150.0, 165.0} };
 	//task_1_imitation(10, 30, 0.00000001);
 
 	for (auto x : angle_arr)
@@ -203,6 +238,9 @@ int main()
 {
 
 	//task_1_scenario();
-		
+
+	task_2_analytics();
 	task_2_imitation();
+
+
 }
