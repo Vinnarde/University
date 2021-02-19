@@ -8,3 +8,13 @@ D:\git-clone\University\C3_S2\Interface\Lab_1\obj\Debug\Lab_1.csproj.CoreCompile
 D:\git-clone\University\C3_S2\Interface\Lab_1\obj\Debug\Lab_1.exe
 D:\git-clone\University\C3_S2\Interface\Lab_1\obj\Debug\Lab_1.pdb
 D:\git-clone\University\C3_S2\Interface\Lab_1\obj\Debug\Lab_1.Form1.resources
+C:\git-clone\University\C3_S2\Interface\Lab_1\bin\Debug\Lab_1.exe.config
+C:\git-clone\University\C3_S2\Interface\Lab_1\bin\Debug\Lab_1.exe
+C:\git-clone\University\C3_S2\Interface\Lab_1\bin\Debug\Lab_1.pdb
+C:\git-clone\University\C3_S2\Interface\Lab_1\obj\Debug\Lab_1.csprojAssemblyReference.cache
+C:\git-clone\University\C3_S2\Interface\Lab_1\obj\Debug\Lab_1.Form1.resources
+C:\git-clone\University\C3_S2\Interface\Lab_1\obj\Debug\Lab_1.Properties.Resources.resources
+C:\git-clone\University\C3_S2\Interface\Lab_1\obj\Debug\Lab_1.csproj.GenerateResource.cache
+C:\git-clone\University\C3_S2\Interface\Lab_1\obj\Debug\Lab_1.csproj.CoreCompileInputs.cache
+C:\git-clone\University\C3_S2\Interface\Lab_1\obj\Debug\Lab_1.exe
+C:\git-clone\University\C3_S2\Interface\Lab_1\obj\Debug\Lab_1.pdb

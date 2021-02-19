@@ -34,6 +34,11 @@ namespace Lab_1
 
             Cursor = new Cursor(Cursor.Current.Handle);
             Cursor.Position = new Point(Location.X + 1330 / 2 + 40, Location.Y + 1060 / 2 + 20);
+
+            _sw.Stop();
+            _sw.Reset();
+            _p1.X = _p1.Y = 0;
+            _counter = 0;
             //Cursor.Clip = new Rectangle(this.Location, this.Size);
         }
 
@@ -118,7 +123,7 @@ namespace Lab_1
                     _sw.Stop();
 
                     var rand = new Random();
-                    var angle = 90 + rand.Next(90);
+                    var angle = 1 + rand.Next(359);
                     var xPos = x * Math.Sin(angle * Math.PI / 180) + centerX;
                     var yPos = x * Math.Cos(angle * Math.PI / 180) + centerY;
 
@@ -145,18 +150,20 @@ namespace Lab_1
                     await button1.WhenClicked();
                 }
 
+                g.Clear(Color.WhiteSmoke);
                 textBox1.Text += "\r\n\r\n";
+                button1.Visible = false;
+                await button5.WhenClicked();
+                button1.Visible = true;
+                
             }
 
-            g.Clear(Color.WhiteSmoke);
             button1.Visible = false;
         }
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
             MoveCursor();
-            _sw.Reset();
-            _counter = 0;
         }
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
@@ -196,11 +203,9 @@ namespace Lab_1
                 for (var i = 0; i < 5; i++)
                 {
                     MoveCursor();
-                    _p1.X = _p1.Y = 0;
-                    _sw.Stop();
 
                     var rand = new Random();
-                    var angle = 135 + rand.Next(90);
+                    var angle = 1 + rand.Next(359);
                     var xPos = distance * Math.Sin(angle * Math.PI / 180) + centerX;
                     var yPos = distance * Math.Cos(angle * Math.PI / 180) + centerY;
 
@@ -228,6 +233,9 @@ namespace Lab_1
                 }
 
                 textBox1.Text += "\r\n\r\n";
+                button1.Visible = false;
+                await button5.WhenClicked();
+                button1.Visible = true;
             }
 
             button1.Visible = false;
@@ -271,12 +279,9 @@ namespace Lab_1
                     for (var i = 0; i < 3; i++)
                     {
                         MoveCursor();
-                        _p1.X = _p1.Y = 0;
-                        _sw.Reset();
-                        _counter = 0;
 
                         var rand = new Random();
-                        var angle = 90 + rand.Next(90);
+                        var angle = 1 + rand.Next(359);
                         var xPos = x * Math.Sin(angle * Math.PI / 180) + centerX;
                         var yPos = x * Math.Cos(angle * Math.PI / 180) + centerY;
 
@@ -300,12 +305,17 @@ namespace Lab_1
                         var tempPoint = new Point(Convert.ToInt32(xPos), Convert.ToInt32(yPos));
                         button1.Location = tempPoint;
                         textBox1.Text += "\t";
+
                         await button1.WhenClicked();
                     }
                 }
+                button1.Visible = false;
+                await button5.WhenClicked();
+                button1.Visible = true;
             }
 
             textBox1.Text += "\r\n\r\n";
+
 
             g.Clear(Color.WhiteSmoke);
             button1.Visible = false;

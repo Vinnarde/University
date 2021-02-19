@@ -1,0 +1,10 @@
+C:\git-clone\University\C3_S2\Interface\Lab 2\Lab 2\obj\Debug\Lab 2.csprojAssemblyReference.cache
+C:\git-clone\University\C3_S2\Interface\Lab 2\Lab 2\obj\Debug\Lab_2.Form1.resources
+C:\git-clone\University\C3_S2\Interface\Lab 2\Lab 2\obj\Debug\Lab_2.Properties.Resources.resources
+C:\git-clone\University\C3_S2\Interface\Lab 2\Lab 2\obj\Debug\Lab 2.csproj.GenerateResource.cache
+C:\git-clone\University\C3_S2\Interface\Lab 2\Lab 2\obj\Debug\Lab 2.csproj.CoreCompileInputs.cache
+C:\git-clone\University\C3_S2\Interface\Lab 2\Lab 2\bin\Debug\Lab 2.exe.config
+C:\git-clone\University\C3_S2\Interface\Lab 2\Lab 2\bin\Debug\Lab 2.exe
+C:\git-clone\University\C3_S2\Interface\Lab 2\Lab 2\bin\Debug\Lab 2.pdb
+C:\git-clone\University\C3_S2\Interface\Lab 2\Lab 2\obj\Debug\Lab 2.exe
+C:\git-clone\University\C3_S2\Interface\Lab 2\Lab 2\obj\Debug\Lab 2.pdb
