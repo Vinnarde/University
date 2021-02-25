@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,11 +8,13 @@ namespace Lab_2
 {
     public partial class Form1 : Form
     {
-
         private ulong _counter;
         private readonly Stopwatch _sw = new Stopwatch();
         private Point _p1, _p2;
         private readonly Pen _p = new Pen(Color.DarkGray, 2.0f);
+        Random rand = new Random();
+
+
         public Form1()
         {
             var gmh = new GlobalMouseHandler();
@@ -34,9 +31,8 @@ namespace Lab_2
             // and set its clipping rectangle to the form. 
 
             Cursor = new Cursor(Cursor.Current.Handle);
-            Cursor.Position = new Point(Location.X + Size.Width/2, Location.Y + Size.Height);
+            Cursor.Position = new Point(Location.X + label1.Location.X + label1.Width / 2, Location.Y + label1.Location.Y + label1.Height / 5 * 3);
 
-            _sw.Stop();
             _sw.Reset();
             _p1.X = _p1.Y = 0;
             _counter = 0;
@@ -90,29 +86,28 @@ namespace Lab_2
 
         private async void button10_Click(object sender, EventArgs e)
         {
-            Button[] listOfButtons = new Button[]
-                {button1, button2, button3, button4, button5, button6, button7, button8, button9};
+            textBox1.Clear();
+            var listOfButtons = new Button[] { button1, button2, button3, button4, button5, button6, button7, button8, button9 };
+            MoveCursor();
+            _sw.Start();
 
-            for (var i = 8; i < 10; i++)
+            for (var i = 2; i < 10; i++)
             {
-                int[] arr = new int[i];
+                var arr = new int[i];
 
-                for (int k = 0; k < i; k++)
+                long avgTime = 0;
+
+                for (var k = 0; k < i; k++)
                     arr[k] = k;
 
                 for (var j = 0; j < 5; j++)
                 {
-                    foreach (var x in listOfButtons)
-                    {
-                        x.Visible = false;
-                    }
+                    foreach (var x in listOfButtons) x.Visible = false;
 
-                    Random rand = new Random();
                     var rngResult = rand.Next(i);
                     label1.Text = Convert.ToString(rngResult + 1);
 
-                    shuffle(arr);
-
+                    Shuffle(arr);
 
 
                     for (var l = 0; l < i; l++)
@@ -122,37 +117,128 @@ namespace Lab_2
                     }
 
                     var resultIndex = 0;
-                    for (int h = 0; h < i; h++)
+                    for (var h = 0; h < i; h++)
                         if (listOfButtons[h].Text == label1.Text)
                             resultIndex = h;
 
 
                     await listOfButtons[resultIndex].WhenClicked();
-                    MoveCursor();
+                    avgTime += _sw.ElapsedMilliseconds;
                     label2.Text = "Time taken: " + _sw.ElapsedMilliseconds + "ms";
+                    MoveCursor();
+                }
 
+                avgTime /= 5;
+                textBox1.Text += i + "\t" + avgTime + Environment.NewLine;
+            }
+        }
+
+        private async void button11_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            label1.Visible = false;
+            var listOfButtons = new Button[] { button1, button2, button3, button4, button5, button6, button7, button8, button9 };
+            MoveCursor();
+            _sw.Start();
+
+            var fontColor = new Color[] { Color.Yellow, Color.Green, Color.Blue, Color.Red };
+            //var fontColor = new Color[] {Color.Green };
+
+            //foreach (var c in fontColor)
+            //{
+            //    textBox1.Text += c + Environment.NewLine;
+            //    for (var i = 2; i < 10; i++)
+            //    {
+            //        long avgTime = 0;
+
+            //        avgTime = 0;
+
+
+            //        for (var j = 0; j < 5; j++)
+            //        {
+            //            foreach (var x in listOfButtons)
+            //            {
+            //                x.Visible = false;
+            //                x.ForeColor = Color.Black;
+            //                x.BackColor = Color.White;
+            //            }
+
+            //            var rngResult = rand.Next(i);
+            //            listOfButtons[rngResult].ForeColor = c;
+
+            //            for (var l = 0; l < i; l++)
+            //            {
+            //                listOfButtons[l].Visible = true;
+            //            }
+
+            //            await listOfButtons[rngResult].WhenClicked();
+            //            avgTime += _sw.ElapsedMilliseconds;
+            //            label2.Text = "Time taken: " + _sw.ElapsedMilliseconds + "ms";
+            //            MoveCursor();
+            //        }
+            //        avgTime /= 5;
+            //        textBox1.Text += i + "\t" + avgTime + Environment.NewLine;
+
+            //    }
+            //}
+
+            //textBox1.Text += Environment.NewLine + Environment.NewLine;
+
+            var backColor = new Color[] { Color.Black, Color.Yellow, Color.Green, Color.Blue, Color.Red };
+
+            foreach (var c in backColor)
+            {
+                textBox1.Text += c + Environment.NewLine;
+                for (var i = 2; i < 10; i++)
+                {
+                    long avgTime = 0;
+
+                    avgTime = 0;
+
+                    for (var j = 0; j < 5; j++)
+                    {
+                        foreach (var x in listOfButtons)
+                        {
+                            x.Visible = false;
+                            x.ForeColor = Color.Black;
+                            x.BackColor = Color.White;
+                        }
+
+                        var rngResult = rand.Next(i);
+                        listOfButtons[rngResult].BackColor = c;
+
+                        for (var l = 0; l < i; l++)
+                        {
+                            listOfButtons[l].Visible = true;
+                        }
+
+                        await listOfButtons[rngResult].WhenClicked();
+                        avgTime += _sw.ElapsedMilliseconds;
+                        label2.Text = "Time taken: " + _sw.ElapsedMilliseconds + "ms";
+                        MoveCursor();
+                    }
+                    avgTime /= 5;
+                    textBox1.Text += i + "\t" + avgTime + Environment.NewLine;
 
                 }
             }
-
         }
 
-        public static void shuffle(int[] array)
+        public static void Shuffle(int[] array)
         {
-            Random rng = new Random();   // i.e., java.util.Random.
-            int n = array.Length;        // The number of items left to shuffle (loop invariant).
+            var rng = new Random(); // i.e., java.util.Random.
+            var n = array.Length; // The number of items left to shuffle (loop invariant).
             while (n > 1)
             {
-                int k = rng.Next(n);  // 0 <= k < n.
-                n--;                     // n is now the last pertinent index;
-                int temp = array[n];     // swap array[n] with array[k] (does nothing if k == n).
+                var k = rng.Next(n); // 0 <= k < n.
+                n--; // n is now the last pertinent index;
+                var temp = array[n]; // swap array[n] with array[k] (does nothing if k == n).
                 array[n] = array[k];
                 array[k] = temp;
             }
         }
-
-
     }
+
     public static class Utils
     {
         public static Task WhenClicked(this Control target)
