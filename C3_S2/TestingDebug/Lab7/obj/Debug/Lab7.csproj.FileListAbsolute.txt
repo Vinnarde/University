@@ -1,0 +1,10 @@
+D:\git-clone\University\C3_S2\TestingDebug\Lab7\bin\Debug\Lab7.exe.config
+D:\git-clone\University\C3_S2\TestingDebug\Lab7\bin\Debug\Lab7.exe
+D:\git-clone\University\C3_S2\TestingDebug\Lab7\bin\Debug\Lab7.pdb
+D:\git-clone\University\C3_S2\TestingDebug\Lab7\obj\Debug\Lab7.csprojAssemblyReference.cache
+D:\git-clone\University\C3_S2\TestingDebug\Lab7\obj\Debug\Lab7.Form1.resources
+D:\git-clone\University\C3_S2\TestingDebug\Lab7\obj\Debug\Lab7.Properties.Resources.resources
+D:\git-clone\University\C3_S2\TestingDebug\Lab7\obj\Debug\Lab7.csproj.GenerateResource.cache
+D:\git-clone\University\C3_S2\TestingDebug\Lab7\obj\Debug\Lab7.csproj.CoreCompileInputs.cache
+D:\git-clone\University\C3_S2\TestingDebug\Lab7\obj\Debug\Lab7.exe
+D:\git-clone\University\C3_S2\TestingDebug\Lab7\obj\Debug\Lab7.pdb

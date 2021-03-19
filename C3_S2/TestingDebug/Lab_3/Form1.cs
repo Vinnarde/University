@@ -31,10 +31,15 @@ namespace Lab_3
             else tabPage1_output.Text = n.ToString() + " - не високосный год.";
         }
 
-        private decimal F(decimal x)
-        {
-            return x - 5;
-        }
+        //delegate decimal F1(decimal x)
+        //{
+        //    return x - 5;
+        //}
+
+        //private decimal F2(decimal x)
+        //{
+        //    return 5 - x;
+        //}
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
@@ -47,84 +52,52 @@ namespace Lab_3
             var b = tabPage2NumericUpDown_b.Value;
             var eps = tabPage2NumericUpDown_eps.Value;
 
-            /*1*/if (a >= b)
+            Func<decimal, decimal> F = null;
+
+            if (radioButton1.Checked)
+                F = x => -(5 - x);
+            else
             {
-                /*2*/MessageBox.Show("а должно быть < b", "Ошибка в данных.", MessageBoxButtons.YesNo,
+                F = x => x - 3;
+            }
+            /*1*/
+            if (a >= b)
+            {
+                /*2*/
+                MessageBox.Show("а должно быть < b", "Ошибка в данных.", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning);
             }
-            /*3*/else
+            /*3*/
+            else
             {
-                /*4*/if (F(a) * F(b) > 0)
+                /*4*/
+                if (F(a) * F(b) > 0)
                 {
-                   /*5*/ tabPage2LabelOutput.Text = "Нет решений!";
+                    /*5*/
+                    tabPage2LabelOutput.Text = "Нет решений!";
                 }
-                /*6*/else
+                /*6*/
+                else
                 {
-                    /*7*/ if (F(a) <= F(b))
+                    /*8*/
+                    while (a <= b)
                     {
-                        /*8*/ while (a <= b)
+                        var mid = (a + b) / 2;
+                        /*9*/
+                        if (Math.Abs(F(mid)) < eps)
                         {
-                            var mid = (a + b) / 2;
-                            /*9*/ if (Math.Abs(F(mid)) < eps)
-                            {
-                                /*10*/ tabPage2LabelResult.Text = mid.ToString();
-                                break;
-                            }
-                            /*11*/else if (F(mid) < 0) a = mid;
-                            /*12*/else b = mid;
+                            /*10*/
+                            tabPage2LabelOutput.Text = mid.ToString();
+                            break;
                         }
-                    }
-
-                    /*13*/ else if (F(b) <= F(a))
-                    {
-                        /*14*/ while (a <= b)
-                        {
-                            var mid = (a + b) / 2;
-                            /*15*/ if (Math.Abs(F(mid)) < eps)
-                            {
-                                /*16*/tabPage2LabelOutput.Text = mid.ToString();
-                                break;
-                            }
-                            /*17*/else if (F(mid) < 0) b = mid;
-                            /*18*/else a = mid;
-                        }
+                        /*11*/
+                        else if (F(mid) < 0) a = mid;
+                        /*12*/
+                        else b = mid;
                     }
                 }
             }
         }
-
-
-        class Point
-        {
-            public decimal X;
-            public decimal Y;
-
-            public Point()
-            {
-            }
-
-            public Point(decimal x, decimal y)
-            {
-                this.X = x;
-                this.Y = y;
-            }
-        }
-
-
-
-        class Rectangle
-        {
-            public Point p1;
-            public Point p2;
-
-            public Rectangle(Point point1, Point point2)
-            {
-                p1 = new Point(Math.Min(point1.X, point2.X), Math.Max(point1.Y, point2.Y));
-                p2 = new Point(Math.Max(point1.X, point2.X), Math.Min(point1.Y, point2.Y));
-            }
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Point p1 = new Point();
@@ -150,6 +123,7 @@ namespace Lab_3
             decimal leftX = Math.Max(r1.p1.X, r2.p1.X);
             decimal rightX = Math.Min(r1.p2.X, r2.p2.X);
             decimal topY = Math.Min(r1.p1.Y, r2.p1.Y);
+
             decimal bottomY = Math.Max(r1.p2.Y, r2.p2.Y);
 
             if (leftX < rightX && bottomY < topY)
@@ -159,4 +133,41 @@ namespace Lab_3
                 tabPage3LabelResult.Text = "Нет пересечения!";
         }
     }
+
+
+    class Point
+    {
+        public decimal X;
+        public decimal Y;
+
+        public Point()
+        {
+        }
+
+        public Point(decimal x, decimal y)
+        {
+            this.X = x;
+            this.Y = y;
+        }
+    }
+
+
+
+    class Rectangle
+    {
+        public Point p1;
+        public Point p2;
+
+        public Rectangle(Point point1, Point point2)
+        {
+            p1 = new Point(Math.Min(point1.X, point2.X), Math.Max(point1.Y, point2.Y));
+            p2 = new Point(Math.Max(point1.X, point2.X), Math.Min(point1.Y, point2.Y));
+        }
+
+    }
+
+
+
 }
+
+
