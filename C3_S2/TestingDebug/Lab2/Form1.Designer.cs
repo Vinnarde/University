@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.CodeDom.Compiler;
+using System.Windows.Forms;
 
 namespace Lab2
 {
@@ -1134,12 +1135,12 @@ namespace Lab2
             string temp = number.ToString() + " = 1";
             Decimal div = 2;
 
-            while (number > 1)
+            while (number > 1 && div * div <= number)
             {
                 while (number % div == 0)
                 {
                     temp += " * " + div.ToString();
-                    number = number / div;
+                    number /=  div;
                 }
                 if (div == 2)
                     div++;

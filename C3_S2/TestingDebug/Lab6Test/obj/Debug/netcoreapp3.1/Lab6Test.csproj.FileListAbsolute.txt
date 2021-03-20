@@ -96,3 +96,6 @@ D:\git-clone\University\C3_S2\TestingDebug\Lab6Test\obj\Debug\netcoreapp3.1\Lab6
 D:\git-clone\University\C3_S2\TestingDebug\Lab6Test\obj\Debug\netcoreapp3.1\Lab6Test.dll
 D:\git-clone\University\C3_S2\TestingDebug\Lab6Test\obj\Debug\netcoreapp3.1\Lab6Test.pdb
 D:\git-clone\University\C3_S2\TestingDebug\Lab6Test\obj\Debug\netcoreapp3.1\Lab6Test.genruntimeconfig.cache
+D:\git-clone\University\C3_S2\TestingDebug\Lab6Test\bin\Debug\netcoreapp3.1\Lab6.deps.json
+D:\git-clone\University\C3_S2\TestingDebug\Lab6Test\bin\Debug\netcoreapp3.1\Lab6.runtimeconfig.json
+D:\git-clone\University\C3_S2\TestingDebug\Lab6Test\bin\Debug\netcoreapp3.1\Lab6.runtimeconfig.dev.json

@@ -24,7 +24,7 @@ namespace Lab6Test
             var target = new Post();
             const double expected = 0.0;
             target.Message = "";
-            Assert.AreEqual(expected, target.CountRating());
+            Assert.IsTrue(Math.Abs(expected - target.CountRating()) < 1e-5);
         }
 
         /// <summary>
@@ -34,9 +34,9 @@ namespace Lab6Test
         public void RatingTest2()
         {
             var target = new Post();
-            const double expected = 2.5;
+            const double expected = 1.90;
             target.Message = "WorD";
-            Assert.AreEqual(expected, target.CountRating());
+            Assert.IsTrue(Math.Abs(expected - target.CountRating()) < 1e-5);
         }
 
         /// <summary>
@@ -46,21 +46,22 @@ namespace Lab6Test
         public void RatingTest3()
         {
             var target = new Post();
-            const double expected = 5.0;
+            const double expected = 3.8;
             target.Message = "WorD Word";
-            Assert.AreEqual(expected, target.CountRating());
+            Assert.IsTrue(Math.Abs(expected - target.CountRating()) < 1e-5);
+
         }
 
         /// <summary>
-        /// Два слова через TAB(',')
+        /// Два слова через запятую(',')
         ///</summary>
         [TestMethod]
         public void RatingTest4()
         {
             var target = new Post();
-            const double expected = 5.0;
+            const double expected = 3.8;
             target.Message = "WorD,Word";
-            Assert.AreEqual(expected, target.CountRating());
+            Assert.IsTrue(Math.Abs(expected - target.CountRating()) < 1e-5);
         }
 
         /// <summary>
@@ -70,9 +71,9 @@ namespace Lab6Test
         public void RatingTest5()
         {
             var target = new Post();
-            const double expected = 2.5;
-            target.Message = "WorD.";
-            Assert.AreEqual(expected, target.CountRating());
+            const double expected = 5.3;
+            target.Message = "self-confident";
+            Assert.IsTrue(Math.Abs(expected - target.CountRating()) < 1e-5);
         }
         /// <summary>
         /// Три одинаковых слова
@@ -81,9 +82,21 @@ namespace Lab6Test
         public void RatingTest6()
         {
             var target = new Post();
-            const double expected = 2.0;
+            const double expected = 1.6;
             target.Message = "a a, a";
-            Assert.AreEqual(expected, target.CountRating());
+            Assert.IsTrue(Math.Abs(expected - target.CountRating()) < 1e-5);
+        }
+
+        /// <summary>
+        /// Два слова через '?'
+        ///</summary>
+        [TestMethod]
+        public void RatingTest7()
+        {
+            var target = new Post();
+            const double expected = 4.1;
+            target.Message = "Pepega?YES?!";
+            Assert.IsTrue(Math.Abs(expected - target.CountRating()) < 1e-5);
         }
 
     }

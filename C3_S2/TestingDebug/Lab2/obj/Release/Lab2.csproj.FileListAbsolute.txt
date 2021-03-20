@@ -18,3 +18,13 @@ C:\git-clone\University\C3_S2\TestingDebug\Lab2\obj\Release\Lab2.csproj.Generate
 C:\git-clone\University\C3_S2\TestingDebug\Lab2\obj\Release\Lab2.csproj.CoreCompileInputs.cache
 C:\git-clone\University\C3_S2\TestingDebug\Lab2\obj\Release\Lab2.exe
 C:\git-clone\University\C3_S2\TestingDebug\Lab2\obj\Release\Lab2.pdb
+D:\git-clone\University\C3_S2\TestingDebug\Lab2\bin\Release\Lab2.exe.config
+D:\git-clone\University\C3_S2\TestingDebug\Lab2\bin\Release\Lab2.exe
+D:\git-clone\University\C3_S2\TestingDebug\Lab2\bin\Release\Lab2.pdb
+D:\git-clone\University\C3_S2\TestingDebug\Lab2\obj\Release\Lab2.csprojAssemblyReference.cache
+D:\git-clone\University\C3_S2\TestingDebug\Lab2\obj\Release\Lab2.Form1.resources
+D:\git-clone\University\C3_S2\TestingDebug\Lab2\obj\Release\Lab2.Properties.Resources.resources
+D:\git-clone\University\C3_S2\TestingDebug\Lab2\obj\Release\Lab2.csproj.GenerateResource.cache
+D:\git-clone\University\C3_S2\TestingDebug\Lab2\obj\Release\Lab2.csproj.CoreCompileInputs.cache
+D:\git-clone\University\C3_S2\TestingDebug\Lab2\obj\Release\Lab2.exe
+D:\git-clone\University\C3_S2\TestingDebug\Lab2\obj\Release\Lab2.pdb
