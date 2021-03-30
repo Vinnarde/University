@@ -29,10 +29,11 @@ void sort(std::array<int, size>& array)
 		{
 			if (low == mid)
 			{
-				low++; mid++;
+				low++;
+				mid++;
 				continue;
 			}
-			
+
 			std::swap(array[low++], array[mid++]);
 			counter++;
 		}
