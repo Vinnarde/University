@@ -10,7 +10,7 @@
 uint16_t constexpr winWidth = 1600u;
 uint16_t constexpr winHeight = 900u;
 
-uint16_t constexpr iter = 1000;
+uint16_t constexpr iter = 100;
 double tick = 1.0 / iter;
 double constexpr g = 9.81;
 const auto pi = std::acos(-1);
@@ -150,8 +150,8 @@ int main(int argc, char** argv)
 	var.m = 0.100f;
 	var.h = 350;
 	var.h2 = 800 - var.h;
-	var.alpha = 60.0f;
-	var.beta = 60.0f;
+	var.alpha = 90.0f;
+	var.beta = 45.0f;
 	var.speed = 15.0;
 	var.mu = 0.15f;
 
