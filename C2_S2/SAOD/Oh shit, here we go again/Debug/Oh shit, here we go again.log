@@ -1,0 +1,14 @@
+﻿  Source.cpp
+D:\git-clone\University\SAOD\Oh shit, here we go again\BTreeNode.hpp(146,23): warning C4018: '>=': signed/unsigned mismatch
+D:\git-clone\University\SAOD\Oh shit, here we go again\BTreeNode.hpp(174,17): warning C4018: '<': signed/unsigned mismatch
+D:\git-clone\University\SAOD\Oh shit, here we go again\BTreeNode.hpp(205,13): warning C4018: '<': signed/unsigned mismatch
+D:\git-clone\University\SAOD\Oh shit, here we go again\BTreeNode.hpp(216,10): warning C4018: '<': signed/unsigned mismatch
+D:\git-clone\University\SAOD\Oh shit, here we go again\BTreeNode.hpp(246,19): warning C4018: '>': signed/unsigned mismatch
+D:\git-clone\University\SAOD\Oh shit, here we go again\BTreeNode.hpp(256,27): warning C4018: '<': signed/unsigned mismatch
+D:\git-clone\University\SAOD\Oh shit, here we go again\BTreeNode.hpp(406,20): warning C4018: '<': signed/unsigned mismatch
+D:\git-clone\University\SAOD\Oh shit, here we go again\BTreeNode.hpp(412,21): warning C4018: '<=': signed/unsigned mismatch
+D:\git-clone\University\SAOD\Oh shit, here we go again\BTreeNode.hpp(432,20): warning C4018: '<': signed/unsigned mismatch
+D:\git-clone\University\SAOD\Oh shit, here we go again\BTreeNode.hpp(438,21): warning C4018: '<=': signed/unsigned mismatch
+D:\git-clone\University\SAOD\Oh shit, here we go again\BTreeNode.hpp(444,26): warning C4018: '<': signed/unsigned mismatch
+D:\git-clone\University\SAOD\Oh shit, here we go again\BTreeNode.hpp(449,26): warning C4018: '<=': signed/unsigned mismatch
+  Oh shit, here we go again.vcxproj -> D:\git-clone\University\SAOD\Oh shit, here we go again\Debug\Oh shit, here we go again.exe

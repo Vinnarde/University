@@ -16,7 +16,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
                    LPSTR lpCmdLine,
                    // ”казатель на командную строку. ќн // позвол€ет
                    // приложению получать данные из командной строки.
-                   int nCmdShow
+                   int nCmdShow = SW_SHOWNORMAL
                    // ќпредел€ет, как приложение первоначально 
                    // отображаетс€ на дисплее: пиктограммой
                    // (nCmdShow = SW_SHOWMINNOACTIVE) 
