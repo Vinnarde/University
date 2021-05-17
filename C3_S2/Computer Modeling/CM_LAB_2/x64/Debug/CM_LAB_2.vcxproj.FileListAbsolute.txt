@@ -1,1 +1,2 @@
 C:\Users\gwinb\source\repos\CM_LAB_2\x64\Debug\CM_LAB_2.exe
+D:\git-clone\University\C3_S2\Computer Modeling\CM_LAB_2\x64\Debug\CM_LAB_2.exe
