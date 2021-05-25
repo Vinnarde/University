@@ -112,7 +112,7 @@ void updatePuckCoord(sf::CircleShape& puck)
 		traceLines.emplace_back(sf::Vertex(sf::Vector2f(pos.x + var.r, pos.y + var.r), sf::Color::Cyan));
 
 		//var.beta = std::fmod(var.beta + 90.0f, 180.0f);
-		var.beta = std::fmod(180.0f * switch_y - var.beta, 360.0f);
+		var.beta = std::fmod(180.0f - var.beta, 360.0f);
 
 		//switchX *= -1.0;
 	}
@@ -132,7 +132,7 @@ void updatePuckCoord(sf::CircleShape& puck)
 			}
 			// end debug
 
-			var.beta = std::fmod(180.0f * switch_y - var.beta - var.alpha, 360.0f);
+			var.beta = std::fmod(2*var.alpha - var.beta, 360.0f);
 			number_of_bounces++;
 			traceLines.emplace_back(sf::Vertex(sf::Vector2f(pos.x + var.r, pos.y + var.r), sf::Color::Cyan));
 		}
@@ -142,27 +142,24 @@ void updatePuckCoord(sf::CircleShape& puck)
 	else if (pos.y <= winHeight - bottom_padding - var.h - var.h2 * std::sin(radiansAlpha))
 	{
 		switch_y = 2.0f;
-		var.beta = std::fmod(180.0f * switch_y - var.beta, 360.0f);
+		var.beta = std::fmod(360.0f   - var.beta, 360.0f);
 		number_of_bounces++;
 		traceLines.emplace_back(sf::Vertex(sf::Vector2f(pos.x + var.r, pos.y + var.r), sf::Color::Cyan));
 	}
 	else if (pos.y + 0.9 * var.r > winHeight - bottom_padding)
 	{
-		var.beta = std::fmod(180.0f * switch_y - var.beta, 360.0f);
+		var.beta = std::fmod(360.0f  - var.beta, 360.0f);
 		switch_y = 1.0f;
 		number_of_bounces++;
 		traceLines.emplace_back(sf::Vertex(sf::Vector2f(pos.x + var.r, pos.y + var.r), sf::Color::Cyan));
 	}
 
-
-
-	if (var.speed > 0)
+	if (var.speed > 0.0)
 	{
 		// a = mu * g;
 		// V = v_0 + a * t = v_0 + mu * g * t
 		// speed = speed_0 + mu * g * tick
 		// distance = distance_0 + speed_0 * t + a * t^2 / 2;
-
 
 		radiansBeta = var.beta / 180.0 * pi;
 
@@ -189,9 +186,9 @@ int main(int argc, char** argv)
 	var.m = 0.100f;
 	var.h = 350;
 	var.h2 = 800 - var.h;
-	var.alpha = 135.0f;
+	var.alpha = 60.0f;
 	var.beta = 45.0f;
-	var.speed = 15.0;
+	var.speed = 10.0;
 	var.mu = 0.15f;
 
 	auto radians = var.alpha / 180.0 * pi;
@@ -251,7 +248,7 @@ int main(int argc, char** argv)
 
 #pragma endregion variables
 
-	renderWindow.setFramerateLimit(50);
+	//renderWindow.setFramerateLimit(500);
 
 	while (renderWindow.isOpen())
 	{
@@ -264,8 +261,8 @@ int main(int argc, char** argv)
 		}
 
 		// A microsecond is 1/1,000,000th of a second, 1000 microseconds == 1 millisecond
-		std::cout << "Elapsed time since previous frame(microseconds): "
-			<< clock.getElapsedTime().asMicroseconds() << std::endl;
+		//std::cout << "Elapsed time since previous frame(microseconds): "
+			//<< clock.getElapsedTime().asMicroseconds() << std::endl;
 		// Start the countdown over.  Think of laps on a stop watch.
 		clock.restart();
 

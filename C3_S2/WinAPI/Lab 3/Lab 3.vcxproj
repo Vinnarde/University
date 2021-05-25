@@ -146,14 +146,13 @@
     <ClInclude Include="C:\Users\gwinb\OneDrive\Рабочий стол\WINAPI_3\framework.h" />
     <ClInclude Include="C:\Users\gwinb\OneDrive\Рабочий стол\WINAPI_3\Resource.h" />
     <ClInclude Include="C:\Users\gwinb\OneDrive\Рабочий стол\WINAPI_3\targetver.h" />
-    <ClInclude Include="C:\Users\gwinb\OneDrive\Рабочий стол\WINAPI_3\WINAPI_3.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="C:\Users\gwinb\OneDrive\Рабочий стол\WINAPI_3\small.ico" />
-    <Image Include="C:\Users\gwinb\OneDrive\Рабочий стол\WINAPI_3\WINAPI_3.ico" />
+    <Image Include="small.ico" />
+    <Image Include="WINAPI_3.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="C:\Users\gwinb\OneDrive\Рабочий стол\WINAPI_3\WINAPI_3.rc" />
+    <ResourceCompile Include="WINAPI_3.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

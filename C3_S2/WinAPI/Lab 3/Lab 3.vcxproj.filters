@@ -32,20 +32,17 @@
     <ClInclude Include="C:\Users\gwinb\OneDrive\Рабочий стол\WINAPI_3\targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\gwinb\OneDrive\Рабочий стол\WINAPI_3\WINAPI_3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="C:\Users\gwinb\OneDrive\Рабочий стол\WINAPI_3\small.ico">
+    <Image Include="WINAPI_3.ico">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="C:\Users\gwinb\OneDrive\Рабочий стол\WINAPI_3\WINAPI_3.ico">
+    <Image Include="small.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="C:\Users\gwinb\OneDrive\Рабочий стол\WINAPI_3\WINAPI_3.rc">
+    <ResourceCompile Include="WINAPI_3.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>

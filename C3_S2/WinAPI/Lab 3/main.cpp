@@ -118,7 +118,7 @@ ATOM RegisterPopupWindowsClass(HINSTANCE hInstance)
 	wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_WINAPI3));
 	wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
 	wcex.hbrBackground = (HBRUSH)(CreateSolidBrush(RGB(70, 140, 255)));
-	wcex.lpszMenuName = MAKEINTRESOURCEW(IDC_WINAPI3);
+	wcex.lpszMenuName = nullptr;
 	wcex.lpszClassName = L"POPUP_WINDOW";
 	wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
@@ -140,7 +140,7 @@ ATOM RegisterChildWindowsClass(HINSTANCE hInstance)
 	wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_WINAPI3));
 	wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
 	wcex.hbrBackground = (HBRUSH)(CreateSolidBrush(RGB(132, 222, 2)));
-	wcex.lpszMenuName = MAKEINTRESOURCEW(IDC_WINAPI3);
+	wcex.lpszMenuName = nullptr;
 	wcex.lpszClassName = L"CHILD_WINDOW";
 	wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
@@ -161,7 +161,7 @@ ATOM RegisterOverlappedWindowsClass(HINSTANCE hInstance)
 	wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_WINAPI3));
 	wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
 	wcex.hbrBackground = (HBRUSH)(CreateSolidBrush(RGB(255, 0, 0)));
-	wcex.lpszMenuName = MAKEINTRESOURCEW(IDC_WINAPI3);
+	wcex.lpszMenuName = nullptr;
 	wcex.lpszClassName = L"OVERLAPPED_WINDOW";
 	wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
@@ -341,18 +341,18 @@ LRESULT CALLBACK OverlappedWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARA
 		GetWindowRect(hWnd, &window_rect);
 
 		// System metric
-		wchar_t line1[1024] = { 0 };
-		wchar_t line2[1024] = { 0 };
-		wchar_t line3[1024] = { 0 };
+		wchar_t line1[100] = { 0 };
+		wchar_t line2[100] = { 0 };
+		wchar_t line3[100] = { 0 };
 
 		wsprintfW(line1, L"System metric:");
 		wsprintfW(line2, L"Screen width: %d", screen_width);
 		wsprintfW(line3, L"Screen height: %d", screen_height);
 
 		// Client rect
-		wchar_t line4[1024] = { 0 };
-		wchar_t line5[1024] = { 0 };
-		wchar_t line6[1024] = { 0 };
+		wchar_t line4[100] = { 0 };
+		wchar_t line5[100] = { 0 };
+		wchar_t line6[100] = { 0 };
 
 		wsprintfW(line4, L"Client rect:");
 		wsprintfW(line5, L"Client width: %d, height: %d",
@@ -361,9 +361,9 @@ LRESULT CALLBACK OverlappedWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARA
 		wsprintfW(line6, L"X: %d, Y: %d", client_rect.left, client_rect.top);
 
 		// Window rect
-		wchar_t line7[1024] = { 0 };
-		wchar_t line8[1024] = { 0 };
-		wchar_t line9[1024] = { 0 };
+		wchar_t line7[100] = { 0 };
+		wchar_t line8[100] = { 0 };
+		wchar_t line9[100] = { 0 };
 
 		int width = window_rect.right - window_rect.left;
 		int height = window_rect.bottom - window_rect.top;
@@ -374,15 +374,15 @@ LRESULT CALLBACK OverlappedWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARA
 
 
 
-		TextOut(hdc, 20, 20, line1, 1024);
-		TextOut(hdc, 30, 40, line2, 1024);
-		TextOut(hdc, 30, 60, line3, 1024);
-		TextOut(hdc, 20, 80, line4, 1024);
-		TextOut(hdc, 30, 100, line5, 1024);
-		TextOut(hdc, 30, 120, line6, 1024);
-		TextOut(hdc, 20, 140, line7, 1024);
-		TextOut(hdc, 30, 160, line8, 1024);
-		TextOut(hdc, 30, 180, line9, 1024);
+		TextOut(hdc, 20, 20, line1, 100);
+		TextOut(hdc, 30, 40, line2, 100);
+		TextOut(hdc, 30, 60, line3, 100);
+		TextOut(hdc, 20, 80, line4, 100);
+		TextOut(hdc, 30, 100, line5, 100);
+		TextOut(hdc, 30, 120, line6, 100);
+		TextOut(hdc, 20, 140, line7, 100);
+		TextOut(hdc, 30, 160, line8, 100);
+		TextOut(hdc, 30, 180, line9, 100);
 
 		EndPaint(hWnd, &ps);
 	}
@@ -428,18 +428,18 @@ LRESULT CALLBACK PopupWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 		GetWindowRect(hWnd, &window_rect);
 
 		// System metric
-		wchar_t line1[1024] = { 0 };
-		wchar_t line2[1024] = { 0 };
-		wchar_t line3[1024] = { 0 };
+		wchar_t line1[100] = { 0 };
+		wchar_t line2[100] = { 0 };
+		wchar_t line3[100] = { 0 };
 
 		wsprintfW(line1, L"System metric:");
 		wsprintfW(line2, L"Screen width: %d", screen_width);
 		wsprintfW(line3, L"Screen height: %d", screen_height);
 
 		// Client rect
-		wchar_t line4[1024] = { 0 };
-		wchar_t line5[1024] = { 0 };
-		wchar_t line6[1024] = { 0 };
+		wchar_t line4[100] = { 0 };
+		wchar_t line5[100] = { 0 };
+		wchar_t line6[100] = { 0 };
 
 		wsprintfW(line4, L"Client rect:");
 		wsprintfW(line5, L"Client width: %d, height: %d",
@@ -448,9 +448,9 @@ LRESULT CALLBACK PopupWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 		wsprintfW(line6, L"X: %d, Y: %d", client_rect.left, client_rect.top);
 
 		// Window rect
-		wchar_t line7[1024] = { 0 };
-		wchar_t line8[1024] = { 0 };
-		wchar_t line9[1024] = { 0 };
+		wchar_t line7[100] = { 0 };
+		wchar_t line8[100] = { 0 };
+		wchar_t line9[100] = { 0 };
 
 		int width = window_rect.right - window_rect.left;
 		int height = window_rect.bottom - window_rect.top;
@@ -461,15 +461,15 @@ LRESULT CALLBACK PopupWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 
 
 
-		TextOut(hdc, 20, 20, line1, 1024);
-		TextOut(hdc, 30, 40, line2, 1024);
-		TextOut(hdc, 30, 60, line3, 1024);
-		TextOut(hdc, 20, 80, line4, 1024);
-		TextOut(hdc, 30, 100, line5, 1024);
-		TextOut(hdc, 30, 120, line6, 1024);
-		TextOut(hdc, 20, 140, line7, 1024);
-		TextOut(hdc, 30, 160, line8, 1024);
-		TextOut(hdc, 30, 180, line9, 1024);
+		TextOut(hdc, 20, 20, line1, 100);
+		TextOut(hdc, 30, 40, line2, 100);
+		TextOut(hdc, 30, 60, line3, 100);
+		TextOut(hdc, 20, 80, line4, 100);
+		TextOut(hdc, 30, 100, line5, 100);
+		TextOut(hdc, 30, 120, line6, 100);
+		TextOut(hdc, 20, 140, line7, 100);
+		TextOut(hdc, 30, 160, line8, 100);
+		TextOut(hdc, 30, 180, line9, 100);
 
 		EndPaint(hWnd, &ps);
 	}
@@ -515,18 +515,18 @@ LRESULT __stdcall ChildWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 		GetWindowRect(hWnd, &window_rect);
 
 		// System metric
-		wchar_t line1[1024] = { 0 };
-		wchar_t line2[1024] = { 0 };
-		wchar_t line3[1024] = { 0 };
+		wchar_t line1[100] = { 0 };
+		wchar_t line2[100] = { 0 };
+		wchar_t line3[100] = { 0 };
 
 		wsprintfW(line1, L"System metric:");
 		wsprintfW(line2, L"Screen width: %d", screen_width);
 		wsprintfW(line3, L"Screen height: %d", screen_height);
 
 		// Client rect
-		wchar_t line4[1024] = { 0 };
-		wchar_t line5[1024] = { 0 };
-		wchar_t line6[1024] = { 0 };
+		wchar_t line4[100] = { 0 };
+		wchar_t line5[100] = { 0 };
+		wchar_t line6[100] = { 0 };
 
 		wsprintfW(line4, L"Client rect:");
 		wsprintfW(line5, L"Client width: %d, height: %d",
@@ -535,9 +535,9 @@ LRESULT __stdcall ChildWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 		wsprintfW(line6, L"X: %d, Y: %d", client_rect.left, client_rect.top);
 
 		// Window rect
-		wchar_t line7[1024] = { 0 };
-		wchar_t line8[1024] = { 0 };
-		wchar_t line9[1024] = { 0 };
+		wchar_t line7[100] = { 0 };
+		wchar_t line8[100] = { 0 };
+		wchar_t line9[100] = { 0 };
 
 		int width = window_rect.right - window_rect.left;
 		int height = window_rect.bottom - window_rect.top;
@@ -548,15 +548,15 @@ LRESULT __stdcall ChildWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 
 
 			
-		TextOut(hdc, 20, 20, line1, 1024);
-		TextOut(hdc, 30, 40, line2, 1024);
-		TextOut(hdc, 30, 60, line3, 1024);
-		TextOut(hdc, 20, 80, line4, 1024);
-		TextOut(hdc, 30, 100, line5, 1024);
-		TextOut(hdc, 30, 120, line6, 1024);
-		TextOut(hdc, 20, 140, line7, 1024);
-		TextOut(hdc, 30, 160, line8, 1024);
-		TextOut(hdc, 30, 180, line9, 1024);
+		TextOut(hdc, 20, 20, line1, 100);
+		TextOut(hdc, 30, 40, line2, 100);
+		TextOut(hdc, 30, 60, line3, 100);
+		TextOut(hdc, 20, 80, line4, 100);
+		TextOut(hdc, 30, 100, line5, 100);
+		TextOut(hdc, 30, 120, line6, 100);
+		TextOut(hdc, 20, 140, line7, 100);
+		TextOut(hdc, 30, 160, line8, 100);
+		TextOut(hdc, 30, 180, line9, 100);
 
 		EndPaint(hWnd, &ps);
 	}

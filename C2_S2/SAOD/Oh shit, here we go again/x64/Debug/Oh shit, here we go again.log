@@ -1,0 +1,6 @@
+﻿  Source.cpp
+C:\git-clone\University\C2_S2\SAOD\Oh shit, here we go again\BTreeNode.hpp(81,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\git-clone\University\C2_S2\SAOD\Oh shit, here we go again\BTreeNode.hpp(156,2): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\git-clone\University\C2_S2\SAOD\Oh shit, here we go again\BTreeNode.hpp(363,2): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\git-clone\University\C2_S2\SAOD\Oh shit, here we go again\BTreeNode.hpp(369,3): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Oh shit, here we go again.vcxproj -> C:\git-clone\University\C2_S2\SAOD\Oh shit, here we go again\x64\Debug\Oh shit, here we go again.exe

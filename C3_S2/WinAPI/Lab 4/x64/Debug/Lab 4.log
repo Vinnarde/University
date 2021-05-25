@@ -1,0 +1,4 @@
+﻿  Source.cpp
+C:\git-clone\University\C3_S2\WinAPI\Lab 4\Source.cpp(132,12): warning C4244: 'return': conversion from 'WPARAM' to 'int', possible loss of data
+C:\git-clone\University\C3_S2\WinAPI\Lab 4\Source.cpp(173,15): warning C4244: 'initializing': conversion from 'WPARAM' to 'UINT', possible loss of data
+  Lab 4.vcxproj -> C:\git-clone\University\C3_S2\WinAPI\Lab 4\x64\Debug\Lab 4.exe

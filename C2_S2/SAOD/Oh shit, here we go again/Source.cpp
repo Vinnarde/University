@@ -9,7 +9,7 @@
 
 int main()
 {
-	BTree t(2); // A B-Tree with minimum degree 3
+	BTree t(2); // A B-Tree with minimum degree 2
 	t.insert(5);
 	t.insert(9);
 	t.insert(3);
@@ -19,16 +19,19 @@ int main()
 	t.insert(8);
 	t.insert(6);
 	t.insert(0);
-	//t.insert(4);
 	
 	std::cout << "Traversal of the constructed tree is \n";
 	t.traverse();
 
-	//std::cout << "After removing 6: \n";
-	//
-	//t.remove(6);
+	t.insert(4);
+	std::cout << "After inserting 4: \n";
+	t.traverse();
+	
+	std::cout << "After removing 9: \n";
+	
+	t.remove(9);
 
-	//t.traverse();
+	t.traverse();
 
 	//std::cout << "After removing 13: \n";
 	//
