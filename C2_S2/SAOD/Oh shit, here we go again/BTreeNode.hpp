@@ -5,18 +5,18 @@ using std::size_t;
 
 class BTreeNode
 {
-	int* keys;
-	size_t t;
-	BTreeNode** child;
-	size_t n; // current number of keys
-	bool leaf;
+	int* keys;			// массив клчюей
+	size_t t;			// минимальная степень t
+	BTreeNode** child;	// массив указателей на детей
+	size_t n;			// текущее кол-во ключей
+	bool leaf;			// true - когда узел листовой, иначе - false
 
 public:
 	BTreeNode(size_t _t, bool _leaf);
 
 	void insertNonFull(int key);
 
-	void splitchildhild(int idx, BTreeNode* y);
+	void splitChild(int idx, BTreeNode* y);
 
 	void traverse(int tab) const;
 
@@ -77,15 +77,15 @@ inline BTreeNode::BTreeNode(size_t _t, bool _leaf)
 
 inline void BTreeNode::insertNonFull(const int key)
 {
-	// init index as index of rightmost element
+	// индекс самого правого элемента
 	int i = n - 1;
 
-	// this is a leaf node
+	// если это лист:
 	if (leaf)
 	{
-		// The following loop does 2 things:
-		// a. finds the location of new key to be inserted
-		// b. moves all greater keys to one place ahead
+		// Следующий цикл делает 2 вещи:
+		// a. находит место нового ключа, который будет вставлен
+		// b. перемещает все большие ключи на одно место вперед
 		while (i >= 0 && keys[i] > key)
 		{
 			keys[i + 1] = keys[i];
@@ -95,21 +95,24 @@ inline void BTreeNode::insertNonFull(const int key)
 		keys[i + 1] = key;
 		n = n + 1;
 	}
-	else // node is not leaf
+	else // если не лист
 	{
-		// find the child which is going to have the new key
+		// находим сына, у которого будет новый ключ
 		while (i >= 0 && keys[i] > key)
 			--i;
 
-		// check if the found child if full
+		// если сын заполнен
 		if (child[i + 1]->n == 2 * t - 1)
 		{
-			// 1. split child
-			splitchildhild(i + 1, child[i + 1]);
+			// 1. разбиение узла
+			splitChild(i + 1, child[i + 1]);
 
 			// 2. After split, middle key of child[i] goes up
 			// and child[i] is splitted into two. Find which of
 			// twe two is going to have the new key.
+			// 2. После разбиения средний ключ уходит вверх
+			// и child[i] разбит пополам. Находим место для
+			// нового ключа.
 
 			if (keys[i + 1] < key)
 				++i;
@@ -118,19 +121,19 @@ inline void BTreeNode::insertNonFull(const int key)
 	}
 }
 
-inline void BTreeNode::splitchildhild(int idx, BTreeNode* y)
+inline void BTreeNode::splitChild(int idx, BTreeNode* y)
 {
-	// create a new node which if going to store (t-1) keys of y
+	// создаём новый узел, который будет хранить (t-1) ключей y
 	BTreeNode* z = new BTreeNode(y->t, y->leaf);
 	z->n = t - 1;
 
-	// 1. copy the last (t-1) keys of y to z
+	// 1. копируем первые (t-1) ключей y в z
 	for (size_t i = 0u; i < t - 1u; ++i)
 	{
 		z->keys[i] = y->keys[i + t];
 	}
 
-	// 2. copy the last t children of y to z
+	// 2. копируем последние t ключей y в z
 	if (!y->leaf)
 	{
 		for (size_t j = 0u; j < t; ++j)
@@ -139,27 +142,27 @@ inline void BTreeNode::splitchildhild(int idx, BTreeNode* y)
 		}
 	}
 
-	// 3. reduce the number of keys in y
+	// 3. уменьшаем кол-во ключей в y
 	y->n = t - 1;
 
-	// 4. creating space for new child
+	// 4. создаём место для новый потомков
 	for (size_t j = n; j >= idx + 1; --j)
 	{
 		child[j + 1u] = child[j];
 	}
 
-	// 5. link new child to this node
+	// 5. связываем новый дочерний узел с узлом z
 	child[idx + 1u] = z;
 
-	// A key of y will move to this node. Find the location of
-	// new key and move all greater keys one space ahead
+	// Ключ y переместится в этот узел. Находим место
+	// нового ключа и перемещаем все большие ключи на одно место вперед
 	for (int j = n - 1; j >= idx; j--)
 		keys[j + 1] = keys[j];
 
-	// childopy the middle key of y to this node
+	// копируем средний ключ y в этот узел
 	keys[idx] = y->keys[t - 1];
 
-	// Increment count of keys in this node
+	// увеличиваем количество ключей в этом узле
 	n = n + 1;
 }
 

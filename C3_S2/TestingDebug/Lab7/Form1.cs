@@ -10,7 +10,6 @@ namespace Lab7
             InitializeComponent();
         }
 
-
         public void Intersection(Line line1, Line line2)
         {
             var A1 = line1.p2.y - line1.p1.y;

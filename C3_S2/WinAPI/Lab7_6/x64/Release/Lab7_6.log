@@ -1,0 +1,16 @@
+﻿  main.cpp
+D:\git-clone\University\C3_S2\WinAPI\Lab7_6\main.cpp(37,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\Lab7_6\main.cpp(152,18): warning C4244: 'initializing': conversion from 'LONG' to 'uint16_t', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\Lab7_6\main.cpp(153,19): warning C4244: 'initializing': conversion from 'LONG' to 'uint16_t', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\Lab7_6\main.cpp(182,54): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\Lab7_6\main.cpp(183,54): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\Lab7_6\main.cpp(184,54): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\Lab7_6\main.cpp(247,20): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\Lab7_6\main.cpp(247,16): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\Lab7_6\main.cpp(264,20): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\Lab7_6\main.cpp(264,16): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Generating code
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 147 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Lab7_6.vcxproj -> D:\git-clone\University\C3_S2\WinAPI\Lab7_6\x64\Release\Lab7_6.exe

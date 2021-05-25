@@ -5,12 +5,13 @@ class BTreeNode;
 
 class BTree
 {
-	BTreeNode* root;
-	size_t t; // minimum degree;
+	BTreeNode* root;	// корень дерева
+	size_t t;			// минимальна€ степень
+
 public:
 	BTree(size_t _t) : root(nullptr), t(_t)
 	{
-	};
+	}
 
 	void traverse() const
 	{
@@ -30,40 +31,39 @@ public:
 
 inline void BTree::insert(const int key)
 {
-	// tree is empty
+	// дерево пустое
 	if (root == nullptr)
 	{
 		root = new BTreeNode(t, true);
 		root->keys[0u] = key;
 		root->n = 1;
 	}
-	else // tree is not empty
+	else // дерево не пустое
 	{
-		//if root is full, then tree grows in height
+		// если корень заполнен, то его высота увеличиваетс€
 		if (root->n == 2u * t - 1u)
 		{
-			// 1. allocate memory for new root
+			// 1. ¬ыделение пам€ти дл€ нового корн€
 			auto* s = new BTreeNode(t, false);
 
-			// 2. make old root as child of new root
+			// 2. сделать старый корень сыном нового
 			s->child[0] = root;
 
-			// 3. split the old root and move 1 key the new root
-			s->splitchildhild(0u, root);
+			// 3. разбить старый корень и переместить 1 ключ к новому корню
+			s->splitChild(0u, root);
 
-			// 4. New root has two children now. Decide which of the
-			// two children is going to have new key
-
+			// 4. ” нового корн€ теперь два сына.
+			// ќпредел€ем у какого сына будет новый ключ.
 			auto i = 0u;
 			if (s->keys[0] < key)
 				++i;
 
 			s->child[i]->insertNonFull(key);
 
-			// 5. change root
+			// 5. ћен€ем корень
 			root = s;
 		}
-		else // if root is not full, just simple put key in tree
+		else // если не заполнен, то просто добавл€ем ключ
 			root->insertNonFull(key);
 	}
 }
@@ -80,7 +80,7 @@ inline void BTree::remove(int key)
 	root->remove(key);
 
 	// If the root node has 0 keys, make its first child as the new root
-	//  if it has a child, otherwise set root as NULL
+	//  if it has a child, otherwise set root as nullptr
 	if (root->n == 0)
 	{
 		auto* const tmp = root;
