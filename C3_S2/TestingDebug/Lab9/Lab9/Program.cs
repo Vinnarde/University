@@ -1,132 +1,108 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Globalization;
+﻿using System;
 using System.IO;
-using System.Linq;
 
 namespace Labs9
 {
+    static class RandomExtensions
+    {
+        public static void Shuffle<T>(this Random rng, T[] array)
+        {
+            int n = array.Length;
+            while (n > 1)
+            {
+                int k = rng.Next(n--);
+                T temp = array[n];
+                array[n] = array[k];
+                array[k] = temp;
+            }
+        }
+    }
     class Program
     {
-        static Random random = new Random();
-        private static List<int> answer = new List<int>();
-        static UInt64 totalEven = 0ul;
-        static UInt64 totalOdd = 0ul;
+        static Random Random = new Random();
 
+        const int TotalTests = 30;
+        const int TestCapacity = 20000;
 
         static void Main(string[] args)
         {
-            for (int testNumber = 0; testNumber < 20; testNumber++)
+            Directory.SetCurrentDirectory(@"..\..\..\..\Tests");
+            Console.WriteLine("Generating tests...");
+
+            for (int i = 1; i <= TotalTests; i++)
             {
-                GenerateTest(testNumber + 1);
+                GenerateTest(TestCapacity, i);
             }
         }
 
-        static void GenerateTest(int testNumber)
+        static void GenerateTest(int count, int testNumber)
         {
-            string inputFilename = testNumber.ToString("00") + ".txt";
-            string outputFilename = testNumber.ToString("00") + "a.txt";
-            string helperFilename = testNumber.ToString("00") + "h.txt";
-            //int totalAnswer = 0;
+            // deside what numbers (odd or even) will predominate
+            int oddCount = Random.Next(count);
+            int evenCount = count - oddCount;
 
-            int linesNumber = random.Next(20, 30); //колв-во строк от 20 до 30
-            string[] stringBuilder = new string[linesNumber];
-            for (int j = 0; j < linesNumber; j++)
+            int[] result = new int[count];
+
+            for (int i = 0; i < oddCount; i++)
             {
-                int answerForLine = random.Next(1, 1000); //кол-во четных от 1 до 1000
-                totalEven += (ulong)answerForLine;
-                stringBuilder[j] = GenerateLine(answerForLine, random.Next(3000));
+                result[i] = RandomOdd();
             }
 
-            if (totalOdd >= totalEven)
+            for (int i = oddCount; i < count; i++)
             {
-                var newList = answer.OrderBy(x => x).ToList();
-                File.WriteAllLines(outputFilename, newList.Select(d => d.ToString()));
-            }
-            else
-            {
-                var newList = answer.OrderByDescending(x => x).ToList();
-                File.WriteAllLines(outputFilename, newList.Select(d => d.ToString()));
+                result[i] = RandomEven();
             }
 
-            File.WriteAllLines(inputFilename, stringBuilder);
-            File.WriteAllText(helperFilename,
-                "Even: " + totalEven.ToString() + "\r\n" + "Odd: " + totalOdd.ToString()
-                + Environment.NewLine + Environment.NewLine);
-            //File.WriteAllLines(outputFilename, answer);
+            // sort result
+            Array.Sort(result);
+
+            if (oddCount < evenCount)
+            {
+                Array.Reverse(result);
+            }
+
+            // Write result
+            WriteIntArray(testNumber + ".a", result);
+
+            Random.Shuffle(result);
+
+            // Write test set
+            WriteIntArray(testNumber.ToString(), result);
+
+            Console.WriteLine(@"Test № {0} ready!", testNumber);
         }
 
-        static string GenerateLine(int evenNumbers, int additionalNumber = 1)
+        static void WriteIntArray(string filename, int[] data)
         {
-            int count = evenNumbers + additionalNumber;
-            string[] numbers = new string[count];
-            int i;
-            for (i = 0; i < evenNumbers; i++)
+            string buffer = "";
+
+            foreach (int number in data)
             {
-                numbers[i] = (random.Next(int.MinValue >> 1, int.MaxValue >> 1) * 2).ToString(CultureInfo.InvariantCulture);
-
-                answer.Add(Convert.ToInt32(numbers[i]));
-            }
-            for (i = 0; i < additionalNumber; i++)
-            {
-                double chislo;
-                int ost = i % 3;
-                if (ost == 0) //случайное не четное вещественное число
-                {
-                    chislo = random.NextDouble() * (int.MaxValue - 1);
-                    if (Math.Abs(Math.Truncate(chislo) - chislo) < 0.0001) chislo += 0.1;
-                    numbers[i + evenNumbers] = chislo.ToString("0.#####", CultureInfo.InvariantCulture) + "3";
-
-
-                    // Если считать вещественные как не четные(что как бы неправильно, ибо это хар-ка целых цисел)
-                    //totalOdd++;
-                    //answer.Add(numbers[i + evenNumbers]);
-                }
-                if (ost == 1) //случайное целое не четное число
-                {
-                    chislo = random.Next((int.MinValue + 10) >> 1, (int.MaxValue - 10) >> 1) * 2 - 1;
-                    numbers[i + evenNumbers] = chislo.ToString(CultureInfo.InvariantCulture);
-
-                    totalOdd++;
-                    answer.Add(Convert.ToInt32(numbers[i + evenNumbers]));
-                }
-                if (ost == 2) //случайное целое число с буквами внутри (т.е. не число)
-                {
-                    chislo = random.Next((int.MinValue + 10) >> 1, (int.MaxValue - 10) >> 1) * 2;
-                    char letter = (char)('a' + random.Next(26));
-                    if (letter == 'e') letter = 'b';
-                    string cc = chislo.ToString(CultureInfo.InvariantCulture);
-                    numbers[i + evenNumbers] = cc.Insert(cc.Length - 1, "" + letter);
-                }
+                buffer += number + "\n";
             }
 
-            //Перемешаем
-            for (i = 0; i < count; i++)
-            {
-                int n = random.Next(count);
-                string buf = numbers[i];
-                numbers[i] = numbers[n];
-                numbers[n] = buf;
-            }
-
-            string result = "";
-            for (i = 0; i < count; i++)
-            {
-                result += numbers[i] + GenerateDelimeter(random.Next(4) + 2);
-            }
-            return result;
+            File.WriteAllText(filename, buffer);
         }
 
-        static string GenerateDelimeter(int len = 3)
+        static int RandomOdd()
         {
-            string r = "";
-            string symbols = ",.!@#$%^&*()=;";
-            for (int i = 0; i < len; i++)
+            int n = Random.Next(1000000);
+            if (n % 2 == 0)
             {
-                r += symbols[random.Next(symbols.Length)];
+                n += 1;
             }
-            return " " + r + " ";
+
+            return n;
+        }
+        static int RandomEven()
+        {
+            int n = Random.Next(1000000);
+            if (n % 2 == 1)
+            {
+                n += 1;
+            }
+
+            return n;
         }
     }
 }

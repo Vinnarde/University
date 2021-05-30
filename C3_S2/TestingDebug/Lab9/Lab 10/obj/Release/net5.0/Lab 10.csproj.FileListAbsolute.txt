@@ -1,0 +1,15 @@
+D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab 10\bin\Release\net5.0\Lab 10.exe
+D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab 10\bin\Release\net5.0\Lab 10.deps.json
+D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab 10\bin\Release\net5.0\Lab 10.runtimeconfig.json
+D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab 10\bin\Release\net5.0\Lab 10.runtimeconfig.dev.json
+D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab 10\bin\Release\net5.0\Lab 10.dll
+D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab 10\bin\Release\net5.0\ref\Lab 10.dll
+D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab 10\bin\Release\net5.0\Lab 10.pdb
+D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab 10\obj\Release\net5.0\Lab 10.GeneratedMSBuildEditorConfig.editorconfig
+D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab 10\obj\Release\net5.0\Lab 10.AssemblyInfoInputs.cache
+D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab 10\obj\Release\net5.0\Lab 10.AssemblyInfo.cs
+D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab 10\obj\Release\net5.0\Lab 10.csproj.CoreCompileInputs.cache
+D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab 10\obj\Release\net5.0\Lab 10.dll
+D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab 10\obj\Release\net5.0\ref\Lab 10.dll
+D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab 10\obj\Release\net5.0\Lab 10.pdb
+D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab 10\obj\Release\net5.0\Lab 10.genruntimeconfig.cache

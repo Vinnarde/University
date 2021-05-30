@@ -1,4 +1,3 @@
-D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab9\obj\Debug\net5.0\Lab9.csprojAssemblyReference.cache
 D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab9\obj\Debug\net5.0\Lab9.GeneratedMSBuildEditorConfig.editorconfig
 D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab9\obj\Debug\net5.0\Lab9.AssemblyInfoInputs.cache
 D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab9\obj\Debug\net5.0\Lab9.AssemblyInfo.cs
@@ -14,3 +13,4 @@ D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab9\obj\Debug\net5.0\Lab9.dll
 D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab9\obj\Debug\net5.0\ref\Lab9.dll
 D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab9\obj\Debug\net5.0\Lab9.pdb
 D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab9\obj\Debug\net5.0\Lab9.genruntimeconfig.cache
+D:\git-clone\University\C3_S2\TestingDebug\Lab9\Lab9\obj\Debug\net5.0\Lab9.csproj.AssemblyReference.cache

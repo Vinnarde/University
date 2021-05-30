@@ -1,0 +1,3 @@
+﻿  main.cpp
+D:\git-clone\University\C3_S2\WinAPI\RGR\RGR_2\main.cpp(45,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  RGR_2.vcxproj -> D:\git-clone\University\C3_S2\WinAPI\RGR\Debug\RGR_2.exe

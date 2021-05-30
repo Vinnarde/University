@@ -11,7 +11,7 @@ const auto pi = std::acos(-1);
 
 // Global Variables:
 HINSTANCE hInst; // current instance
-WCHAR szTitle[MAX_LOADSTRING] = L"Pepega"; // The title bar text
+WCHAR szTitle[MAX_LOADSTRING] = L"RGR_1"; // The title bar text
 WCHAR szWindowClass[MAX_LOADSTRING] = L"MAIN_CLASS"; // the main window class name
 
 
@@ -61,10 +61,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 		sectors[i].color = 0;
 	}
 
-	// Initialize global strings
+	//Initialize global strings
 	//LoadStringW(hInstance, 10, szTitle, MAX_LOADSTRING);
 	//LoadStringW(hInstance, 11, szWindowClass, MAX_LOADSTRING);
-	//szTitle = L"Lab 6"
+	//szTitle = L"Lab 6";
 	RegisterMainWinClass(hInstance);
 
 
@@ -74,9 +74,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 		return FALSE;
 	}
 
-	AllocConsole();
-	freopen("CONOUT$", "w", stdout);
-	std::cout << "This works" << std::endl;
+	//AllocConsole();
+	//freopen("CONOUT$", "w", stdout);
+	//std::cout << "This works" << std::endl;
 
 	MSG msg;
 
@@ -147,9 +147,9 @@ void printRect(HDC hDC)
 	//Rectangle(hDC, r.r.left, r.r.top, r.r.right, r.r.bottom);
 
 	MoveToEx(hDC, rect.r.left, rect.r.top, nullptr);
-	LineTo(hDC, rect.r.right+rect.r.left, rect.r.top);
+	LineTo(hDC, rect.r.right + rect.r.left, rect.r.top);
 	MoveToEx(hDC, rect.r.right + rect.r.left, rect.r.top, nullptr);
-	LineTo(hDC, rect.r.left + rect.r.right, rect.r.bottom+rect.r.top);
+	LineTo(hDC, rect.r.left + rect.r.right, rect.r.bottom + rect.r.top);
 	MoveToEx(hDC, rect.r.left + rect.r.right, rect.r.bottom + rect.r.top, nullptr);
 	LineTo(hDC, rect.r.left, rect.r.bottom + rect.r.top);
 	MoveToEx(hDC, rect.r.left, rect.r.bottom + rect.r.top, nullptr);
