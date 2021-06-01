@@ -188,7 +188,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			cc.hwndOwner = hWnd;
 			cc.lpCustColors = (LPDWORD)acrCustClr;
 			cc.rgbResult = rgbCurrent;
-			cc.Flags = CC_FULLOPEN | CC_RGBINIT | CC_ENABLEHOOK;
+			cc.Flags = CC_FULLOPEN | CC_RGBINIT ;
 
 			if (ChooseColor(&cc) == TRUE)
 			{
@@ -196,6 +196,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 				szColor = rgbCurrent = cc.rgbResult;
 				szDialogChangeColor = true;
+				InvalidateRect(hWnd, nullptr, true);
+				UpdateWindow(hWnd);
 			}
 		}break;
 		default:

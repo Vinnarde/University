@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "/ujZghvc9M/sKTGBR3mODee5qnPK+UOdcbe4xdfd/nal3IV+3e8bVtAxS9BxvB48SM/zVMnMWYhG7ODbKy2w9Q==",
+  "success": true,
+  "projectFilePath": "D:\\git-clone\\University\\C3_S2\\TestingDebug\\Lab5\\PartsStore\\PartsStore.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gwinb\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\gwinb\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

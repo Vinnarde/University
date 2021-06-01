@@ -1,0 +1,6 @@
+D:\git-clone\University\C3_S2\Lab11\Lab11\bin\Debug\Lab11.dacpac
+D:\git-clone\University\C3_S2\Lab11\Lab11\bin\Debug\Lab11.dll
+D:\git-clone\University\C3_S2\Lab11\Lab11\bin\Debug\Lab11.pdb
+D:\git-clone\University\C3_S2\Lab11\Lab11\obj\Debug\Lab11.sqlproj.AssemblyReference.cache
+D:\git-clone\University\C3_S2\Lab11\Lab11\obj\Debug\Lab11.dll
+D:\git-clone\University\C3_S2\Lab11\Lab11\obj\Debug\Lab11.pdb

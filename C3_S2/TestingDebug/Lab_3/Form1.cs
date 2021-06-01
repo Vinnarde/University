@@ -22,13 +22,13 @@ namespace Lab_3
 
         }
 
-        private void tabPage1Button1_Click(object sender, EventArgs e)
-        {
-            var n = tabPage1NumericUpDown.Value;
-
-            if (n % 400 == 0 || n % 4 == 0 && n % 100 != 0)
-                tabPage1_output.Text = n.ToString() + " - високосный год.";
-            else tabPage1_output.Text = n.ToString() + " - не високосный год.";
+        private void tabPage1Button1_Click(object sender, EventArgs e)                  
+        {                                                                                      
+            var n = tabPage1NumericUpDown.Value;                                        
+                                                                                        
+            if (n % 400 == 0 || n % 4 == 0 && n % 100 != 0)                             // 1 
+                tabPage1_output.Text = n.ToString() + " - високосный год.";             // 2
+            else tabPage1_output.Text = n.ToString() + " - не високосный год.";         // 3
         }
 
         //delegate decimal F1(decimal x)
@@ -54,46 +54,51 @@ namespace Lab_3
 
             Func<decimal, decimal> F = null;
 
-            if (radioButton1.Checked)
-                F = x => -(5 - x);
-            else
-            {
-                F = x => x - 3;
-            }
             /*1*/
-            if (a >= b)
-            {
+            if (radioButton1.Checked)
                 /*2*/
+                F = x => -(5 - x);
+            else /*3*/
+            {
+                F = x => x - 3; /*4*/
+            }
+
+            
+            if (a >= b) /*5*/
+            {
+                /*6*/
                 MessageBox.Show("а должно быть < b", "Ошибка в данных.", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning);
             }
-            /*3*/
+            /*7*/
             else
             {
-                /*4*/
+                /*8*/
                 if (F(a) * F(b) > 0)
                 {
-                    /*5*/
+                    /*9*/
                     tabPage2LabelOutput.Text = "Нет решений!";
                 }
-                /*6*/
+                /*10*/
                 else
                 {
-                    /*8*/
+                    /*11*/
                     while (a <= b)
                     {
                         var mid = (a + b) / 2;
-                        /*9*/
+                        /*12*/
                         if (Math.Abs(F(mid)) < eps)
                         {
-                            /*10*/
+                            /*13*/
                             tabPage2LabelOutput.Text = mid.ToString();
                             break;
                         }
-                        /*11*/
-                        else if (F(mid) < 0) a = mid;
-                        /*12*/
-                        else b = mid;
+                        /*14*/
+                        else if (F(mid) < 0) 
+                            a = mid; /*15*/
+                        /*16*/
+                        else 
+                            b = mid; /*17*/
                     }
                 }
             }
@@ -126,7 +131,7 @@ namespace Lab_3
 
             decimal bottomY = Math.Max(r1.p2.Y, r2.p2.Y);
 
-            if (leftX < rightX && bottomY < topY)
+            if (leftX <= rightX && bottomY <= topY)
                 tabPage3LabelResult.Text = "(" + leftX.ToString() + "; " + topY.ToString() + ") - (" +
                                            rightX.ToString() + "; " + bottomY.ToString() + ")";
             else
