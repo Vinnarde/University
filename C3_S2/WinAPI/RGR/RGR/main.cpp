@@ -140,7 +140,7 @@ inline double PercentToRad(double percent)
 
 void printRect(HDC hDC)
 {
-	const auto hpenW1 = CreatePen(PS_SOLID, 1, RGB(0, 0, 0));
+	const auto hpenW1 = CreatePen(PS_SOLID, 1, RGB(255,255,255));
 
 	const auto hpenOldPen = static_cast<HPEN>(SelectObject(hDC, hpenW1));
 

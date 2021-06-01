@@ -38,9 +38,9 @@ LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 void AddMenus(HWND hwnd);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
-	_In_opt_ HINSTANCE hPrevInstance,
-	_In_ LPWSTR lpCmdLine,
-	_In_ int nCmdShow)
+                      _In_opt_ HINSTANCE hPrevInstance,
+                      _In_ LPWSTR lpCmdLine,
+                      _In_ int nCmdShow)
 {
 	srand(time(nullptr));
 	UNREFERENCED_PARAMETER(hPrevInstance);
@@ -90,10 +90,10 @@ ATOM RegisterMainWinClass(HINSTANCE hInstance)
 }
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg,
-	WPARAM wParam, LPARAM lParam) {
-
-	switch (msg) {
-
+                         WPARAM wParam, LPARAM lParam)
+{
+	switch (msg)
+	{
 	case WM_CREATE:
 
 		AddMenus(hwnd);
@@ -102,86 +102,86 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg,
 
 	case WM_COMMAND:
 
-		switch (LOWORD(wParam)) {
-
+		switch (LOWORD(wParam))
+		{
 		case IDM_TEXT_REGULAR:
 			CheckMenuRadioItem(hMenuFont, IDM_TEXT_REGULAR, IDM_TEXT_BOLD_ITALIC,
-				IDM_TEXT_REGULAR, MF_BYCOMMAND);
+			                   IDM_TEXT_REGULAR, MF_BYCOMMAND);
 			activeText = IDM_TEXT_REGULAR;
 			break;
 
 		case IDM_TEXT_BOLD:
 			CheckMenuRadioItem(hMenuFont, IDM_TEXT_REGULAR, IDM_TEXT_BOLD_ITALIC,
-				IDM_TEXT_BOLD, MF_BYCOMMAND);
+			                   IDM_TEXT_BOLD, MF_BYCOMMAND);
 			activeText = IDM_TEXT_BOLD;
 			break;
 
 		case IDM_TEXT_ITALIC:
 			CheckMenuRadioItem(hMenuFont, IDM_TEXT_REGULAR, IDM_TEXT_BOLD_ITALIC,
-				IDM_TEXT_ITALIC, MF_BYCOMMAND);
+			                   IDM_TEXT_ITALIC, MF_BYCOMMAND);
 			activeText = IDM_TEXT_ITALIC;
 			break;
 
 		case IDM_TEXT_BOLD_ITALIC:
 			CheckMenuRadioItem(hMenuFont, IDM_TEXT_REGULAR, IDM_TEXT_BOLD_ITALIC,
-				IDM_TEXT_BOLD_ITALIC, MF_BYCOMMAND);
+			                   IDM_TEXT_BOLD_ITALIC, MF_BYCOMMAND);
 			activeText = IDM_TEXT_BOLD_ITALIC;
 			break;
 		case IDM_ALIGN_LEFT:
 			CheckMenuRadioItem(hMenuAlign, IDM_ALIGN_LEFT, IDM_ALIGN_RIGHT,
-				IDM_ALIGN_LEFT, MF_BYCOMMAND);
+			                   IDM_ALIGN_LEFT, MF_BYCOMMAND);
 			activeAlign = IDM_ALIGN_LEFT;
 			break;
 
 		case IDM_ALIGN_CENTER:
 			CheckMenuRadioItem(hMenuAlign, IDM_ALIGN_LEFT, IDM_ALIGN_RIGHT,
-				IDM_ALIGN_CENTER, MF_BYCOMMAND);
+			                   IDM_ALIGN_CENTER, MF_BYCOMMAND);
 			activeAlign = IDM_ALIGN_CENTER;
 			break;
 		case IDM_ALIGN_RIGHT:
 			CheckMenuRadioItem(hMenuAlign, IDM_ALIGN_LEFT, IDM_ALIGN_RIGHT,
-				IDM_ALIGN_RIGHT, MF_BYCOMMAND);
+			                   IDM_ALIGN_RIGHT, MF_BYCOMMAND);
 			activeAlign = IDM_ALIGN_RIGHT;
 			break;
 
 		case 1337:
-		{
-			bool bold = (activeText == IDM_TEXT_BOLD || activeText == IDM_TEXT_BOLD_ITALIC);
-			bool italic = (activeText == IDM_TEXT_ITALIC || activeText == IDM_TEXT_BOLD_ITALIC);
+			{
+				bool bold = (activeText == IDM_TEXT_BOLD || activeText == IDM_TEXT_BOLD_ITALIC);
+				bool italic = (activeText == IDM_TEXT_ITALIC || activeText == IDM_TEXT_BOLD_ITALIC);
 
-			const auto font_weight = bold ? 750 : 400;
-			const auto font_width = 36;
-			const auto font_height = 15;
+				const auto font_weight = bold ? 750 : 400;
+				const auto font_width = 36;
+				const auto font_height = 15;
 
-			// Customize
-			HFONT hFont = CreateFontW(font_width, font_height, 0, 0, font_weight, italic, FALSE, FALSE, DEFAULT_CHARSET,
-				OUT_OUTLINE_PRECIS,
-				CLIP_DEFAULT_PRECIS, ANTIALIASED_QUALITY, VARIABLE_PITCH, TEXT("Arial"));
+				// Customize
+				HFONT hFont = CreateFontW(font_width, font_height, 0, 0, font_weight, italic, FALSE, FALSE,
+				                          DEFAULT_CHARSET,
+				                          OUT_OUTLINE_PRECIS,
+				                          CLIP_DEFAULT_PRECIS, ANTIALIASED_QUALITY, VARIABLE_PITCH, TEXT("Arial"));
 
-			LONG_PTR new_style = 0;
+				LONG_PTR new_style = 0;
 
-			if (activeAlign == IDM_ALIGN_LEFT)
-				new_style = SS_LEFT;
-			else if (activeAlign == IDM_ALIGN_CENTER)
-				new_style = SS_CENTER;
-			else if (activeAlign == IDM_ALIGN_RIGHT)
-				new_style = SS_RIGHT;
+				if (activeAlign == IDM_ALIGN_LEFT)
+					new_style = SS_LEFT;
+				else if (activeAlign == IDM_ALIGN_CENTER)
+					new_style = SS_CENTER;
+				else if (activeAlign == IDM_ALIGN_RIGHT)
+					new_style = SS_RIGHT;
 
-			LONG_PTR s = GetWindowLongPtr(hwndText, GWL_STYLE);
+				LONG_PTR s = GetWindowLongPtr(hwndText, GWL_STYLE);
 
-			s = (s & ~(SS_LEFT | SS_CENTER | SS_RIGHT)) | new_style;
+				s = (s & ~(SS_LEFT | SS_CENTER | SS_RIGHT)) | new_style;
 
-			SetWindowLongPtr(hwndText, GWL_STYLE, s);
+				SetWindowLongPtr(hwndText, GWL_STYLE, s);
 
-			SendMessage(hwndText, WM_SETFONT, (WPARAM)hFont, TRUE);
+				SendMessage(hwndText, WM_SETFONT, (WPARAM)hFont, TRUE);
 
 
-			//InvalidateRect(hwndText, nullptr, TRUE);
-			//UpdateWindow(hwndText);
-		}break;
-
+				//InvalidateRect(hwndText, nullptr, TRUE);
+				//UpdateWindow(hwndText);
+			}
+			break;
 		}
-
 
 
 		break;
@@ -200,7 +200,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	hInst = hInstance; // Store instance handle in our global variable
 
 	HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-		CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+	                          CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
 	RECT rect;
 	GetClientRect(hWnd, &rect);
@@ -216,17 +216,17 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
 
 	HWND hwndButton = CreateWindowW(
-		L"BUTTON",  // Predefined class; Unicode assumed 
-		L"OK",      // Button text 
-		WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,  // Styles 
-		x_pos,         // x position 
-		y_pos,         // y position 
-		button_width,        // Button width
-		button_height,        // Button height
-		hWnd,     // Parent window
-		reinterpret_cast<HMENU>(1337),       // Control identifier.
+		L"BUTTON", // Predefined class; Unicode assumed 
+		L"OK", // Button text 
+		WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON, // Styles 
+		x_pos, // x position 
+		y_pos, // y position 
+		button_width, // Button width
+		button_height, // Button height
+		hWnd, // Parent window
+		reinterpret_cast<HMENU>(1337), // Control identifier.
 		(HINSTANCE)GetWindowLongPtr(hWnd, GWLP_HINSTANCE),
-		NULL);      // Pointer not needed.
+		NULL); // Pointer not needed.
 
 	auto text_width = 400;
 	auto text_height = 40;
@@ -255,12 +255,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 }
 
 
-
-void AddMenus(HWND hwnd) {
-
-	HMENU hMenubar;
-
-	hMenubar = CreateMenu();
+void AddMenus(HWND hwnd)
+{
+	HMENU hMenubar = CreateMenu();
 	hMenuFont = CreateMenu();
 	hMenuAlign = CreateMenu();
 
@@ -270,18 +267,17 @@ void AddMenus(HWND hwnd) {
 	AppendMenuW(hMenuFont, MF_STRING, IDM_TEXT_BOLD_ITALIC, L"Bold Italic");
 
 	CheckMenuRadioItem(hMenuFont, IDM_TEXT_REGULAR, IDM_TEXT_BOLD_ITALIC,
-		IDM_TEXT_REGULAR, MF_BYCOMMAND);
+	                   IDM_TEXT_REGULAR, MF_BYCOMMAND);
 
 	AppendMenuW(hMenuAlign, MF_STRING, IDM_ALIGN_LEFT, L"&Left align");
 	AppendMenuW(hMenuAlign, MF_STRING, IDM_ALIGN_CENTER, L"&Center align");
 	AppendMenuW(hMenuAlign, MF_STRING, IDM_ALIGN_RIGHT, L"&Right align");
 
 	CheckMenuRadioItem(hMenuAlign, IDM_ALIGN_LEFT, IDM_ALIGN_RIGHT,
-		IDM_ALIGN_CENTER, MF_BYCOMMAND);
+	                   IDM_ALIGN_CENTER, MF_BYCOMMAND);
 
 	AppendMenuW(hMenubar, MF_POPUP, (UINT_PTR)hMenuFont, L"&Font");
 	AppendMenuW(hMenubar, MF_POPUP, (UINT_PTR)hMenuAlign, L"&Text Align");
 
 	SetMenu(hwnd, hMenubar);
 }
-

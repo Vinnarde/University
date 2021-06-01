@@ -1,1 +1,2 @@
 D:\git-clone\University\C3_S2\WinAPI\Lab7_6\x64\Debug\Lab7_6.exe
+C:\git-clone\University\C3_S2\WinAPI\Lab7_6\x64\Debug\Lab7_6.exe
