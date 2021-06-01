@@ -1,0 +1,9 @@
+d:\dev\Testing\Lab5\PartsStore\bin\Debug\netstandard2.0\PartsStore.deps.json
+d:\dev\Testing\Lab5\PartsStore\bin\Debug\netstandard2.0\PartsStore.dll
+d:\dev\Testing\Lab5\PartsStore\bin\Debug\netstandard2.0\PartsStore.pdb
+d:\dev\Testing\Lab5\PartsStore\obj\Debug\netstandard2.0\PartsStore.csprojAssemblyReference.cache
+d:\dev\Testing\Lab5\PartsStore\obj\Debug\netstandard2.0\PartsStore.AssemblyInfoInputs.cache
+d:\dev\Testing\Lab5\PartsStore\obj\Debug\netstandard2.0\PartsStore.AssemblyInfo.cs
+d:\dev\Testing\Lab5\PartsStore\obj\Debug\netstandard2.0\PartsStore.csproj.CoreCompileInputs.cache
+d:\dev\Testing\Lab5\PartsStore\obj\Debug\netstandard2.0\PartsStore.dll
+d:\dev\Testing\Lab5\PartsStore\obj\Debug\netstandard2.0\PartsStore.pdb

@@ -47,9 +47,9 @@ void flower(HDC, FLOWER);
 bool validate(HWND hWnd);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
-                      _In_opt_ HINSTANCE hPrevInstance,
-                      _In_ LPWSTR lpCmdLine,
-                      _In_ int nCmdShow)
+	_In_opt_ HINSTANCE hPrevInstance,
+	_In_ LPWSTR lpCmdLine,
+	_In_ int nCmdShow)
 {
 	srand(time(nullptr));
 	UNREFERENCED_PARAMETER(hPrevInstance);
@@ -130,7 +130,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	hInst = hInstance; // Store instance handle in our global variable
 
 	HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-	                          CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+		CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
 	if (!hWnd)
 	{
@@ -145,140 +145,138 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+
 	switch (message)
 	{
 	case WM_TIMER:
+	{
+		InvalidateRect(hWnd, nullptr, true);
+		UpdateWindow(hWnd);
+	}
+	break;
+	case WM_COMMAND:
+	{
+		int wmId = LOWORD(wParam);
+		// Parse the menu selections:
+		switch (wmId)
+		{
+		case ID_SETVALUE:
+		{
+			cur_hwnd = hWnd;
+			if (DialogBox(hInst, MAKEINTRESOURCEW(IDD_DIALOG_OPTIONS), hWnd, DlgProc) == IDOK)
+			{
+				InvalidateRect(hWnd, nullptr, true);
+				UpdateWindow(hWnd);
+
+				if (valid)
+					SetTimer(hWnd, 0, szdTimer, nullptr);
+			}
+		} break;
+
+		case ID_SETCOLOR:
+		{
+			CHOOSECOLOR cc;                 // common dialog box structure 
+			static COLORREF acrCustClr[16]; // array of custom colors 
+			HWND hwnd;                      // owner window
+			HBRUSH hbrush;                  // brush handle
+			static DWORD rgbCurrent;        // initial color selection
+
+			// Initialize CHOOSECOLOR 
+			ZeroMemory(&cc, sizeof(cc));
+			//cc.lpfnHook = CCHookProc;
+			cc.lStructSize = sizeof(cc);
+			cc.hwndOwner = hWnd;
+			cc.lpCustColors = (LPDWORD)acrCustClr;
+			cc.rgbResult = rgbCurrent;
+			cc.Flags = CC_FULLOPEN | CC_RGBINIT ;
+
+			if (ChooseColor(&cc) == TRUE)
+			{
+				hbrush = CreateSolidBrush(cc.rgbResult);
+
+				szColor = rgbCurrent = cc.rgbResult;
+				szDialogChangeColor = true;
+				InvalidateRect(hWnd, nullptr, true);
+				UpdateWindow(hWnd);
+			}
+		}break;
+		default:
+			return DefWindowProc(hWnd, message, wParam, lParam);
+		}
+	}
+	break;
+
+	case WM_CHAR:
+	{
+		if (wParam == 120)
 		{
 			InvalidateRect(hWnd, nullptr, true);
 			UpdateWindow(hWnd);
 		}
-		break;
-	case WM_COMMAND:
-		{
-			int wmId = LOWORD(wParam);
-			// Parse the menu selections:
-			switch (wmId)
-			{
-			case ID_SETVALUE:
-				{
-					cur_hwnd = hWnd;
-					if (DialogBox(hInst, MAKEINTRESOURCEW(IDD_DIALOG_OPTIONS), hWnd, DlgProc) == IDOK)
-					{
-						InvalidateRect(hWnd, nullptr, true);
-						UpdateWindow(hWnd);
-
-						if (valid)
-							SetTimer(hWnd, 0, szdTimer, nullptr);
-					}
-				}
-				break;
-
-			case ID_SETCOLOR:
-				{
-					CHOOSECOLOR cc; // common dialog box structure 
-					static COLORREF acrCustClr[16]; // array of custom colors 
-					HWND hwnd; // owner window
-					HBRUSH hbrush; // brush handle
-					static DWORD rgbCurrent; // initial color selection
-
-					// Initialize CHOOSECOLOR 
-					ZeroMemory(&cc, sizeof(cc));
-					//cc.lpfnHook = CCHookProc;
-					cc.lStructSize = sizeof(cc);
-					cc.hwndOwner = hWnd;
-					cc.lpCustColors = static_cast<LPDWORD>(acrCustClr);
-					cc.rgbResult = rgbCurrent;
-					cc.Flags = CC_FULLOPEN | CC_RGBINIT;
-
-					if (ChooseColor(&cc) == TRUE)
-					{
-						hbrush = CreateSolidBrush(cc.rgbResult);
-
-						szColor = rgbCurrent = cc.rgbResult;
-						szDialogChangeColor = true;
-
-						InvalidateRect(hWnd, nullptr, true);
-						UpdateWindow(hWnd);
-					}
-				}
-				break;
-			default:
-				return DefWindowProc(hWnd, message, wParam, lParam);
-			}
-		}
-		break;
-
-	case WM_CHAR:
-		{
-			if (wParam == 120)
-			{
-				InvalidateRect(hWnd, nullptr, true);
-				UpdateWindow(hWnd);
-			}
-		}
-		break;
+	}
+	break;
 
 	case WM_PAINT:
+	{
+		PAINTSTRUCT ps;
+		HDC hdc = BeginPaint(hWnd, &ps);
+
+
+		RECT client_rect;
+		GetClientRect(hWnd, &client_rect);
+		const uint16_t width = client_rect.right - client_rect.left;
+		const uint16_t height = client_rect.bottom - client_rect.top;
+
+		//flw.color = RGB(255, 255, 255);
+
+		if (szDialogChange || szDialogChangeColor)
 		{
-			PAINTSTRUCT ps;
-			HDC hdc = BeginPaint(hWnd, &ps);
-
-
-			RECT client_rect;
-			GetClientRect(hWnd, &client_rect);
-			const uint16_t width = client_rect.right - client_rect.left;
-			const uint16_t height = client_rect.bottom - client_rect.top;
-
-			//flw.color = RGB(255, 255, 255);
-
-			if (szDialogChange || szDialogChangeColor)
+			if (szDialogChangeColor)
 			{
-				if (szDialogChangeColor)
-				{
-					flw.color = szColor;
-					szDialogChangeColor = false;
-				}
-				szDialogChange = false;
+				flw.color = szColor;
+				szDialogChangeColor = false;
 			}
-			else
-			{
-				flw.N = rand() % 21 + 5; // 5-25
-				flw.r = rand() % 201 + 20; // 20-220
-				flw.x = rand() % (width - 2 * flw.r + 1) + flw.r;
-				flw.y = rand() % (height - 2 * flw.r + 1) + flw.r;
-				flw.color = RGB(rand() % 256, rand() % 256, rand() % 256);
-			}
-
-			std::wstring line1(L"width: " + std::to_wstring(width) + L", height: " + std::to_wstring(height));
-			std::wstring line2(
-				L"x: " + std::to_wstring(flw.x) + L", y: " + std::to_wstring(flw.y) + L", radius: " +
-				std::to_wstring(flw.r));
-			std::wstring line3(L"N: " + std::to_wstring(flw.N) + L", Color: ");
-			std::wstring line4;
-			std::wstring line5;
-
-			SetBkColor(hdc, RGB(40, 40, 40));
-			SetTextColor(hdc, RGB(255, 255, 255));
-
-			HFONT hFont = CreateFont(24, 10, 0, 0, FW_DONTCARE, FALSE, FALSE, FALSE, DEFAULT_CHARSET,
-			                         OUT_OUTLINE_PRECIS,
-			                         CLIP_DEFAULT_PRECIS, ANTIALIASED_QUALITY, VARIABLE_PITCH, TEXT("Arial"));
-			SelectObject(hdc, hFont);
-
-			//SelectObject(hdc, hpen);
-
-			TextOutW(hdc, 20, 20, line1.c_str(), line1.length());
-			TextOutW(hdc, 20, 50, line2.c_str(), line2.length());
-			TextOutW(hdc, 20, 80, line3.c_str(), line3.length());
-
-			RECT color_r = {150, 80, 174, 104};
-			FillRect(hdc, &color_r, CreateSolidBrush(flw.color));
-
-			flower(hdc, flw);
-			//Rectangle(hdc, 10, 10, 100, 100);
-			EndPaint(hWnd, &ps);
+			szDialogChange = false;
 		}
-		break;
+		else
+		{
+			flw.N = rand() % 21 + 5;		// 5-25
+			flw.r = rand() % 201 + 20;		// 20-220
+			flw.x = rand() % (width - 2 * flw.r + 1) + flw.r;
+			flw.y = rand() % (height - 2 * flw.r + 1) + flw.r;
+			flw.color = RGB(rand() % 256, rand() % 256, rand() % 256);
+		}
+
+		std::wstring line1(L"width: " + std::to_wstring(width) + L", height: " + std::to_wstring(height));
+		std::wstring line2(
+			L"x: " + std::to_wstring(flw.x) + L", y: " + std::to_wstring(flw.y) + L", radius: " +
+			std::to_wstring(flw.r));
+		std::wstring line3(L"N: " + std::to_wstring(flw.N) + L", Color: ");
+		std::wstring line4;
+		std::wstring line5;
+
+		SetBkColor(hdc, RGB(40, 40, 40));
+		SetTextColor(hdc, RGB(255, 255, 255));
+
+		HFONT hFont = CreateFont(24, 10, 0, 0, FW_DONTCARE, FALSE, FALSE, FALSE, DEFAULT_CHARSET,
+			OUT_OUTLINE_PRECIS,
+			CLIP_DEFAULT_PRECIS, ANTIALIASED_QUALITY, VARIABLE_PITCH, TEXT("Arial"));
+		SelectObject(hdc, hFont);
+
+		//SelectObject(hdc, hpen);
+
+		TextOutW(hdc, 20, 20, line1.c_str(), line1.length());
+		TextOutW(hdc, 20, 50, line2.c_str(), line2.length());
+		TextOutW(hdc, 20, 80, line3.c_str(), line3.length());
+
+		RECT color_r = { 150, 80, 174, 104 };
+		FillRect(hdc, &color_r, CreateSolidBrush(flw.color));
+
+		flower(hdc, flw);
+		//Rectangle(hdc, 10, 10, 100, 100);
+		EndPaint(hWnd, &ps);
+	}
+	break;
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		break;
@@ -298,48 +296,49 @@ INT_PTR CALLBACK DlgProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 	switch (message)
 	{
 	case WM_INITDIALOG:
+	{
+		SetDlgItemTextW(hDlg, IDC_EDIT_X, std::to_wstring(flw.x).c_str());
+		SetDlgItemTextW(hDlg, IDC_EDIT_Y, std::to_wstring(flw.y).c_str());
+		SetDlgItemTextW(hDlg, IDC_EDIT_N, std::to_wstring(flw.N).c_str());
+		SetDlgItemTextW(hDlg, IDC_EDIT_RADIUS, std::to_wstring(flw.r).c_str());
+		SetDlgItemTextW(hDlg, IDC_EDIT_TIMER, std::to_wstring(szdTimer).c_str());
+		return (INT_PTR)TRUE;
+	}
+	break;
+	case WM_COMMAND:
+	{
+		if (LOWORD(wParam) == IDOK)
 		{
-			SetDlgItemTextW(hDlg, IDC_EDIT_X, std::to_wstring(flw.x).c_str());
-			SetDlgItemTextW(hDlg, IDC_EDIT_Y, std::to_wstring(flw.y).c_str());
-			SetDlgItemTextW(hDlg, IDC_EDIT_N, std::to_wstring(flw.N).c_str());
-			SetDlgItemTextW(hDlg, IDC_EDIT_RADIUS, std::to_wstring(flw.r).c_str());
-			SetDlgItemTextW(hDlg, IDC_EDIT_TIMER, std::to_wstring(szdTimer).c_str());
-			return static_cast<INT_PTR>(TRUE);
+			GetDlgItemTextW(hDlg, IDC_EDIT_X, szPosX, 5);
+			GetDlgItemTextW(hDlg, IDC_EDIT_Y, szPosY, 5);
+			GetDlgItemTextW(hDlg, IDC_EDIT_N, szN, 3);
+			GetDlgItemTextW(hDlg, IDC_EDIT_RADIUS, szRadius, 4);
+			GetDlgItemTextW(hDlg, IDC_EDIT_TIMER, szTimertemp, 10);
+			szDialogChange = true;
+
+			if (valid = validate(cur_hwnd))
+			{
+
+				flw.x = wcstol(szPosX, nullptr, 10);
+				flw.y = wcstol(szPosY, nullptr, 10);
+				flw.N = wcstol(szN, nullptr, 10);
+				flw.r = wcstol(szRadius, nullptr, 10);
+				szdTimer = wcstol(szTimertemp, nullptr, 10);
+			}
+
+
+			EndDialog(hDlg, LOWORD(wParam));
+			return (INT_PTR)TRUE;
+		}
+		if (LOWORD(wParam) == IDCANCEL)
+		{
+			EndDialog(hDlg, LOWORD(wParam));
+			return (INT_PTR)TRUE;
 		}
 		break;
-	case WM_COMMAND:
-		{
-			if (LOWORD(wParam) == IDOK)
-			{
-				GetDlgItemTextW(hDlg, IDC_EDIT_X, szPosX, 5);
-				GetDlgItemTextW(hDlg, IDC_EDIT_Y, szPosY, 5);
-				GetDlgItemTextW(hDlg, IDC_EDIT_N, szN, 3);
-				GetDlgItemTextW(hDlg, IDC_EDIT_RADIUS, szRadius, 4);
-				GetDlgItemTextW(hDlg, IDC_EDIT_TIMER, szTimertemp, 10);
-				szDialogChange = true;
-
-				if (valid = validate(cur_hwnd))
-				{
-					flw.x = wcstol(szPosX, nullptr, 10);
-					flw.y = wcstol(szPosY, nullptr, 10);
-					flw.N = wcstol(szN, nullptr, 10);
-					flw.r = wcstol(szRadius, nullptr, 10);
-					szdTimer = wcstol(szTimertemp, nullptr, 10);
-				}
-
-
-				EndDialog(hDlg, LOWORD(wParam));
-				return static_cast<INT_PTR>(TRUE);
-			}
-			if (LOWORD(wParam) == IDCANCEL)
-			{
-				EndDialog(hDlg, LOWORD(wParam));
-				return static_cast<INT_PTR>(TRUE);
-			}
-			break;
-		}
 	}
-	return static_cast<INT_PTR>(FALSE);
+	}
+	return (INT_PTR)FALSE;
 }
 
 void flower(HDC hDC, struct FLOWER flw)

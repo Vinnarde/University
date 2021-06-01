@@ -1,0 +1,12 @@
+5/30/2021 6:59:39 PM	This log contains information about the import operation of the script 'create.sql' into project 'Lab11' on computer 'DESKTOP-SA922PT' by user'gwinb.
+5/30/2021 6:59:39 PM	Started importing file: D:\git-clone\University\C3_S2\Lab11\create.sql 
+5/30/2021 6:59:39 PM	File name D:\git-clone\University\C3_S2\Lab11\create.sql (size: 571)
+5/30/2021 6:59:39 PM	Parsing import script
+5/30/2021 6:59:39 PM	Total number of batches in script: 1
+5/30/2021 6:59:39 PM	Total number of statements in script: 3
+5/30/2021 6:59:39 PM	The script was successfully imported into the project.
+5/30/2021 6:59:39 PM	Analyzing schema objects...
+5/30/2021 6:59:39 PM	Scanning project for duplicate elements
+5/30/2021 6:59:39 PM	Finished duplicate element processing
+5/30/2021 6:59:39 PM	A summary of the import was saved to the following location: D:\git-clone\University\C3_S2\Lab11\Lab11\Import Script Logs\create_sql_20210530035939.log
+5/30/2021 6:59:39 PM	Click Finish to continue...
