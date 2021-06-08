@@ -69,7 +69,7 @@ namespace Labs9
             // Write test set
             WriteIntArray(testNumber.ToString(), result);
 
-            Console.WriteLine(@"Test № {0} ready!", testNumber);
+            Console.WriteLine(@"Test #{0} ready!", testNumber);
         }
 
         static void WriteIntArray(string filename, int[] data)

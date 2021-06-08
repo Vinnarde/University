@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\git-clone\\University\\C3_S2\\TestingDebug\\Lab9\\Lab 10\\Lab 10.csproj": {}
+    "C:\\git-clone\\University\\C3_S2\\TestingDebug\\Lab9\\Lab 10\\Lab 10.csproj": {}
   },
   "projects": {
-    "D:\\git-clone\\University\\C3_S2\\TestingDebug\\Lab9\\Lab 10\\Lab 10.csproj": {
+    "C:\\git-clone\\University\\C3_S2\\TestingDebug\\Lab9\\Lab 10\\Lab 10.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\git-clone\\University\\C3_S2\\TestingDebug\\Lab9\\Lab 10\\Lab 10.csproj",
+        "projectUniqueName": "C:\\git-clone\\University\\C3_S2\\TestingDebug\\Lab9\\Lab 10\\Lab 10.csproj",
         "projectName": "Lab 10",
-        "projectPath": "D:\\git-clone\\University\\C3_S2\\TestingDebug\\Lab9\\Lab 10\\Lab 10.csproj",
+        "projectPath": "C:\\git-clone\\University\\C3_S2\\TestingDebug\\Lab9\\Lab 10\\Lab 10.csproj",
         "packagesPath": "C:\\Users\\gwinb\\.nuget\\packages\\",
-        "outputPath": "D:\\git-clone\\University\\C3_S2\\TestingDebug\\Lab9\\Lab 10\\obj\\",
+        "outputPath": "C:\\git-clone\\University\\C3_S2\\TestingDebug\\Lab9\\Lab 10\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
