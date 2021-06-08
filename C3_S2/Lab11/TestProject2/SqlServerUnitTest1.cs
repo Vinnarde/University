@@ -47,6 +47,7 @@ namespace TestProject2
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ExpectedSchemaCondition expectedSchemaCondition2;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction InsuranceType_TestAction;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ExpectedSchemaCondition expectedSchemaCondition3;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition scalarValueCondition1;
             this.dbo_Procedure1TestData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
             this.ContractTypeJoinData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
             this.ContractsData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
@@ -60,6 +61,7 @@ namespace TestProject2
             expectedSchemaCondition2 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ExpectedSchemaCondition();
             InsuranceType_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             expectedSchemaCondition3 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ExpectedSchemaCondition();
+            scalarValueCondition1 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition();
             // 
             // dbo_Procedure1Test_TestAction
             // 
@@ -71,21 +73,9 @@ namespace TestProject2
             inconclusiveCondition1.Enabled = true;
             inconclusiveCondition1.Name = "inconclusiveCondition1";
             // 
-            // dbo_Procedure1TestData
-            // 
-            this.dbo_Procedure1TestData.PosttestAction = null;
-            this.dbo_Procedure1TestData.PretestAction = dbo_Procedure1Test_PretestAction;
-            this.dbo_Procedure1TestData.TestAction = dbo_Procedure1Test_TestAction;
-            // 
             // dbo_Procedure1Test_PretestAction
             // 
             resources.ApplyResources(dbo_Procedure1Test_PretestAction, "dbo_Procedure1Test_PretestAction");
-            // 
-            // ContractTypeJoinData
-            // 
-            this.ContractTypeJoinData.PosttestAction = null;
-            this.ContractTypeJoinData.PretestAction = null;
-            this.ContractTypeJoinData.TestAction = ContractTypeJoin_TestAction;
             // 
             // ContractTypeJoin_TestAction
             // 
@@ -99,15 +89,10 @@ namespace TestProject2
             resources.ApplyResources(expectedSchemaCondition1, "expectedSchemaCondition1");
             expectedSchemaCondition1.Verbose = false;
             // 
-            // ContractsData
-            // 
-            this.ContractsData.PosttestAction = null;
-            this.ContractsData.PretestAction = null;
-            this.ContractsData.TestAction = Contracts_TestAction;
-            // 
             // Contracts_TestAction
             // 
             Contracts_TestAction.Conditions.Add(expectedSchemaCondition2);
+            Contracts_TestAction.Conditions.Add(scalarValueCondition1);
             resources.ApplyResources(Contracts_TestAction, "Contracts_TestAction");
             // 
             // expectedSchemaCondition2
@@ -116,12 +101,6 @@ namespace TestProject2
             expectedSchemaCondition2.Name = "expectedSchemaCondition2";
             resources.ApplyResources(expectedSchemaCondition2, "expectedSchemaCondition2");
             expectedSchemaCondition2.Verbose = false;
-            // 
-            // InsuranceTypeData
-            // 
-            this.InsuranceTypeData.PosttestAction = null;
-            this.InsuranceTypeData.PretestAction = null;
-            this.InsuranceTypeData.TestAction = InsuranceType_TestAction;
             // 
             // InsuranceType_TestAction
             // 
@@ -134,6 +113,40 @@ namespace TestProject2
             expectedSchemaCondition3.Name = "expectedSchemaCondition3";
             resources.ApplyResources(expectedSchemaCondition3, "expectedSchemaCondition3");
             expectedSchemaCondition3.Verbose = false;
+            // 
+            // dbo_Procedure1TestData
+            // 
+            this.dbo_Procedure1TestData.PosttestAction = null;
+            this.dbo_Procedure1TestData.PretestAction = dbo_Procedure1Test_PretestAction;
+            this.dbo_Procedure1TestData.TestAction = dbo_Procedure1Test_TestAction;
+            // 
+            // ContractTypeJoinData
+            // 
+            this.ContractTypeJoinData.PosttestAction = null;
+            this.ContractTypeJoinData.PretestAction = null;
+            this.ContractTypeJoinData.TestAction = ContractTypeJoin_TestAction;
+            // 
+            // ContractsData
+            // 
+            this.ContractsData.PosttestAction = null;
+            this.ContractsData.PretestAction = null;
+            this.ContractsData.TestAction = Contracts_TestAction;
+            // 
+            // InsuranceTypeData
+            // 
+            this.InsuranceTypeData.PosttestAction = null;
+            this.InsuranceTypeData.PretestAction = null;
+            this.InsuranceTypeData.TestAction = InsuranceType_TestAction;
+            // 
+            // scalarValueCondition1
+            // 
+            scalarValueCondition1.ColumnNumber = 1;
+            scalarValueCondition1.Enabled = true;
+            scalarValueCondition1.ExpectedValue = "3";
+            scalarValueCondition1.Name = "scalarValueCondition1";
+            scalarValueCondition1.NullExpected = false;
+            scalarValueCondition1.ResultSet = 1;
+            scalarValueCondition1.RowNumber = 1;
         }
 
         #endregion

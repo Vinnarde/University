@@ -1,0 +1,10 @@
+D:\git-clone\University\C3_S2\TestingDebug\Lab11\WebAndLoadTestProject1\bin\Debug\WebTest1.webtest
+D:\git-clone\University\C3_S2\TestingDebug\Lab11\WebAndLoadTestProject1\bin\Debug\LoadTest1.loadtest
+D:\git-clone\University\C3_S2\TestingDebug\Lab11\WebAndLoadTestProject1\bin\Debug\WebAndLoadTestProject1.dll
+D:\git-clone\University\C3_S2\TestingDebug\Lab11\WebAndLoadTestProject1\bin\Debug\WebAndLoadTestProject1.pdb
+D:\git-clone\University\C3_S2\TestingDebug\Lab11\WebAndLoadTestProject1\bin\Debug\Microsoft.VisualStudio.QualityTools.WebTestFramework.dll
+D:\git-clone\University\C3_S2\TestingDebug\Lab11\WebAndLoadTestProject1\obj\Debug\WebAndLoadTestProject1.csproj.AssemblyReference.cache
+D:\git-clone\University\C3_S2\TestingDebug\Lab11\WebAndLoadTestProject1\obj\Debug\WebAndLoadTestProject1.csproj.CoreCompileInputs.cache
+D:\git-clone\University\C3_S2\TestingDebug\Lab11\WebAndLoadTestProject1\obj\Debug\WebAndLoadTestProject1.csproj.CopyComplete
+D:\git-clone\University\C3_S2\TestingDebug\Lab11\WebAndLoadTestProject1\obj\Debug\WebAndLoadTestProject1.dll
+D:\git-clone\University\C3_S2\TestingDebug\Lab11\WebAndLoadTestProject1\obj\Debug\WebAndLoadTestProject1.pdb

@@ -1,0 +1,7 @@
+﻿  main.cpp
+D:\git-clone\University\C3_S2\WinAPI\WinAPI\RGR\RGR\main.cpp(54,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\WinAPI\RGR\RGR\main.cpp(171,67): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\WinAPI\RGR\RGR\main.cpp(171,30): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\WinAPI\RGR\RGR\main.cpp(170,67): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\WinAPI\RGR\RGR\main.cpp(170,30): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  RGR.vcxproj -> D:\git-clone\University\C3_S2\WinAPI\WinAPI\RGR\x64\Debug\RGR_1.exe

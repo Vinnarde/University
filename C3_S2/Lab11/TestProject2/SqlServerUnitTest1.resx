@@ -130,9 +130,9 @@ whether the results of your SQL statements match what
 you expect.
 */</value>
   </data>
-  <data name="expectedSchemaCondition1.Configuration" xml:space="preserve">
+  <metadata name="expectedSchemaCondition1.Configuration" xml:space="preserve">
     <value>Press to configure</value>
-  </data>
+  </metadata>
   <data name="ContractTypeJoin_TestAction.SqlScript" xml:space="preserve">
     <value>/*
 Add SQL statements here to exercise the database object 
@@ -154,12 +154,18 @@ SELECT
 FROM Contracts JOIN InsuranceType ON (Contracts.InsuranceType_Id = InsuranceType.Id)
 </value>
   </data>
+  <metadata name="expectedSchemaCondition1.Configuration" xml:space="preserve">
+    <value>Press to configure</value>
+  </metadata>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="expectedSchemaCondition1.Schema" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
-  <data name="expectedSchemaCondition2.Configuration" xml:space="preserve">
+  <metadata name="expectedSchemaCondition2.Configuration" xml:space="preserve">
     <value>Press to configure</value>
+  </metadata>
+  <data name="expectedSchemaCondition2.Schema" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
   <data name="Contracts_TestAction.SqlScript" xml:space="preserve">
     <value>/*
@@ -173,23 +179,23 @@ In the lower pane, you can add test conditions that verify
 whether the results of your SQL statements match what 
 you expect.
 */
-Select * from Contracts;</value>
+--Select * from Contracts;
+select dbo.Procedure1(3)</value>
   </data>
-  <data name="expectedSchemaCondition2.Schema" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="expectedSchemaCondition3.Configuration" xml:space="preserve">
+  <metadata name="expectedSchemaCondition3.Configuration" xml:space="preserve">
     <value>Press to configure</value>
-  </data>
-  <data name="expectedSchemaCondition3.Schema" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
+  </metadata>
   <data name="InsuranceType_TestAction.SqlScript" xml:space="preserve">
     <value>
 Select * from InsuranceType;</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <metadata name="expectedSchemaCondition3.Configuration" xml:space="preserve">
+    <value>Press to configure</value>
+  </metadata>
+  <data name="expectedSchemaCondition3.Schema" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

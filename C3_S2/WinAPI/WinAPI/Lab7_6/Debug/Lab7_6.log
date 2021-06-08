@@ -1,0 +1,12 @@
+﻿  main.cpp
+D:\git-clone\University\C3_S2\WinAPI\Lab7_6\main.cpp(54,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\Lab7_6\main.cpp(227,44): warning C4244: 'initializing': conversion from 'LONG' to 'uint16_t', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\Lab7_6\main.cpp(227,24): warning C4244: 'initializing': conversion from 'LONG' to 'const uint16_t', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\Lab7_6\main.cpp(228,46): warning C4244: 'initializing': conversion from 'LONG' to 'uint16_t', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\Lab7_6\main.cpp(228,25): warning C4244: 'initializing': conversion from 'LONG' to 'const uint16_t', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\Lab7_6\main.cpp(180,9): warning C4101: 'hwnd': unreferenced local variable
+D:\git-clone\University\C3_S2\WinAPI\Lab7_6\main.cpp(383,20): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\Lab7_6\main.cpp(383,16): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\Lab7_6\main.cpp(400,20): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\Lab7_6\main.cpp(400,16): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Lab7_6.vcxproj -> D:\git-clone\University\C3_S2\WinAPI\Lab7_6\Debug\Lab7_6.exe

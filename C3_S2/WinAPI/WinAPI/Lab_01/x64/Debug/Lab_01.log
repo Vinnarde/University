@@ -1,0 +1,19 @@
+﻿  Source.cpp
+D:\git-clone\University\C3_S2\WinAPI\Lab_01\Source.cpp(48,5): error C2664: 'HWND FindWindowW(LPCWSTR,LPCWSTR)': cannot convert argument 1 from 'char [7]' to 'LPCWSTR'
+D:\git-clone\University\C3_S2\WinAPI\Lab_01\Source.cpp(48,25): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\winuser.h(10057,1): message : see declaration of 'FindWindowW'
+D:\git-clone\University\C3_S2\WinAPI\Lab_01\Source.cpp(69,30): error C2440: '=': cannot convert from 'char [7]' to 'LPCWSTR'
+D:\git-clone\University\C3_S2\WinAPI\Lab_01\Source.cpp(69,21): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+D:\git-clone\University\C3_S2\WinAPI\Lab_01\Source.cpp(87,1): error C2664: 'HWND CreateWindowExW(DWORD,LPCWSTR,LPCWSTR,DWORD,int,int,int,int,HWND,HMENU,HINSTANCE,LPVOID)': cannot convert argument 2 from 'char [7]' to 'LPCWSTR'
+D:\git-clone\University\C3_S2\WinAPI\Lab_01\Source.cpp(87,1): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\winuser.h(4432,1): message : see declaration of 'CreateWindowExW'
+D:\git-clone\University\C3_S2\WinAPI\Lab_01\Source.cpp(102,3): error C2664: 'int MessageBoxW(HWND,LPCWSTR,LPCWSTR,UINT)': cannot convert argument 2 from 'const char [14]' to 'LPCWSTR'
+D:\git-clone\University\C3_S2\WinAPI\Lab_01\Source.cpp(103,14): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\winuser.h(9161,1): message : see declaration of 'MessageBoxW'
+D:\git-clone\University\C3_S2\WinAPI\Lab_01\Source.cpp(125,12): warning C4244: 'return': conversion from 'WPARAM' to 'int', possible loss of data
+D:\git-clone\University\C3_S2\WinAPI\Lab_01\Source.cpp(142,41): error C2664: 'BOOL TextOutW(HDC,int,int,LPCWSTR,int)': cannot convert argument 4 from 'char [25]' to 'LPCWSTR'
+D:\git-clone\University\C3_S2\WinAPI\Lab_01\Source.cpp(142,25): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\wingdi.h(5101,25): message : see declaration of 'TextOutW'
+D:\git-clone\University\C3_S2\WinAPI\Lab_01\Source.cpp(152,4): error C2664: 'int MessageBoxW(HWND,LPCWSTR,LPCWSTR,UINT)': cannot convert argument 2 from 'const char [18]' to 'LPCWSTR'
+D:\git-clone\University\C3_S2\WinAPI\Lab_01\Source.cpp(152,21): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\winuser.h(9161,1): message : see declaration of 'MessageBoxW'
