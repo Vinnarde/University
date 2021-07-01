@@ -6,6 +6,5 @@ int main()
 	t.sqlConn();
 	t.sqlExec();
 	t.sqlDisconn();
-
 	return 0;
 }
