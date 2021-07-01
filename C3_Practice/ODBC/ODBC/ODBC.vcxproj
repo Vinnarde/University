@@ -166,7 +166,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="odbcsql.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ODBCTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ODBCTest.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

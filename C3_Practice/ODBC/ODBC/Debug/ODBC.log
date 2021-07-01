@@ -1,3 +1,5 @@
 ﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  odbcsql.cpp
-  ODBC.vcxproj -> D:\git-clone\University\C3_Practice\ODBC\Debug\ODBC.exe
+  main.cpp
+  ODBCTest.cpp
+  Generating Code...
+  ODBC.vcxproj -> D:\git-clone\University\C3_Practice\ODBC\ODBC\Debug\ODBC.exe

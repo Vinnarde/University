@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\git-clone\University\C3_Practice\ODBC\ODBC\</FILEPATH>
+      <FILENAME>ODBCTest.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ODBCTest::retConStr' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ODBCTest::{ctor}</FUNCTION>
+    <DECORATED>??0ODBCTest@@QAE@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>ODBCTest::retConStr</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>
