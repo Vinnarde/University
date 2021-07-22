@@ -8,7 +8,7 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\gwinb\\.nuget\\packages\\": {},
+    "C:\\Users\\Pepega\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
@@ -17,14 +17,14 @@
       "projectUniqueName": "C:\\git-clone\\University\\C3_S2\\TestingDebug\\Lab9\\Lab9\\Lab9.csproj",
       "projectName": "Lab9",
       "projectPath": "C:\\git-clone\\University\\C3_S2\\TestingDebug\\Lab9\\Lab9\\Lab9.csproj",
-      "packagesPath": "C:\\Users\\gwinb\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Pepega\\.nuget\\packages\\",
       "outputPath": "C:\\git-clone\\University\\C3_S2\\TestingDebug\\Lab9\\Lab9\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\gwinb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Pepega\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -32,8 +32,7 @@
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
       },
       "frameworks": {
         "net5.0": {
