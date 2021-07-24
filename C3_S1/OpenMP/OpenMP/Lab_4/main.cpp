@@ -202,7 +202,7 @@ void trapezoidalRule(const double epsilon = 1e-7)
 	printLine("Trapezoidal rule", result, t.elapsed(), numOfIterations);
 }
 
-void simpsonsRule375(const double epsilon = 1e-7)
+void simpsonsRule8(const double epsilon = 1e-7)
 {
 	int_fast64_t numOfSteps{ 3 };
 	double result{ 0.0 };
@@ -239,7 +239,7 @@ void simpsonsRule375(const double epsilon = 1e-7)
 	printLine("Simpson's 3/8 rule", result, t.elapsed(), numOfIterations);
 }
 
-void simpsonsRule(const double epsilon = 1e-7)
+void simpsonsRule3(const double epsilon = 1e-7)
 {
 	int_fast64_t numOfSteps{ 2 };
 	double result{ 0.0 };
@@ -299,8 +299,8 @@ int main(int argc, char* argv[])
 		rightRectangles(eps);
 		middleRectangles(eps);
 		trapezoidalRule(eps);
-		simpsonsRule375(eps);
-		simpsonsRule(eps);
+		simpsonsRule8(eps);
+		simpsonsRule3(eps);
 	}
 
 	return 0;
