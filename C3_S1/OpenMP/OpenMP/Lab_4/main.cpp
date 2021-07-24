@@ -218,9 +218,9 @@ void simpsonsRule375(const double epsilon = 1e-7)
 		result = f(leftBoundary) + f(rightBoundary);
 
 		const double intervalSize = (rightBoundary - leftBoundary) / numOfSteps;
-		double x{}, xPrevious{};
+		double x{};
 		omp_set_dynamic(true);
-#pragma omp parallel for private(x, xPrevious) reduction(+:result) 
+#pragma omp parallel for private(x) reduction(+:result) 
 		for (int_fast64_t i = 1; i < numOfSteps; ++i)
 		{
 			x = leftBoundary + i * intervalSize;
@@ -255,9 +255,9 @@ void simpsonsRule(const double epsilon = 1e-7)
 		result = f(leftBoundary) + f(rightBoundary);
 
 		const double intervalSize = (rightBoundary - leftBoundary) / numOfSteps;
-		double x{}, xPrevious{};
+		double x{};
 		omp_set_dynamic(true);
-#pragma omp parallel for private(x, xPrevious) reduction(+:result) 
+#pragma omp parallel for private(x) reduction(+:result) 
 		for (int_fast64_t i = 1; i < numOfSteps; ++i)
 		{
 			x = leftBoundary + i * intervalSize;
@@ -282,8 +282,8 @@ int main(int argc, char* argv[])
 	printf_s("OpenMP is supported!\n\n");
 #endif
 
-	double arr2[]{ 1e-5,1e-6,1e-7 };
-	double arr[]{ 1e-5,1e-6,1e-7,1e-8,1e-9,1e-10,1e-11,1e-12, 1e-13,1e-14,1e-15 };
+	double arr[]{ 1e-5,1e-6,1e-7 };
+	//double arr[]{ 1e-5,1e-6,1e-7,1e-8,1e-9,1e-10,1e-11,1e-12, 1e-13,1e-14,1e-15 };
 
 	std::cout << std::left << std::setw(25) << std::setfill(' ') << "Method's name";
 	std::cout << std::left << std::setw(20) << std::setfill(' ') << "Result";
@@ -295,8 +295,8 @@ int main(int argc, char* argv[])
 	{
 		std::cout << "\nEpsilon: " << eps << '\n';
 		//left_rectangles(1.0, 3.0, eps);
-		//leftRectangles(eps);
-		//rightRectangles(eps);
+		leftRectangles(eps);
+		rightRectangles(eps);
 		middleRectangles(eps);
 		trapezoidalRule(eps);
 		simpsonsRule375(eps);
