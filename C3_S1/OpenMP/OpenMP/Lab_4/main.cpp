@@ -46,7 +46,7 @@ public:
 		return std::chrono::duration_cast<second_t>(clock_t::now() - m_beg).count();
 	}
 };
-
+#pragma optimize ("", off)
 void left_rectangles(const double a = 1.0, const double b = 3.0, const double eps = 1e-7)
 {
 	int64_t num_of_steps = 1;
@@ -79,7 +79,7 @@ void left_rectangles(const double a = 1.0, const double b = 3.0, const double ep
 	std::cout << "Left rectangles: " << result << "\n\n";
 
 }
-
+#pragma optimize ("", off)
 void leftRectangles(const double epsilon = 1e-7)
 {
 	int_fast64_t numOfSteps{ 2 };
@@ -109,7 +109,7 @@ void leftRectangles(const double epsilon = 1e-7)
 	}
 	printLine("Left rectangles", result, t.elapsed(), numOfIterations);
 }
-
+#pragma optimize ("", off)
 void rightRectangles(const double epsilon = 1e-7)
 {
 	int_fast64_t numOfSteps{ 2 };
@@ -140,7 +140,7 @@ void rightRectangles(const double epsilon = 1e-7)
 	}
 	printLine("Right rectangles", result, t.elapsed(), numOfIterations);
 }
-
+#pragma optimize ("", off)
 void middleRectangles(const double epsilon = 1e-7)
 {
 	int_fast64_t numOfSteps{ 2 };
@@ -170,7 +170,7 @@ void middleRectangles(const double epsilon = 1e-7)
 	}
 	printLine("Middle rectangles", result, t.elapsed(), numOfIterations);
 }
-
+#pragma optimize ("", off)
 void trapezoidalRule(const double epsilon = 1e-7)
 {
 	int_fast64_t numOfSteps{ 2 };
@@ -201,7 +201,7 @@ void trapezoidalRule(const double epsilon = 1e-7)
 	}
 	printLine("Trapezoidal rule", result, t.elapsed(), numOfIterations);
 }
-
+#pragma optimize ("", off)
 void simpsonsRule8(const double epsilon = 1e-7)
 {
 	int_fast64_t numOfSteps{ 3 };
@@ -238,7 +238,7 @@ void simpsonsRule8(const double epsilon = 1e-7)
 	}
 	printLine("Simpson's 3/8 rule", result, t.elapsed(), numOfIterations);
 }
-
+#pragma optimize ("", off)
 void simpsonsRule3(const double epsilon = 1e-7)
 {
 	int_fast64_t numOfSteps{ 2 };
