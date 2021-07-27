@@ -25,13 +25,13 @@ bool isSorted(const std::vector<int>& array, bool (*cmp)(int, int))
 
 inline bool ascending(const int first, const int second)
 {
-	return first < second;
+	return first <= second;
 }
 
 void merge(std::vector<int>& arr, int low, int mid, int high)
 {
 	auto tempArr = new int[high - low + 1];
-	int i{low}, j{mid + 1};
+	int i{ low }, j{ mid + 1 };
 	int k{};
 
 	while (i <= mid && j <= high)
@@ -91,7 +91,117 @@ void mergeSort(std::vector<int>& arr)
 }
 
 
-#pragma optimize ("", off)
+int partition(std::vector<int>& arr, int low, int high)
+{
+	int pivot{ arr[high] };
+	int i{ low - 1 };
+
+	for (int j = low; j <= high - 1; ++j)
+	{
+		if (arr[j] < pivot)
+		{
+			++i;
+			std::swap(arr[i], arr[j]);
+		}
+	}
+	std::swap(arr[i + 1], arr[high]);
+	return i + 1;
+}
+
+void partition(std::vector<int>& arr, int low, int high, int& outLeftPivot, int& outRightPivot)
+{
+	if (arr[low] > arr[high])
+	{
+		std::swap(arr[low], arr[high]);
+	}
+
+	int leftIndex{ low + 1 };
+	int rightIndex{ high - 1 };
+
+	int iterator{ low + 1 };
+	int leftPivot{ arr[low] };
+	int rightPivot{ arr[high] };
+
+	while (iterator <= rightIndex)
+	{
+		// if elements are less than the left pivot
+		if (arr[iterator] < leftPivot) 
+		{
+			std::swap(arr[iterator], arr[leftIndex]);
+			leftIndex++;
+		}
+
+		// if elements are greater than or equal
+		// to the right pivot
+		else if (arr[iterator] >= rightPivot)
+		{
+			while (arr[rightIndex] > rightPivot && iterator < rightIndex)
+			{
+				rightIndex--;
+			}
+			
+			std::swap(arr[iterator], arr[rightIndex]);
+			
+			rightIndex--;
+			
+			if (arr[iterator] < leftPivot) 
+			{
+				std::swap(arr[iterator], arr[leftIndex]);
+				leftIndex++;
+			}
+		}
+		iterator++;
+	}
+	leftIndex--;
+	rightIndex++;
+
+	std::swap(arr[low], arr[leftIndex]);
+	std::swap(arr[high], arr[rightIndex]);
+
+	outLeftPivot = leftIndex;
+	outRightPivot = rightIndex;
+}
+
+void dualPivotQuickSort(std::vector<int>& arr, int low, int high)
+{
+	if (low < high)
+	{
+		int leftPivot, rightPivot;
+		partition(arr, low, high, leftPivot, rightPivot);
+		dualPivotQuickSort(arr, low, leftPivot - 1);
+		dualPivotQuickSort(arr, leftPivot + 1, rightPivot - 1);
+		dualPivotQuickSort(arr, rightPivot, high);
+	}
+}
+
+void quickSortOMP(std::vector<int>& arr, int low, int high)
+{
+	if (low < high)
+	{
+		int pivotLocation = partition(arr, low, high);
+
+#pragma omp parallel sections
+		{
+#pragma omp section
+			{
+				quickSortOMP(arr, low, pivotLocation - 1);
+			}
+#pragma omp section
+			{
+				quickSortOMP(arr, pivotLocation + 1, high);
+			}
+		}
+	}
+}
+
+void quickSort(std::vector<int>& arr)
+{
+	quickSortOMP(arr, 0, arr.size() - 1);
+}
+
+
+
+//#pragma optimize ("", off)
 void task_1()
 {
 	std::vector<int> firstVector(vectorSize);
@@ -127,19 +237,31 @@ void task_1()
 
 	startPoint = omp_get_wtime();
 
+	mergeSort(resultVector);
+
+	endPoint = omp_get_wtime();
+
+	std::cout << "Merge sort.\n" << "Time taken: " << endPoint - startPoint << " seconds\n";
+
+	std::cout << "Is sorted: " << isSorted(resultVector, ascending) << '\n';
+
+	startPoint = omp_get_wtime();
+
 	for (int64_t i = 0; i < vectorSize; ++i)
 		resultVector[i] = firstVector[i] + secondVector[i];
 
 	endPoint = omp_get_wtime();
 	std::cout << "Sequential.\n" << "Time taken: " << endPoint - startPoint << " seconds\n";
 
-
 	startPoint = omp_get_wtime();
 
-	mergeSort(resultVector);
+	//quickSort(resultVector);
+	dualPivotQuickSort(resultVector, 0, resultVector.size() - 1);
 
 	endPoint = omp_get_wtime();
-	std::cout << "Merge sort.\n" << "Time taken: " << endPoint - startPoint << " seconds\n";
+
+	std::cout << "Is sorted: " << isSorted(resultVector, ascending) << '\n';
+	std::cout << "Quick sort.\n" << "Time taken: " << endPoint - startPoint << " seconds\n";
 }
 
 
@@ -150,4 +272,12 @@ int main(int argc, char* argv[])
 #endif
 
 	task_1();
+
+	//std::vector<int> arr = { 24, 8, 42, 75, 29, 77, 38, 57 };
+	//dualPivotQuickSort(arr, 0, arr.size() - 1);
+	//std::cout << "Sorted array: ";
+	//for (int i = 0; i < arr.size(); i++)
+	//	std:: cout << arr[i] << " ";
+	//	
+	//std::cout << "\nIs sorted: " << isSorted(arr, ascending) << '\n';
 }
