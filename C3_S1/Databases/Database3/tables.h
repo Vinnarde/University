@@ -38,6 +38,16 @@ private slots:
 
     void on_pushButtonStudentDelete_clicked();
 
+    void on_pushButtonBorrowsLoadData_clicked();
+
+    void on_comboBoxBorrowsBorrowId_currentIndexChanged(int index);
+
+    void on_tableViewBorrows_activated(const QModelIndex &index);
+
+    void on_pushButtonBorrowsGiveBook_clicked();
+
+    void on_pushButtonBorrowsReturnBook_clicked();
+
 private:
     Ui::Tables *ui;
 };

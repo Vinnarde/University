@@ -68,9 +68,39 @@ Tables::Tables(QWidget *parent) :
 
     //ui->comboBoxStudentStudentId->setCurrentIndex(1);
 
+
+    /* Student end */
+
+    QSqlQueryModel *modelBooksId = new QSqlQueryModel();
+    QSqlQuery queryGetBooksId;
+    queryGetBooksId.exec("SELECT book_id from Book");
+
+    modelBooksId->setQuery(queryGetBooksId);
+    ui->comboBoxBorrowsBookId->setModel(modelBooksId);
+
+    QSqlQueryModel *modelBorrowsId = new QSqlQueryModel();
+    QSqlQuery queryGetBorrowsId;
+    queryGetBorrowsId.exec("SELECT borrow_id from Borrows");
+
+    modelBorrowsId->setQuery(queryGetBorrowsId);
+    ui->comboBoxBorrowsBorrowId->setModel(modelBorrowsId);
+
+    QSqlQueryModel *modelEmployeeId = new QSqlQueryModel();
+    QSqlQuery queryGetEmployeeId;
+    queryGetEmployeeId.exec("SELECT emp_id from Employee");
+
+    modelEmployeeId->setQuery(queryGetEmployeeId);
+    ui->comboBoxBorrowsEmployeeId->setModel(modelEmployeeId);
+
+    ui->comboBoxBorrowsStudentId->setModel(modelStudentsId);
+
+    ui->tableViewBorrows->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->tableViewStudents->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->tableViewBooks->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+
     emit on_comboBoxStudentStudentId_currentIndexChanged(0);
     emit on_pushButtonStudentLoadData_clicked();
-    /* Student end */
+    emit on_pushButtonLoadDataBooks_clicked();
 }
 
 Tables::~Tables()
@@ -84,7 +114,7 @@ void Tables::on_tableViewBooks_activated(const QModelIndex &index)
 
     QString book_id = index.sibling(index.row(), 0).data().toString();
 
-    QMessageBox::warning(this,tr("Warning::"), book_id);
+    //QMessageBox::warning(this,tr("Warning::"), book_id);
 
     QSqlQuery query;
 
@@ -389,4 +419,172 @@ void Tables::on_pushButtonStudentDelete_clicked()
         qDebug() << query.lastError().text();
     }
 }
+/* Student end */
 
+
+/* Borrows start */
+void Tables::on_pushButtonBorrowsLoadData_clicked()
+{
+    QSqlQueryModel *modal = new QSqlQueryModel();
+    QSqlQuery query;
+
+    query.exec("SELECT * from Borrows");
+    modal->setQuery(query);
+    ui->tableViewBorrows->setModel(modal);
+
+    qDebug() << "Borrow table. Rows loaded: " << modal->rowCount();
+}
+
+
+void Tables::on_comboBoxBorrowsBorrowId_currentIndexChanged(int index)
+{
+    QString borrow_id = ui->comboBoxBorrowsBorrowId->currentText();
+
+    QSqlQuery query;
+
+    query.prepare("Select * from Borrows where borrow_id = :borrowId");
+    query.bindValue(":borrowId", borrow_id);
+
+    if (query.exec())
+    {
+        while(query.next())
+        {
+            ui->comboBoxBorrowsBorrowId->setCurrentText(query.value(0).toString());
+            ui->comboBoxBorrowsStudentId->setCurrentText(query.value(1).toString());
+            ui->comboBoxBorrowsBookId->setCurrentText(query.value(2).toString());
+            ui->comboBoxBorrowsEmployeeId->setCurrentText(query.value(3).toString());
+            ui->dateEditBorrowsTakenDate->setDate(query.value(4).toDate());
+
+            if (query.value(5).toString().isEmpty())
+            {
+
+                ui->dateEditBorrowsBroughtDate->setDate(ui->dateEditBorrowsBroughtDate->maximumDate());
+            }
+            else
+            {
+                ui->dateEditBorrowsBroughtDate->setDate(query.value(5).toDate());
+            }
+        }
+    }
+    else
+    {
+        qDebug() << "Something went from when retrieving data from Borrows table!\n";
+        qDebug() << query.lastError().text();
+    }
+}
+
+
+void Tables::on_tableViewBorrows_activated(const QModelIndex &index)
+{
+    QString borrow_id = index.sibling(index.row(), 0).data().toString();
+
+
+    QSqlQuery query;
+
+    query.prepare("Select * from Borrows where borrow_id = :borrowId");
+    query.bindValue(":borrowId", borrow_id);
+
+    if (query.exec())
+    {
+        while(query.next())
+        {
+            ui->comboBoxBorrowsBorrowId->setCurrentText(query.value(0).toString());
+            ui->comboBoxBorrowsStudentId->setCurrentText(query.value(1).toString());
+            ui->comboBoxBorrowsBookId->setCurrentText(query.value(2).toString());
+            ui->comboBoxBorrowsEmployeeId->setCurrentText(query.value(3).toString());
+            ui->dateEditBorrowsTakenDate->setDate(query.value(4).toDate());
+
+            if (query.value(5).toString().isEmpty())
+            {
+
+                ui->dateEditBorrowsBroughtDate->setDate(ui->dateEditBorrowsBroughtDate->maximumDate());
+            }
+            else
+            {
+                ui->dateEditBorrowsBroughtDate->setDate(query.value(5).toDate());
+            }
+        }
+    }
+    else
+    {
+        qDebug() << "Something went from when retrieving data from Borrows table!\n";
+        qDebug() << query.lastError().text();
+    }
+}
+
+
+void Tables::on_pushButtonBorrowsGiveBook_clicked()
+{
+    QString data[4];
+    data[0] = ui->comboBoxBorrowsStudentId->currentText();
+    data[1] = ui->comboBoxBorrowsBookId->currentText();
+    data[2] = ui->comboBoxBorrowsEmployeeId->currentText();
+    data[3] = QDate::currentDate().toString("yyyy.MM.dd");
+
+    for (auto e : data)
+        qDebug() << e << '\n';
+
+    QSqlQuery query;
+    query.prepare(QString("Insert into Borrows(student_id, book_id, employee_id, taken_date) values(:studentId, :bookId, :empId, :takenDate)"));
+    query.bindValue(":studentId", data[0]);
+    query.bindValue(":bookId", data[1]);
+    query.bindValue(":empId", data[2]);
+    query.bindValue(":takenDate", data[3]);
+
+    if (query.exec())
+    {
+        qDebug() << "Book " << data[1]  << " was successfuly given to Student#" << data[0] <<"!\n";
+    }
+    else
+    {
+        qDebug() << "Something went wrong with adding new row int book table!";
+    }
+}
+
+
+void Tables::on_pushButtonBorrowsReturnBook_clicked()
+{
+    QString borrow_id = ui->comboBoxBorrowsBorrowId->currentText();
+
+    QSqlQuery query;
+    query.prepare("Select brought_date from Borrows Where borrow_id = :borrowId");
+    query.bindValue(":borrowId", borrow_id);
+
+    if (query.exec())
+    {
+        while(query.next())
+        {
+            qDebug() << "Query result: " << query.value(0).toString();
+            if (query.value(0).toString().isEmpty())
+            {
+                query.prepare("Update Borrows set brought_date = :date Where borrow_id =:borrowId");
+                query.bindValue(":date", QDate::currentDate().toString("yyyy.MM.dd"));
+                query.bindValue(":borrowId", borrow_id);
+
+
+                if (query.exec())
+                {
+                    qDebug() << "Book has returned";
+                }
+                else
+                {
+                    qDebug() << "Something went wrong with adding new row int book table!";
+                }
+            }
+            else
+            {
+                QMessageBox::warning(this, tr("Warning::"), "Borrow#" + borrow_id + " has been already returned!");
+            }
+        }
+    }
+    else
+    {
+        qDebug() << "Something went wrong with adding new row int book table!";
+        return;
+    }
+
+
+
+
+}
+/* Borrows end */

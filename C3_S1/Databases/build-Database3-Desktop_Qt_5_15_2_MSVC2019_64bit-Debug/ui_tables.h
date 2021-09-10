@@ -72,7 +72,7 @@ public:
     QPushButton *pushButtonStudentEdit;
     QPushButton *pushButtonStudentDelete;
     QPushButton *pushButtonStudentLoadData;
-    QWidget *widget;
+    QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout_17;
     QLabel *labelStudentStudentId;
@@ -95,6 +95,36 @@ public:
     QHBoxLayout *horizontalLayout_23;
     QLabel *labelStudentSex;
     QComboBox *comboBoxStudentSex;
+    QWidget *tab_3;
+    QTableView *tableViewBorrows;
+    QWidget *layoutWidget_24;
+    QVBoxLayout *verticalLayout_16;
+    QHBoxLayout *horizontalLayout_121;
+    QLabel *labelBorrowsBorrowId;
+    QComboBox *comboBoxBorrowsBorrowId;
+    QHBoxLayout *horizontalLayout_122;
+    QLabel *labelBorrowsStudentId;
+    QComboBox *comboBoxBorrowsStudentId;
+    QHBoxLayout *horizontalLayout_123;
+    QLabel *labelBorrowsBookId;
+    QComboBox *comboBoxBorrowsBookId;
+    QHBoxLayout *horizontalLayout;
+    QLabel *labelBorrowsEmployeeId;
+    QComboBox *comboBoxBorrowsEmployeeId;
+    QHBoxLayout *horizontalLayout_126;
+    QLabel *labelBorrowsTakenDate;
+    QDateEdit *dateEditBorrowsTakenDate;
+    QHBoxLayout *horizontalLayout_127;
+    QLabel *labelBorrowsBroughtDate;
+    QDateEdit *dateEditBorrowsBroughtDate;
+    QWidget *layoutWidget_25;
+    QHBoxLayout *horizontalLayout_128;
+    QPushButton *pushButtonBorrowsGiveBook;
+    QPushButton *pushButtonBorrowsReturnBook;
+    QPushButton *pushButtonBorrowsLoadData;
+    QWidget *tab_13;
+    QWidget *tab_14;
+    QWidget *tab_15;
 
     void setupUi(QDialog *Tables)
     {
@@ -295,20 +325,20 @@ public:
         pushButtonStudentLoadData->setObjectName(QString::fromUtf8("pushButtonStudentLoadData"));
         pushButtonStudentLoadData->setGeometry(QRect(10, 620, 471, 41));
         pushButtonStudentLoadData->setFont(font);
-        widget = new QWidget(tab_2);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(7, 20, 471, 321));
-        verticalLayout_3 = new QVBoxLayout(widget);
+        layoutWidget1 = new QWidget(tab_2);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(7, 20, 471, 321));
+        verticalLayout_3 = new QVBoxLayout(layoutWidget1);
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_17 = new QHBoxLayout();
         horizontalLayout_17->setObjectName(QString::fromUtf8("horizontalLayout_17"));
-        labelStudentStudentId = new QLabel(widget);
+        labelStudentStudentId = new QLabel(layoutWidget1);
         labelStudentStudentId->setObjectName(QString::fromUtf8("labelStudentStudentId"));
 
         horizontalLayout_17->addWidget(labelStudentStudentId);
 
-        comboBoxStudentStudentId = new QComboBox(widget);
+        comboBoxStudentStudentId = new QComboBox(layoutWidget1);
         comboBoxStudentStudentId->setObjectName(QString::fromUtf8("comboBoxStudentStudentId"));
         sizePolicy.setHeightForWidth(comboBoxStudentStudentId->sizePolicy().hasHeightForWidth());
         comboBoxStudentStudentId->setSizePolicy(sizePolicy);
@@ -320,12 +350,12 @@ public:
 
         horizontalLayout_18 = new QHBoxLayout();
         horizontalLayout_18->setObjectName(QString::fromUtf8("horizontalLayout_18"));
-        labelStudentFirstName = new QLabel(widget);
+        labelStudentFirstName = new QLabel(layoutWidget1);
         labelStudentFirstName->setObjectName(QString::fromUtf8("labelStudentFirstName"));
 
         horizontalLayout_18->addWidget(labelStudentFirstName);
 
-        lineEditStudentFirstName = new QLineEdit(widget);
+        lineEditStudentFirstName = new QLineEdit(layoutWidget1);
         lineEditStudentFirstName->setObjectName(QString::fromUtf8("lineEditStudentFirstName"));
 
         horizontalLayout_18->addWidget(lineEditStudentFirstName);
@@ -335,12 +365,12 @@ public:
 
         horizontalLayout_19 = new QHBoxLayout();
         horizontalLayout_19->setObjectName(QString::fromUtf8("horizontalLayout_19"));
-        labelStudentSurname = new QLabel(widget);
+        labelStudentSurname = new QLabel(layoutWidget1);
         labelStudentSurname->setObjectName(QString::fromUtf8("labelStudentSurname"));
 
         horizontalLayout_19->addWidget(labelStudentSurname);
 
-        lineEditStudentSurname = new QLineEdit(widget);
+        lineEditStudentSurname = new QLineEdit(layoutWidget1);
         lineEditStudentSurname->setObjectName(QString::fromUtf8("lineEditStudentSurname"));
 
         horizontalLayout_19->addWidget(lineEditStudentSurname);
@@ -350,12 +380,12 @@ public:
 
         horizontalLayout_20 = new QHBoxLayout();
         horizontalLayout_20->setObjectName(QString::fromUtf8("horizontalLayout_20"));
-        labelStudentCourse = new QLabel(widget);
+        labelStudentCourse = new QLabel(layoutWidget1);
         labelStudentCourse->setObjectName(QString::fromUtf8("labelStudentCourse"));
 
         horizontalLayout_20->addWidget(labelStudentCourse);
 
-        comboBoxStudentCourse = new QComboBox(widget);
+        comboBoxStudentCourse = new QComboBox(layoutWidget1);
         comboBoxStudentCourse->setObjectName(QString::fromUtf8("comboBoxStudentCourse"));
         sizePolicy.setHeightForWidth(comboBoxStudentCourse->sizePolicy().hasHeightForWidth());
         comboBoxStudentCourse->setSizePolicy(sizePolicy);
@@ -367,12 +397,12 @@ public:
 
         horizontalLayout_21 = new QHBoxLayout();
         horizontalLayout_21->setObjectName(QString::fromUtf8("horizontalLayout_21"));
-        labelStudentPhone = new QLabel(widget);
+        labelStudentPhone = new QLabel(layoutWidget1);
         labelStudentPhone->setObjectName(QString::fromUtf8("labelStudentPhone"));
 
         horizontalLayout_21->addWidget(labelStudentPhone);
 
-        lineEditStudentPhone = new QLineEdit(widget);
+        lineEditStudentPhone = new QLineEdit(layoutWidget1);
         lineEditStudentPhone->setObjectName(QString::fromUtf8("lineEditStudentPhone"));
 
         horizontalLayout_21->addWidget(lineEditStudentPhone);
@@ -382,12 +412,12 @@ public:
 
         horizontalLayout_22 = new QHBoxLayout();
         horizontalLayout_22->setObjectName(QString::fromUtf8("horizontalLayout_22"));
-        labelStudentBirthDate = new QLabel(widget);
+        labelStudentBirthDate = new QLabel(layoutWidget1);
         labelStudentBirthDate->setObjectName(QString::fromUtf8("labelStudentBirthDate"));
 
         horizontalLayout_22->addWidget(labelStudentBirthDate);
 
-        dateEditStudentBirthDate = new QDateEdit(widget);
+        dateEditStudentBirthDate = new QDateEdit(layoutWidget1);
         dateEditStudentBirthDate->setObjectName(QString::fromUtf8("dateEditStudentBirthDate"));
         dateEditStudentBirthDate->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         dateEditStudentBirthDate->setTimeSpec(Qt::LocalTime);
@@ -399,12 +429,12 @@ public:
 
         horizontalLayout_23 = new QHBoxLayout();
         horizontalLayout_23->setObjectName(QString::fromUtf8("horizontalLayout_23"));
-        labelStudentSex = new QLabel(widget);
+        labelStudentSex = new QLabel(layoutWidget1);
         labelStudentSex->setObjectName(QString::fromUtf8("labelStudentSex"));
 
         horizontalLayout_23->addWidget(labelStudentSex);
 
-        comboBoxStudentSex = new QComboBox(widget);
+        comboBoxStudentSex = new QComboBox(layoutWidget1);
         comboBoxStudentSex->setObjectName(QString::fromUtf8("comboBoxStudentSex"));
         sizePolicy.setHeightForWidth(comboBoxStudentSex->sizePolicy().hasHeightForWidth());
         comboBoxStudentSex->setSizePolicy(sizePolicy);
@@ -415,13 +445,157 @@ public:
         verticalLayout_3->addLayout(horizontalLayout_23);
 
         tabWidget->addTab(tab_2, QString());
+        tab_3 = new QWidget();
+        tab_3->setObjectName(QString::fromUtf8("tab_3"));
+        tableViewBorrows = new QTableView(tab_3);
+        tableViewBorrows->setObjectName(QString::fromUtf8("tableViewBorrows"));
+        tableViewBorrows->setGeometry(QRect(493, 0, 771, 661));
+        tableViewBorrows->setAutoFillBackground(true);
+        layoutWidget_24 = new QWidget(tab_3);
+        layoutWidget_24->setObjectName(QString::fromUtf8("layoutWidget_24"));
+        layoutWidget_24->setGeometry(QRect(10, 10, 471, 321));
+        verticalLayout_16 = new QVBoxLayout(layoutWidget_24);
+        verticalLayout_16->setObjectName(QString::fromUtf8("verticalLayout_16"));
+        verticalLayout_16->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_121 = new QHBoxLayout();
+        horizontalLayout_121->setObjectName(QString::fromUtf8("horizontalLayout_121"));
+        labelBorrowsBorrowId = new QLabel(layoutWidget_24);
+        labelBorrowsBorrowId->setObjectName(QString::fromUtf8("labelBorrowsBorrowId"));
+
+        horizontalLayout_121->addWidget(labelBorrowsBorrowId);
+
+        comboBoxBorrowsBorrowId = new QComboBox(layoutWidget_24);
+        comboBoxBorrowsBorrowId->setObjectName(QString::fromUtf8("comboBoxBorrowsBorrowId"));
+        sizePolicy.setHeightForWidth(comboBoxBorrowsBorrowId->sizePolicy().hasHeightForWidth());
+        comboBoxBorrowsBorrowId->setSizePolicy(sizePolicy);
+
+        horizontalLayout_121->addWidget(comboBoxBorrowsBorrowId);
+
+
+        verticalLayout_16->addLayout(horizontalLayout_121);
+
+        horizontalLayout_122 = new QHBoxLayout();
+        horizontalLayout_122->setObjectName(QString::fromUtf8("horizontalLayout_122"));
+        labelBorrowsStudentId = new QLabel(layoutWidget_24);
+        labelBorrowsStudentId->setObjectName(QString::fromUtf8("labelBorrowsStudentId"));
+
+        horizontalLayout_122->addWidget(labelBorrowsStudentId);
+
+        comboBoxBorrowsStudentId = new QComboBox(layoutWidget_24);
+        comboBoxBorrowsStudentId->setObjectName(QString::fromUtf8("comboBoxBorrowsStudentId"));
+        sizePolicy.setHeightForWidth(comboBoxBorrowsStudentId->sizePolicy().hasHeightForWidth());
+        comboBoxBorrowsStudentId->setSizePolicy(sizePolicy);
+
+        horizontalLayout_122->addWidget(comboBoxBorrowsStudentId);
+
+
+        verticalLayout_16->addLayout(horizontalLayout_122);
+
+        horizontalLayout_123 = new QHBoxLayout();
+        horizontalLayout_123->setObjectName(QString::fromUtf8("horizontalLayout_123"));
+        labelBorrowsBookId = new QLabel(layoutWidget_24);
+        labelBorrowsBookId->setObjectName(QString::fromUtf8("labelBorrowsBookId"));
+
+        horizontalLayout_123->addWidget(labelBorrowsBookId);
+
+        comboBoxBorrowsBookId = new QComboBox(layoutWidget_24);
+        comboBoxBorrowsBookId->setObjectName(QString::fromUtf8("comboBoxBorrowsBookId"));
+        sizePolicy.setHeightForWidth(comboBoxBorrowsBookId->sizePolicy().hasHeightForWidth());
+        comboBoxBorrowsBookId->setSizePolicy(sizePolicy);
+
+        horizontalLayout_123->addWidget(comboBoxBorrowsBookId);
+
+
+        verticalLayout_16->addLayout(horizontalLayout_123);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        labelBorrowsEmployeeId = new QLabel(layoutWidget_24);
+        labelBorrowsEmployeeId->setObjectName(QString::fromUtf8("labelBorrowsEmployeeId"));
+
+        horizontalLayout->addWidget(labelBorrowsEmployeeId);
+
+        comboBoxBorrowsEmployeeId = new QComboBox(layoutWidget_24);
+        comboBoxBorrowsEmployeeId->setObjectName(QString::fromUtf8("comboBoxBorrowsEmployeeId"));
+        sizePolicy.setHeightForWidth(comboBoxBorrowsEmployeeId->sizePolicy().hasHeightForWidth());
+        comboBoxBorrowsEmployeeId->setSizePolicy(sizePolicy);
+
+        horizontalLayout->addWidget(comboBoxBorrowsEmployeeId);
+
+
+        verticalLayout_16->addLayout(horizontalLayout);
+
+        horizontalLayout_126 = new QHBoxLayout();
+        horizontalLayout_126->setObjectName(QString::fromUtf8("horizontalLayout_126"));
+        labelBorrowsTakenDate = new QLabel(layoutWidget_24);
+        labelBorrowsTakenDate->setObjectName(QString::fromUtf8("labelBorrowsTakenDate"));
+
+        horizontalLayout_126->addWidget(labelBorrowsTakenDate);
+
+        dateEditBorrowsTakenDate = new QDateEdit(layoutWidget_24);
+        dateEditBorrowsTakenDate->setObjectName(QString::fromUtf8("dateEditBorrowsTakenDate"));
+        dateEditBorrowsTakenDate->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
+        dateEditBorrowsTakenDate->setTimeSpec(Qt::LocalTime);
+
+        horizontalLayout_126->addWidget(dateEditBorrowsTakenDate);
+
+
+        verticalLayout_16->addLayout(horizontalLayout_126);
+
+        horizontalLayout_127 = new QHBoxLayout();
+        horizontalLayout_127->setObjectName(QString::fromUtf8("horizontalLayout_127"));
+        labelBorrowsBroughtDate = new QLabel(layoutWidget_24);
+        labelBorrowsBroughtDate->setObjectName(QString::fromUtf8("labelBorrowsBroughtDate"));
+
+        horizontalLayout_127->addWidget(labelBorrowsBroughtDate);
+
+        dateEditBorrowsBroughtDate = new QDateEdit(layoutWidget_24);
+        dateEditBorrowsBroughtDate->setObjectName(QString::fromUtf8("dateEditBorrowsBroughtDate"));
+        dateEditBorrowsBroughtDate->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
+        dateEditBorrowsBroughtDate->setTimeSpec(Qt::LocalTime);
+
+        horizontalLayout_127->addWidget(dateEditBorrowsBroughtDate);
+
+
+        verticalLayout_16->addLayout(horizontalLayout_127);
+
+        layoutWidget_25 = new QWidget(tab_3);
+        layoutWidget_25->setObjectName(QString::fromUtf8("layoutWidget_25"));
+        layoutWidget_25->setGeometry(QRect(3, 360, 481, 51));
+        horizontalLayout_128 = new QHBoxLayout(layoutWidget_25);
+        horizontalLayout_128->setObjectName(QString::fromUtf8("horizontalLayout_128"));
+        horizontalLayout_128->setContentsMargins(0, 0, 0, 0);
+        pushButtonBorrowsGiveBook = new QPushButton(layoutWidget_25);
+        pushButtonBorrowsGiveBook->setObjectName(QString::fromUtf8("pushButtonBorrowsGiveBook"));
+
+        horizontalLayout_128->addWidget(pushButtonBorrowsGiveBook);
+
+        pushButtonBorrowsReturnBook = new QPushButton(layoutWidget_25);
+        pushButtonBorrowsReturnBook->setObjectName(QString::fromUtf8("pushButtonBorrowsReturnBook"));
+
+        horizontalLayout_128->addWidget(pushButtonBorrowsReturnBook);
+
+        pushButtonBorrowsLoadData = new QPushButton(tab_3);
+        pushButtonBorrowsLoadData->setObjectName(QString::fromUtf8("pushButtonBorrowsLoadData"));
+        pushButtonBorrowsLoadData->setGeometry(QRect(10, 620, 471, 41));
+        pushButtonBorrowsLoadData->setFont(font);
+        tabWidget->addTab(tab_3, QString());
+        tab_13 = new QWidget();
+        tab_13->setObjectName(QString::fromUtf8("tab_13"));
+        tabWidget->addTab(tab_13, QString());
+        tab_14 = new QWidget();
+        tab_14->setObjectName(QString::fromUtf8("tab_14"));
+        tabWidget->addTab(tab_14, QString());
+        tab_15 = new QWidget();
+        tab_15->setObjectName(QString::fromUtf8("tab_15"));
+        tabWidget->addTab(tab_15, QString());
 
         gridLayout->addWidget(tabWidget, 0, 1, 1, 1);
 
 
         retranslateUi(Tables);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(Tables);
@@ -455,6 +629,21 @@ public:
         dateEditStudentBirthDate->setDisplayFormat(QCoreApplication::translate("Tables", "yyyy.MM.dd", nullptr));
         labelStudentSex->setText(QCoreApplication::translate("Tables", "Sex", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("Tables", "Student", nullptr));
+        labelBorrowsBorrowId->setText(QCoreApplication::translate("Tables", "BorrowId", nullptr));
+        labelBorrowsStudentId->setText(QCoreApplication::translate("Tables", "StudentId", nullptr));
+        labelBorrowsBookId->setText(QCoreApplication::translate("Tables", "BookId", nullptr));
+        labelBorrowsEmployeeId->setText(QCoreApplication::translate("Tables", "EmployeeId", nullptr));
+        labelBorrowsTakenDate->setText(QCoreApplication::translate("Tables", "Taken date", nullptr));
+        dateEditBorrowsTakenDate->setDisplayFormat(QCoreApplication::translate("Tables", "yyyy.MM.dd", nullptr));
+        labelBorrowsBroughtDate->setText(QCoreApplication::translate("Tables", "Brought date", nullptr));
+        dateEditBorrowsBroughtDate->setDisplayFormat(QCoreApplication::translate("Tables", "yyyy.MM.dd", nullptr));
+        pushButtonBorrowsGiveBook->setText(QCoreApplication::translate("Tables", "Give book", nullptr));
+        pushButtonBorrowsReturnBook->setText(QCoreApplication::translate("Tables", "Return book", nullptr));
+        pushButtonBorrowsLoadData->setText(QCoreApplication::translate("Tables", "Load data", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_3), QCoreApplication::translate("Tables", "Borrows", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_13), QCoreApplication::translate("Tables", "Page", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_14), QCoreApplication::translate("Tables", "Page", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_15), QCoreApplication::translate("Tables", "Page", nullptr));
     } // retranslateUi
 
 };
