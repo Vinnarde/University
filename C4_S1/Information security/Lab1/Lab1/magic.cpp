@@ -32,7 +32,7 @@ int main()
 	inputMagicSquare.close();
 
 	std::string buffer(magicSquare.size(), '-');
-	std::cout << buffer << '\n';
+	//std::cout << buffer << '\n';
 
 	std::ifstream inputTextFile("input.txt");
 	std::ofstream outputTextFile("output.txt");
