@@ -6,6 +6,7 @@
 #include <chrono>
 #include <array>
 #include <codecvt>
+#include <iostream>
 
 void generateAlphabet()
 {
@@ -109,8 +110,35 @@ int main(int argc, char* argv[])
 
 
 	std::wofstream outputText(L"output.txt");
-	//outputText << encrypt(polibiusSquare, buffer);
-	outputText << decrypt(polibiusSquare, buffer);
+
+	system("chcp 65001");
+	system("cls");
+
+	std::ios_base::sync_with_stdio(false);
+	std::wcout.imbue(locale);
+	std::wcout << L"1. Зашифровать\n" << L"2. Расшифровать\n";
+
+	int choice{};
+
+	do
+	{
+		std::wcout << L"Ввод: ";
+		std::cin >> choice;
+
+		if (std::wcout.bad())
+		{
+			std::wcout.clear();
+		}
+	} while (choice != 1 && choice != 2);
+
+	if (choice == 1)
+	{
+		outputText << encrypt(polibiusSquare, buffer);
+	}
+	else if (choice == 2)
+	{
+		outputText << decrypt(polibiusSquare, buffer);
+	}
 
 	//generateAlphabet();
 

@@ -1,12 +1,13 @@
 #include <array>
+#include <codecvt>
 #include <fstream>
 #include <iostream>
 #include <string>
 #include <vector>
 
-std::string encrypt(const std::vector<int>& magicSquare, const std::string& buffer)
+std::wstring encrypt(const std::vector<int>& magicSquare, const std::wstring& buffer)
 {
-	std::string result;
+	std::wstring result;
 
 	for (auto e : magicSquare)
 	{
@@ -14,15 +15,16 @@ std::string encrypt(const std::vector<int>& magicSquare, const std::string& buff
 	}
 
 	return result;
-
 }
 
 int main()
 {
+	const auto locale = std::locale(std::locale(), new std::codecvt_utf8<wchar_t>());
+	std::locale::global(locale);
 
 	std::vector<int> magicSquare;
 
-	std::ifstream inputMagicSquare("square.txt");
+	std::wifstream inputMagicSquare(L"square.txt");
 
 	int x{};
 	while (inputMagicSquare >> x)
@@ -31,25 +33,25 @@ int main()
 	}
 	inputMagicSquare.close();
 
-	std::string buffer(magicSquare.size(), '-');
+	std::wstring buffer(magicSquare.size(), '-');
 	//std::cout << buffer << '\n';
 
-	std::ifstream inputTextFile("input.txt");
-	std::ofstream outputTextFile("output.txt");
+	std::wifstream inputTextFile(L"input.txt");
+	std::wofstream outputTextFile(L"output.txt");
 	while (!inputTextFile.eof())
 	{
-		std::vector<char> arr(buffer.size(), '-');
+		std::vector<wchar_t> arr(buffer.size(), L'-');
 		inputTextFile.read(&arr[0], buffer.size());
 
 		bool canContinue = false;
 
 		for (auto e : arr)
-			if (e != '-') canContinue = true;
+			if (e != L'-') canContinue = true;
 
 		if (!canContinue)
 			break;
 
-		buffer = std::string(arr.begin(), arr.end());
+		buffer = std::wstring(arr.begin(), arr.end());
 
 		// replace part
 
@@ -61,10 +63,5 @@ int main()
 		if (inputTextFile.eof())
 			break;
 	}
-	// replace part
-
-
-	//std::cout << buffer;
-
-	return 0;
+	return 0; 
 }
