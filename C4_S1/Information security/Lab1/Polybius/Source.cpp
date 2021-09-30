@@ -15,7 +15,7 @@ void generateAlphabet()
 
 	for (int i = 0; i < 33; ++i)
 	{
-		str.push_back(L'à' + i);
+		str.push_back(L'a' + i);
 	}
 	str.push_back(L' ');
 	str.push_back(L'.');
