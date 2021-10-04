@@ -33,7 +33,7 @@ int main()
 	}
 	inputMagicSquare.close();
 
-	std::wstring buffer(magicSquare.size(), '-');
+	std::wstring buffer(magicSquare.size(), L'-');
 	//std::cout << buffer << '\n';
 
 	std::wifstream inputTextFile(L"input.txt");
