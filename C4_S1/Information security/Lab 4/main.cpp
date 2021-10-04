@@ -60,8 +60,15 @@ int main() {
     std::string binaryDecryptedText = binaryStringXOR(cipher, key);
     std::string decryptedText = convertToASCII(binaryDecryptedText);
 
-    std::cout <<"Original text: " << sourceText << '\n';
+    std::ofstream outputText("../output.txt");
+    std::ofstream outputKey("../key.txt");
+
+    outputText << convertToASCII(cipher) << '\n';
+    outputKey << key << '\n';
+
+    std::cout << "Original text: " << sourceText << '\n';
     std::cout << "Original text(binary): " << binaryText << '\n';
+
 
     std::cout << "Key: " << key << '\n';
     std::cout << "Cipher text: " << cipher << '\n';
