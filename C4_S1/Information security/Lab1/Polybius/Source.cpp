@@ -15,7 +15,7 @@ void generateAlphabet()
 
 	for (int i = 0; i < 33; ++i)
 	{
-		str.push_back(L'à' + i);
+		str.push_back(L'Ð°' + i);
 	}
 	str.push_back(L' ');
 	str.push_back(L'.');
@@ -116,13 +116,13 @@ int main(int argc, char* argv[])
 
 	std::ios_base::sync_with_stdio(false);
 	std::wcout.imbue(locale);
-	std::wcout << L"1. Çàøèôðîâàòü\n" << L"2. Ðàñøèôðîâàòü\n";
+	std::wcout << L"1. Ð—Ð°ÑˆÐ¸Ñ„Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ\n" << L"2. Ð Ð°ÑÑˆÐ¸Ñ„Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ\n";
 
 	int choice{};
 
 	do
 	{
-		std::wcout << L"Ââîä: ";
+		std::wcout << L"Ð’Ð²Ð¾Ð´: ";
 		std::cin >> choice;
 
 		if (std::wcout.bad())
