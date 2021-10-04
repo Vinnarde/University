@@ -193,8 +193,9 @@ int main(int argc, char *argv[]) {
             test.m_alphabet = polibius.m_alphabet;
 
 //            constexpr std::size_t numberOfAttempts = 1000;
+//            unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+
 //            for (std::size_t i = 0; i < numberOfAttempts; ++i) {
-//                unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 //                std::shuffle(test.m_alphabet.begin(), test.m_alphabet.end(), std::default_random_engine(seed));
 
             std::wstring decryptedText = test.decrypt(encryptedText);
@@ -215,6 +216,13 @@ int main(int argc, char *argv[]) {
         std::wcout << L"Decrypted message: " << decryptedMessage << L"\nW = " << W <<
                    L"\nnumber of rows = " << row << L"\nnumber of columns = " << column << '\n';
 
+        std::wofstream output("../output.txt");
+        output.imbue(locale);
+
+        if (output.is_open())
+        {
+            output << encryptedText << '\n';
+        }
 
     }
     catch (std::exception &e) {
