@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/git-clone/University/C4_S1/Information security/Lab 4/LFSR.h
+vector
+-
+string
+-
+cstddef
+-
+bitset
+-
+
+C:/git-clone/University/C4_S1/Information security/Lab 4/main.cpp
+iostream
+-
+LFSR.h
+C:/git-clone/University/C4_S1/Information security/Lab 4/LFSR.h
+fstream
+-
+string
+-
+

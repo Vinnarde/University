@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/git-clone/University/C4_S1/Metrology/Lab 3/main.cpp
+iostream
+-
+random
+-
+vector
+-
+algorithm
+-
+functional
+-
+iomanip
+-
+

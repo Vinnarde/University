@@ -33,27 +33,25 @@ std::string binaryStringXOR(const std::string &first, const std::string &second)
 }
 
 int main() {
-
-    std::vector<int> taps = {6, 5};
-
+//    std::setlocale(LC_ALL, "en_US.UTF-8");
     std::ifstream inputText("../input.txt");
     std::string sourceText;
     // read full text of input.txt file
     std::getline(inputText, sourceText, '\0');
     std::string binaryText = convertToBinary(sourceText);
 
-    LFSR first_stage(7, "1000001", taps);
+    LFSR first_stage(7, "1000001", std::vector<int>{6, 5});
     LFSR second_stage(19, "1000110", std::vector<int>{18, 17, 16, 13});
 
     std::string key;
     key.reserve(binaryText.size());
     for (std::size_t i = 0; i < binaryText.size(); ++i) {
         if (first_stage.step()) {
-            key.push_back(second_stage.step() + '0');
         } else {
             second_stage.step();
-            key.push_back(second_stage.step() + '0');
         }
+        key.push_back(second_stage.step() ? '1' : '0');
+
     }
     std::string cipher = binaryStringXOR(binaryText, key);
 
@@ -63,7 +61,9 @@ int main() {
     std::ofstream outputText("../output.txt");
     std::ofstream outputKey("../key.txt");
 
-    outputText << convertToASCII(cipher) << '\n';
+//    std::cout << "Encrypted Text " << convertToASCII(cipher) << '\n';
+
+    outputText << cipher << '\n';
     outputKey << key << '\n';
 
     std::cout << "Original text: " << sourceText << '\n';

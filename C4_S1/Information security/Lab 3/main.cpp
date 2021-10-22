@@ -131,7 +131,7 @@ int main(int argc, char *argv[]) {
     try {
 
         // receiving polibius square
-        PolibiusSquare polibius(4, 9);
+        PolibiusSquare polibius(36, 1   );
         std::wifstream inputText(L"../input.txt");
         inputText.imbue(locale);
         std::wifstream inputPolibius(L"../polibius.txt");

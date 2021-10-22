@@ -1,0 +1,3 @@
+C:/git-clone/University/C3_S1/MPI/Lab 3/cmake-build-debug/CMakeFiles/Lab_3.dir
+C:/git-clone/University/C3_S1/MPI/Lab 3/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/git-clone/University/C3_S1/MPI/Lab 3/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,3 @@
+C:/git-clone/University/C4_S1/Metrology/Lab 2/cmake-build-debug/CMakeFiles/Lab_2.dir
+C:/git-clone/University/C4_S1/Metrology/Lab 2/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/git-clone/University/C4_S1/Metrology/Lab 2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
