@@ -20,9 +20,9 @@ void test() {
 
     uint128_t counter{};
 
-    for (uint32_t i = 0; i < 16; ++i) {
+    for (uint32_t i = 0; i < std::numeric_limits<uint16_t>::max(); ++i) {
         subject.setKey(keyGen());
-        for (uint32_t j = 0; j < 64; ++j) {
+        for (uint32_t j = 0; j < std::numeric_limits<uint16_t>::max(); ++j) {
             uint64_t sourceBlock = blockGen();
             uint64_t encodedBlock = subject._encode(sourceBlock);
             uint64_t decodedBlock = subject._decode(encodedBlock);
