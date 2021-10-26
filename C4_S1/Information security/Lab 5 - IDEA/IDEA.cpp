@@ -25,7 +25,6 @@
 
 void IDEA::makeKeys() {
 //    mainKey = std::numeric_limits<uint128_t>::max();
-    mainKey = uint128_t("5192455318486707404433266433261576");
     uint128_t tempKey = mainKey;
     uint128_t temp = tempKey;
     for (int i = 0; i < 52; ++i) {
@@ -48,6 +47,32 @@ void IDEA::debug() {
     for (int i = 0; i < 52; ++i) {
         std::cout << "k" << i / 6 + 1 << i % 6 + 1 << " = " << keys[i] << '\n';
     }
+}
+
+
+std::string IDEA::encode(const std::string &text) {
+
+    std::string temp{}; //= toBinary(text);
+    uint64_t block = _encode(std::bitset<64>(temp).to_ullong());
+    std::string result{};
+
+    for (int i = 7; i >= 0; --i) {
+        result += static_cast<char>((block >> (8 * i)) & 0xff);
+    }
+
+    return result;
+//    return std::bitset<64>(_encode(std::stoull(text))).to_string();
+}
+std::string IDEA::decode(const std::string &text) {
+    std::string temp{};// = toBinary(text);
+    uint64_t block = _decode(std::bitset<64>(temp).to_ullong());
+    std::string result{};
+
+    for (int i = 7; i >= 0; --i) {
+        result += static_cast<char>((block >> (8 * i)) & 8);
+    }
+
+    return result;
 }
 
 uint64_t IDEA::_encode(uint64_t block) {
@@ -132,20 +157,6 @@ uint64_t IDEA::_encode(uint64_t block) {
     std::cout << "\nEncode keys end!\n\n";
 
     return result;
-}
-
-std::string IDEA::encode(const std::string &text) {
-
-    std::string temp{}; //= toBinary(text);
-    uint64_t block = _encode(std::bitset<64>(temp).to_ullong());
-    std::string result{};
-
-    for (int i = 7; i >= 0; --i) {
-        result += static_cast<char>((block >> (8 * i)) & 0xff);
-    }
-
-    return result;
-//    return std::bitset<64>(_encode(std::stoull(text))).to_string();
 }
 
 uint64_t IDEA::_decode(uint64_t block) {
@@ -270,6 +281,7 @@ uint16_t IDEA::extendedGcd(uint32_t a, uint32_t b) {
 //        old_t = temp;
 //    }
 //    return old_t;
+
     //a*x + b*y = 1
     //std::cout << " a = " << a << " b = " << b;
     int buf = a;
@@ -298,17 +310,6 @@ uint16_t IDEA::extendedGcd(uint32_t a, uint32_t b) {
     return y2 % buf;//
 }
 
-std::string IDEA::decode(const std::string &text) {
-    std::string temp{};// = toBinary(text);
-    uint64_t block = _decode(std::bitset<64>(temp).to_ullong());
-    std::string result{};
-
-    for (int i = 7; i >= 0; --i) {
-        result += static_cast<char>((block >> (8 * i)) & 8);
-    }
-
-    return result;
-}
 
 void IDEA::setKey(uint128_t key) {
     mainKey = std::move(key);
