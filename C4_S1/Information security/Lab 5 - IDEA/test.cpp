@@ -20,7 +20,7 @@ void test() {
 
     uint128_t counter{};
 
-    for (uint32_t i = 0; i < std::numeric_limits<uint16_t>::max(); ++i) {
+    for (uint32_t i = 0; i < std::numeric_limits<uint8_t>::max(); ++i) {
         subject.setKey(keyGen());
         for (uint32_t j = 0; j < std::numeric_limits<uint16_t>::max(); ++j) {
             uint64_t sourceBlock = blockGen();

@@ -5,6 +5,7 @@
 #include "IDEA.h"
 #include <bitset>
 #include <utility>
+#include <boost\integer\mod_inverse.hpp>
 
 //std::string toBinary(uint128_t val) {
 //    std::string result;
@@ -24,14 +25,13 @@
 //}
 
 void IDEA::makeKeys() {
-//    mainKey = std::numeric_limits<uint128_t>::max();
     uint128_t tempKey = mainKey;
     uint128_t temp = tempKey;
     for (int i = 0; i < 52; ++i) {
         if (i != 0 && i % 8 == 0) {
             // cycle shift 25 bits to left
             tempKey = (tempKey << 25 | tempKey >> (128 - 25));
-            std::cout << "Temp key = " << tempKey << '\n';
+            //std::clog << "Temp key = " << tempKey << '\n';
             temp = tempKey;
         }
         // first 16 bits of temp(128-bit)
@@ -45,7 +45,7 @@ void IDEA::debug() {
     makeKeys();
 
     for (int i = 0; i < 52; ++i) {
-        std::cout << "k" << i / 6 + 1 << i % 6 + 1 << " = " << keys[i] << '\n';
+        std::clog << "k" << i / 6 + 1 << i % 6 + 1 << " = " << keys[i] << '\n';
     }
 }
 
@@ -83,7 +83,7 @@ uint64_t IDEA::_encode(uint64_t block) {
         parts[i] = block & 0xffff;
         block >>= 16;
     }
-    std::cout << "\nEncode keys: \n";
+    std::clog << "\nEncode keys: \n";
 
     for (int round = 0; round < 8; ++round) {
 
@@ -98,7 +98,7 @@ uint64_t IDEA::_encode(uint64_t block) {
         k[5] = keys[round * 6 + 5];
 
         for (auto item: k)
-            std::cout << std::setw(4) << std::setfill('0')  << std::hex << item << ' ';
+            std::clog << std::setw(4) << std::setfill('0') << std::hex << item << ' ';
 
         // steps 1 - 4
         parts[0] = (parts[0] * keys[round * 6]) % 0x10001;
@@ -128,10 +128,10 @@ uint64_t IDEA::_encode(uint64_t block) {
             std::swap(parts[1], parts[2]);
         }
 
-        std::cout << "\t|\t";
+        std::clog << "\t|\t";
         for (auto item: parts)
-            std::cout << std::hex << std::setw(4) << std::setfill('0') << item << ' ';
-        std::cout << '\n';
+            std::clog << std::hex << std::setw(4) << std::setfill('0') << item << ' ';
+        std::clog << '\n';
 
 
     }
@@ -142,19 +142,19 @@ uint64_t IDEA::_encode(uint64_t block) {
 
 
     for (int i = 0; i < 4; ++i) {
-        std::cout << std::setw(4) << std::setfill('0') << std::hex << keys[48 + i] << ' ';
+        std::clog << std::setw(4) << std::setfill('0') << std::hex << keys[48 + i] << ' ';
     }
 
-    std::cout << "\t\t|\t";
+    std::clog << "\t\t|\t";
     for (int i = 0; i < 4; ++i) {
         result += parts[i];
-        std::cout << std::hex << std::setw(4) << std::setfill('0') << parts[i] << ' ';
+        std::clog << std::hex << std::setw(4) << std::setfill('0') << parts[i] << ' ';
         if (i != 3)
             result <<= 16;
     }
 
 
-    std::cout << "\nEncode keys end!\n\n";
+    std::clog << "\nEncode keys end!\n\n";
 
     return result;
 }
@@ -168,7 +168,7 @@ uint64_t IDEA::_decode(uint64_t block) {
         block >>= 16;
     }
 
-    std::cout << "\nDecode keys: \n";
+    std::clog << "\nDecode keys: \n";
 
     for (int round = 0; round < 8; ++round) {
         // 0x10001 = 2^16 + 1, 0x10000 = 2^16
@@ -186,7 +186,7 @@ uint64_t IDEA::_decode(uint64_t block) {
         k[5] = keys[6 * (8 - round) - 1];
 
         for (auto item: k)
-            std::cout << std::setw(4) << std::setfill('0') << std::hex << item << ' ';
+            std::clog << std::setw(4) << std::setfill('0') << std::hex << item << ' ';
 
         // steps 1 - 4
         parts[0] = (parts[0] * k[0]) % 0x10001;
@@ -216,10 +216,10 @@ uint64_t IDEA::_decode(uint64_t block) {
             std::swap(parts[1], parts[2]);
         }
 
-        std::cout << "\t|\t";
+        std::clog << "\t|\t";
         for (auto item: parts)
-            std::cout << std::hex << std::setw(4) << std::setfill('0') << item << ' ';
-        std::cout << '\n';
+            std::clog << std::hex << std::setw(4) << std::setfill('0') << item << ' ';
+        std::clog << '\n';
     }
     uint16_t k[4];
     k[0] = inverseKey(keys[0]);
@@ -228,25 +228,26 @@ uint64_t IDEA::_decode(uint64_t block) {
     k[3] = inverseKey(keys[3]);
 
     for (auto item: k)
-        std::cout << std::hex << std::setw(4) << std::setfill('0') << item << ' ';
+        std::clog << std::hex << std::setw(4) << std::setfill('0') << item << ' ';
 
     parts[0] = (parts[0] * k[0]) % 0x10001;
     parts[1] = (parts[1] + k[1]) % 0x10000;
     parts[2] = (parts[2] + k[2]) % 0x10000;
     parts[3] = (parts[3] * k[3]) % 0x10001;
 
-    std::cout << "\t\t|\t";
+    std::clog << "\t\t|\t";
     for (int i = 0; i < 4; ++i) {
         result += parts[i];
-        std::cout << std::hex << std::setw(4) << std::setfill('0') << parts[i] << ' ';
+        std::clog << std::hex << std::setw(4) << std::setfill('0') << parts[i] << ' ';
         if (i != 3)
             result <<= 16;
     }
-    std::cout << "\nDecode keys end!\n\n";
+    std::clog << "\nDecode keys end!\n\n";
     return result;
 }
 
 uint16_t IDEA::inverseKey(uint16_t key) {
+//    return boost::integer::mod_inverse(0x10001,int(key));
     return extendedGcd(0x10001, key);
 }
 
@@ -283,9 +284,9 @@ uint16_t IDEA::extendedGcd(uint32_t a, uint32_t b) {
 //    return old_t;
 
     //a*x + b*y = 1
-    //std::cout << " a = " << a << " b = " << b;
+    //std::clog << " a = " << a << " b = " << b;
     int buf = a;
-    //std::cout << " buf = " << buf;
+    //std::clog << " buf = " << buf;
     int q, r, x, x1, x2, y, y1, y2;
     x2 = 1, x1 = 0, y2 = 0, y1 = 1;
     while (b > 0) {
@@ -299,14 +300,14 @@ uint16_t IDEA::extendedGcd(uint32_t a, uint32_t b) {
         x1 = x;
         y2 = y1;
         y1 = y;//
-        //std::cout << " a= " << a << " b= " << b << " q= " << q << " x= " << x << " y= " << y << " r= " << r << " x2= " << x2 << " y2= " << y2 << std::endl;
+        //std::clog << " a= " << a << " b= " << b << " q= " << q << " x= " << x << " y= " << y << " r= " << r << " x2= " << x2 << " y2= " << y2 << std::endl;
     }
-    //std::cout << "  y2 = " << y2;
+    //std::clog << "  y2 = " << y2;
     if (y2 < 0) {
-        //std::cout << "  y2%buf = " << y2%buf << " y2%buf + buf = " << y2%buf + buf;
+        //std::clog << "  y2%buf = " << y2%buf << " y2%buf + buf = " << y2%buf + buf;
         y2 = y2 % buf + buf;
     }
-    //std::cout << "  return y2 = " << y2%buf << "\n";
+    //std::clog << "  return y2 = " << y2%buf << "\n";
     return y2 % buf;//
 }
 
