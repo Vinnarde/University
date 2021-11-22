@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/git-clone/University/C3_S1/Automata theory/Lab 2/main.cpp
+iostream
+-
+fstream
+-
+string
+-
+cctype
+-
+map
+-
+

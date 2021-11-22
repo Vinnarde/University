@@ -63,6 +63,7 @@ std::string IDEA::encode(const std::string &text) {
     return result;
 //    return std::bitset<64>(_encode(std::stoull(text))).to_string();
 }
+
 std::string IDEA::decode(const std::string &text) {
     std::string temp{};// = toBinary(text);
     uint64_t block = _decode(std::bitset<64>(temp).to_ullong());
@@ -78,12 +79,19 @@ std::string IDEA::decode(const std::string &text) {
 uint64_t IDEA::_encode(uint64_t block) {
     uint64_t result{};
 
+    std::clog << "Key: " << mainKey << '\n';
+    std::clog << "Source block: " << block;
     uint32_t parts[4];
     for (int i = 3; i >= 0; --i) {
         parts[i] = block & 0xffff;
         block >>= 16;
     }
+<<<<<<< Updated upstream
     std::cout << "\nEncode keys: \n";
+=======
+
+    std::clog << "\nEncode keys: \n";
+>>>>>>> Stashed changes
 
     for (int round = 0; round < 8; ++round) {
 
@@ -145,7 +153,11 @@ uint64_t IDEA::_encode(uint64_t block) {
         std::cout << std::setw(4) << std::setfill('0') << std::hex << keys[48 + i] << ' ';
     }
 
+<<<<<<< Updated upstream
     std::cout << "\t\t|\t";
+=======
+    std::clog << "\t\t\t|\t";
+>>>>>>> Stashed changes
     for (int i = 0; i < 4; ++i) {
         result += parts[i];
         std::cout << std::hex << std::setw(4) << std::setfill('0') << parts[i] << ' ';
@@ -154,7 +166,12 @@ uint64_t IDEA::_encode(uint64_t block) {
     }
 
 
+<<<<<<< Updated upstream
     std::cout << "\nEncode keys end!\n\n";
+=======
+    std::clog << "\nEncode keys end!\n";
+    std::clog << "Encoded block: " << result << "\n\n";
+>>>>>>> Stashed changes
 
     return result;
 }
@@ -235,14 +252,23 @@ uint64_t IDEA::_decode(uint64_t block) {
     parts[2] = (parts[2] + k[2]) % 0x10000;
     parts[3] = (parts[3] * k[3]) % 0x10001;
 
+<<<<<<< Updated upstream
     std::cout << "\t\t|\t";
+=======
+    std::clog << "\t\t\t|\t";
+>>>>>>> Stashed changes
     for (int i = 0; i < 4; ++i) {
         result += parts[i];
         std::cout << std::hex << std::setw(4) << std::setfill('0') << parts[i] << ' ';
         if (i != 3)
             result <<= 16;
     }
+<<<<<<< Updated upstream
     std::cout << "\nDecode keys end!\n\n";
+=======
+    std::clog << "\nDecode keys end!\n";
+    std::clog << "Decoded block: " << result << "\n\n";
+>>>>>>> Stashed changes
     return result;
 }
 

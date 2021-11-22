@@ -4,6 +4,7 @@
 #include <QDebug>
 #include "book.h"
 #include "tables.h"
+#include <QMessageBox>
 
 Login::Login(QWidget *parent)
     : QMainWindow(parent)
@@ -48,13 +49,39 @@ void Login::on_pushButton_signIn_clicked()
         this->hide();
 
         Tables table;
-        table.setModal(true);
+        //table.setModal(true);
+//        tables->show();
+
+//        QSqlQuery query;
+
+//        query.exec("SELECT r.name role_principal_name"
+//                   "FROM sys.database_role_members rm "
+//                   "JOIN sys.database_principals r "
+//                   "ON rm.role_principal_id = r.principal_id"
+//                   "JOIN sys.database_principals m "
+//                   "ON rm.member_principal_id = m.principal_id"
+//                   "WHERE m.name = '" + username + "'");
+
+//        QString role;
+//        while (query.next())
+//        {
+//            role = query.value(0).toString();
+//        }
+
+//        table.setWindowTitle(username + " " + role);
+
         table.exec();
+
+
 
 
         //Book book;
         //book.setModal(true);
         //book.exec();
+    }
+    else
+    {
+        QMessageBox::critical(this,"Error","Couldn't connect to database!");
     }
 }
 

@@ -6,7 +6,7 @@
 
 auto seed = std::chrono::system_clock::now().time_since_epoch().count();
 std::default_random_engine generator(seed);
-std::uniform_int_distribution<int_fast32_t> distribution(0, 10000);
+std::uniform_int_distribution<int_fast32_t> distribution(0, 10);
 auto generateRandomNumber = std::bind(distribution, std::ref(generator));
 
 #pragma optimize ("", off)
@@ -14,7 +14,7 @@ void task_1()
 {
 	printf_s("\nThis is the output of program #1!\n\n");
 
-	constexpr size_t size{ 10000000 };
+	constexpr size_t size{ 16 };
 
 	std::vector<int> A(size);
 	std::vector<int> B(size);
@@ -26,14 +26,14 @@ void task_1()
 	double startPoint{ omp_get_wtime() };
 
 	omp_set_dynamic(true);
-#pragma omp parallel shared(A, B, C), num_threads(2)
+#pragma omp parallel shared(A, B, C), num_threads(4)
 	{
 #pragma omp for
 		for (int_fast32_t i = 0; i < size; ++i)
 		{
 			C[i] = A[i] + B[i];
-			//printf_s("\tThreadId: %d, Element id: %d\n", omp_get_thread_num(), i);
-			//printf_s("\tA[%d] + B[%d] = %d + %d = %d\n", i, i, A[i], B[i], C[i]);
+			printf_s("\tThreadId: %d, Element id: %d\n", omp_get_thread_num(), i);
+			printf_s("\tA[%d] + B[%d] = %d + %d = %d\n", i, i, A[i], B[i], C[i]);
 		}
 	}
 
@@ -46,7 +46,7 @@ void task_2()
 {
 	printf_s("\nThis is the output of program #2!\n\n");
 
-	constexpr size_t size{ 100 };
+	constexpr size_t size{ 8 };
 	std::vector<int> A(size);
 	std::vector<int> B(size);
 
@@ -57,12 +57,14 @@ void task_2()
 
 	uint_fast64_t sum{ 0 };
 	omp_set_dynamic(true);
-#pragma omp parallel shared(A, B) reduction(+:sum)
+#pragma omp parallel shared(A, B) reduction(+:sum), num_threads(4)
 	{
 #pragma omp for
 		for (int_fast32_t i = 0; i < size; ++i)
 		{
-			sum += static_cast<int_fast64_t>(A[i]) * B[i];
+			sum += static_cast<uint_fast64_t>(A[i]) * B[i];
+			printf_s("\tThreadId: %d, Element id: %d\n", omp_get_thread_num(), i);
+			printf_s("\tA[%d] * B[%d] = %d * %d = %d\n", i, i, A[i], B[i], A[i] * B[i]);
 		}
 	}
 
@@ -82,22 +84,30 @@ void task_3()
 {
 	printf_s("\nThis is the output of program #3!\n\n");
 
-	constexpr size_t size = 32;
+	constexpr size_t size = 3;
 
 	std::vector<std::vector<int>> matrix(size, std::vector<int>(size));
 
+	std::cout << "\tMatrix:\n\t";
 	for (auto& row : matrix)
 	{
 		for (auto& elem : row)
 		{
 			elem = generateRandomNumber();
+			std::cout << elem << ' ';
 		}
+		std::cout << "\n\t";
 	}
+	std::cout << '\n';
 
+	std::cout << "\tVector:\n\t";
 	std::vector<int> vector(size);
 	std::for_each(vector.begin(), vector.end(),
-		[](auto& x) { x = generateRandomNumber(); });
-
+		[](auto& x)
+		{
+			x = generateRandomNumber(); std::cout << x << ' ';
+		});
+	std::cout << '\n';
 	std::vector<int_fast64_t> new_vector(size);
 
 	omp_set_dynamic(true);
@@ -112,7 +122,7 @@ void task_3()
 			{
 				temp += matrix[i][j] * vector[j];
 			}
-			printf_s("\tThreadId: %d, ElementId: %llu, ElementValue: %llu\n",
+			printf_s("\tThreadId: %d, ElementId: %d, ElementValue: %llu\n",
 				omp_get_thread_num(), i, temp);
 
 			new_vector[i] = temp;
@@ -128,7 +138,7 @@ void task_3()
 void task_4()
 {
 	printf_s("\nThis is the output of program #4!\n\n");
-	
+
 	omp_set_dynamic(true);
 #pragma omp parallel 
 	{

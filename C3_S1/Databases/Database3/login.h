@@ -1,6 +1,8 @@
 #ifndef LOGIN_H
 #define LOGIN_H
 
+#include "tables.h"
+
 #include <QMainWindow>
 #include <QtSql>
 
@@ -25,6 +27,7 @@ private slots:
 
 private:
     Ui::Login *ui;
+    //Tables *tables;
 
 };
 #endif // LOGIN_H

@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/git-clone/University/C4_S1/Information security/Lab 5 - IDEA/IDEA.h
+boost/multiprecision/cpp_int.hpp
+-
+array
+-
+
+C:/git-clone/University/C4_S1/Information security/Lab 5 - IDEA/main.cpp
+iostream
+-
+IDEA.h
+C:/git-clone/University/C4_S1/Information security/Lab 5 - IDEA/IDEA.h
+fstream
+-
+bitset
+-
+
+C:/git-clone/University/C4_S1/Information security/Lab 5 - IDEA/test.cpp
+IDEA.h
+C:/git-clone/University/C4_S1/Information security/Lab 5 - IDEA/IDEA.h
+fstream
+-
+boost/random.hpp
+-
+boost/multiprecision/cpp_int.hpp
+-
+

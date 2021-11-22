@@ -1,7 +1,5 @@
 package com.example.lab3;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +7,32 @@ import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+class MyException extends Exception {
+    // default constructor
+    MyException() {
+    }
+
+    // parameterized constructor
+    MyException(String str) {
+        super(str);
+    }
+}
+
+
+
 public class MainActivity extends AppCompatActivity {
+
+    private void messageBox(String message)
+    {
+        AlertDialog.Builder messageBox = new AlertDialog.Builder(this);
+        messageBox.setMessage(message);
+        messageBox.setCancelable(false);
+        messageBox.setNeutralButton("OK", null);
+        messageBox.show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
             RadioGroup radioGroup = (RadioGroup) findViewById(R.id.tableColor);
             if (radioGroup.getCheckedRadioButtonId() == -1) {
+                throw new MyException("Выберите цвет столещницы!");
             }
             // table color
             RadioButton rb = findViewById(R.id.radioButtonColorBlack);
@@ -39,6 +63,11 @@ public class MainActivity extends AppCompatActivity {
                 t.setTableColor(Color.WHITEOAK);
 
 
+            radioGroup = (RadioGroup) findViewById(R.id.tableSize);
+            if (radioGroup.getCheckedRadioButtonId() == -1) {
+                throw new MyException("Выберите размер столещницы!");
+            }
+
             //  table size
             rb = findViewById(R.id.radioButtonSize10060);
             if (rb.isChecked())
@@ -50,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
             if (rb.isChecked())
                 t.setTableSize(3);
 
+            radioGroup = (RadioGroup) findViewById(R.id.legColor);
+            if (radioGroup.getCheckedRadioButtonId() == -1) {
+                throw new MyException("Выберите цвет ножек!");
+            }
             // leg color
             rb = findViewById(R.id.radioButtonLegColorBlack);
             if (rb.isChecked())
@@ -61,6 +94,10 @@ public class MainActivity extends AppCompatActivity {
             if (rb.isChecked())
                 t.setLegColor(Color.WHITEOAK);
 
+            radioGroup = (RadioGroup) findViewById(R.id.legSize);
+            if (radioGroup.getCheckedRadioButtonId() == -1) {
+                throw new MyException("Выберите размер ножек!");
+            }
             // leg size
             rb = findViewById(R.id.radioButtonLegSize70);
             if (rb.isChecked())
@@ -75,8 +112,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
 
 
-        } catch (Exception e) {
-
+        } catch (MyException e) {
+            messageBox(e.getMessage());
         }
 
     }

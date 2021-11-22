@@ -3,6 +3,8 @@
 //
 
 #include "IDEA.h"
+
+#include <fstream>
 #include <boost/random.hpp>
 #include <boost/multiprecision/cpp_int.hpp>
 
@@ -11,6 +13,15 @@ using namespace boost::random;
 
 void test() {
     IDEA subject;
+
+    std::cout << std::hex;
+    std::clog << std::hex;
+
+    std::ofstream ofs("logfile.txt");
+    std::clog.rdbuf(ofs.rdbuf());
+
+    std::ofstream coutOutput("errors.txt");
+    std::cout.rdbuf(coutOutput.rdbuf());
 
     typedef independent_bits_engine<mt19937, 128, uint128_t> keyGenerator_t;
     typedef independent_bits_engine<mt11213b, 64, uint64_t> blockGenerator_t;
@@ -22,13 +33,12 @@ void test() {
 
     for (uint32_t i = 0; i < std::numeric_limits<uint16_t>::max(); ++i) {
         subject.setKey(keyGen());
-        for (uint32_t j = 0; j < std::numeric_limits<uint16_t>::max(); ++j) {
+        for (uint32_t j = 0; j < std::numeric_limits<uint8_t>::max(); ++j) {
             uint64_t sourceBlock = blockGen();
             uint64_t encodedBlock = subject._encode(sourceBlock);
             uint64_t decodedBlock = subject._decode(encodedBlock);
 
             if (sourceBlock != decodedBlock) {
-                std::cout << std::dec;
                 std::cout << "Key:\t\t" << subject.getKey() << '\n';
                 std::cout << "Source block:\t\t" << sourceBlock << '\n';
                 std::cout << "Encrypted block:\t" << encodedBlock << '\n';

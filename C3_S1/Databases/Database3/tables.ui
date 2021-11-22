@@ -22,9 +22,70 @@
    <item row="0" column="1">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>3</number>
+      <number>1</number>
      </property>
-     <widget class="QWidget" name="tab">
+     <property name="tabBarAutoHide">
+      <bool>false</bool>
+     </property>
+     <widget class="QWidget" name="tabHome">
+      <attribute name="title">
+       <string>⌂</string>
+      </attribute>
+      <widget class="QTableView" name="tableViewViews">
+       <property name="geometry">
+        <rect>
+         <x>490</x>
+         <y>0</y>
+         <width>771</width>
+         <height>661</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QWidget" name="verticalLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>180</y>
+         <width>381</width>
+         <height>231</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QPushButton" name="pushButtonBookPopularityReport">
+          <property name="text">
+           <string>Book's popularity</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButtonDetailedBookReport">
+          <property name="text">
+           <string>Book's report</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButtonExpiredBooks">
+          <property name="text">
+           <string>Employee Report</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButtonEmployeeReport">
+          <property name="text">
+           <string>Expired Books</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tabBook">
       <attribute name="title">
        <string>Book</string>
       </attribute>
@@ -237,7 +298,7 @@
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="tab_2">
+     <widget class="QWidget" name="tabStudent">
       <attribute name="title">
        <string>Student</string>
       </attribute>
@@ -311,7 +372,7 @@
          <x>7</x>
          <y>20</y>
          <width>471</width>
-         <height>321</height>
+         <height>340</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -447,7 +508,7 @@
        </layout>
       </widget>
      </widget>
-     <widget class="QWidget" name="tab_3">
+     <widget class="QWidget" name="tabBorrows">
       <attribute name="title">
        <string>Borrows</string>
       </attribute>
@@ -653,11 +714,11 @@
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="tab_13">
+     <widget class="QWidget" name="tabEmployee">
       <attribute name="title">
        <string>Employee</string>
       </attribute>
-      <widget class="QPushButton" name="pushButtonStudentLoadData_4">
+      <widget class="QPushButton" name="pushButtonEmployeeLoadData">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -675,7 +736,7 @@
         <string>Load data</string>
        </property>
       </widget>
-      <widget class="QTableView" name="tableViewStudents_4">
+      <widget class="QTableView" name="tableViewEmployees">
        <property name="geometry">
         <rect>
          <x>493</x>
@@ -699,21 +760,21 @@
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_57">
         <item>
-         <widget class="QPushButton" name="pushButtonStudentAdd_4">
+         <widget class="QPushButton" name="pushButtonEmployeeAdd">
           <property name="text">
            <string>Add</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButtonStudentEdit_4">
+         <widget class="QPushButton" name="pushButtonEmployeeEdit">
           <property name="text">
            <string>Edit</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButtonStudentDelete_4">
+         <widget class="QPushButton" name="pushButtonEmployeeDelete">
           <property name="text">
            <string>Delete</string>
           </property>
@@ -734,14 +795,14 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_58">
           <item>
-           <widget class="QLabel" name="labelStudentStudentId_4">
+           <widget class="QLabel" name="labeEmployeeEmpId">
             <property name="text">
              <string>EmployeeId</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBoxStudentStudentId_4">
+           <widget class="QComboBox" name="comboBoxEmployeeEmpId">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -755,42 +816,172 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_59">
           <item>
-           <widget class="QLabel" name="labelStudentFirstName_4">
+           <widget class="QLabel" name="labelEmployeeFirstName">
             <property name="text">
              <string>First name</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEditStudentFirstName_4"/>
+           <widget class="QLineEdit" name="lineEditEmployeeFirstName"/>
           </item>
          </layout>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_60">
           <item>
-           <widget class="QLabel" name="labelStudentSurname_4">
+           <widget class="QLabel" name="labelEmployeeSurname">
             <property name="text">
              <string>Surname</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEditStudentSurname_4"/>
+           <widget class="QLineEdit" name="lineEditEmployeeSurname"/>
           </item>
          </layout>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_61">
           <item>
-           <widget class="QLabel" name="labelStudentCourse_4">
+           <widget class="QLabel" name="labelEmployeePhone">
             <property name="text">
-             <string>Course</string>
+             <string>Phone</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBoxStudentCourse_4">
+           <widget class="QLineEdit" name="lineEditEmployeePhone"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_62">
+          <item>
+           <widget class="QLabel" name="labelEmployeeSalary">
+            <property name="text">
+             <string>Salary</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEditEmployeeSalary"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_66">
+          <item>
+           <widget class="QLabel" name="labelEmployeePositionId">
+            <property name="text">
+             <string>Position</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBoxEmployeePositionId">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tabAuthor">
+      <attribute name="title">
+       <string>Author</string>
+      </attribute>
+      <widget class="QTableView" name="tableViewAuthors">
+       <property name="geometry">
+        <rect>
+         <x>490</x>
+         <y>10</y>
+         <width>771</width>
+         <height>661</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QWidget" name="layoutWidget_14">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>190</y>
+         <width>471</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_85">
+        <item>
+         <widget class="QPushButton" name="pushButtonAuthorAdd">
+          <property name="text">
+           <string>Add</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButtonAuthorEdit">
+          <property name="text">
+           <string>Edit</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButtonAuthorDelete">
+          <property name="text">
+           <string>Delete</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QPushButton" name="pushButtonAuthorLoadData">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>620</y>
+         <width>471</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Load data</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="layoutWidget_15">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>471</width>
+         <height>171</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_12">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_86">
+          <item>
+           <widget class="QLabel" name="labelAuthorAuthorId">
+            <property name="text">
+             <string>AuthorId</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBoxAuthorAuthorId">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -802,31 +993,397 @@
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_62">
+         <layout class="QHBoxLayout" name="horizontalLayout_87">
           <item>
-           <widget class="QLabel" name="labelStudentPhone_4">
+           <widget class="QLabel" name="labelAuthorFirstName">
             <property name="text">
-             <string>Phone</string>
+             <string>First name</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEditStudentPhone_4"/>
+           <widget class="QLineEdit" name="lineEditAuthorFirstName"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_88">
+          <item>
+           <widget class="QLabel" name="labelAuthorSurname">
+            <property name="text">
+             <string>Surname</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEditAuthorSurname"/>
           </item>
          </layout>
         </item>
        </layout>
       </widget>
      </widget>
-     <widget class="QWidget" name="tab_14">
+     <widget class="QWidget" name="tabPublisher">
       <attribute name="title">
-       <string>Page</string>
+       <string>Publisher</string>
       </attribute>
+      <widget class="QPushButton" name="pushButtonPublisherLoadData">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>620</y>
+         <width>471</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Load data</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="layoutWidget_16">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>190</y>
+         <width>471</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_89">
+        <item>
+         <widget class="QPushButton" name="pushButtonPublisherAdd">
+          <property name="text">
+           <string>Add</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButtonPublisherEdit">
+          <property name="text">
+           <string>Edit</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButtonPublisherDelete">
+          <property name="text">
+           <string>Delete</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="layoutWidget_17">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>471</width>
+         <height>171</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_13">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_90">
+          <item>
+           <widget class="QLabel" name="labelPublisherPublisherId">
+            <property name="text">
+             <string>PublisherId</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBoxPublisherPublisherId">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_91">
+          <item>
+           <widget class="QLabel" name="labelPublisherName">
+            <property name="text">
+             <string>Name</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEditPublisherName"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_92">
+          <item>
+           <widget class="QLabel" name="labelPublisherAddress">
+            <property name="text">
+             <string>Address</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEditPublisherAddress"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QTableView" name="tableViewPublishers">
+       <property name="geometry">
+        <rect>
+         <x>490</x>
+         <y>10</y>
+         <width>771</width>
+         <height>661</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
+      </widget>
      </widget>
-     <widget class="QWidget" name="tab_15">
+     <widget class="QWidget" name="tabType">
       <attribute name="title">
-       <string>Page</string>
+       <string>Type</string>
       </attribute>
+      <widget class="QWidget" name="layoutWidget_48">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>471</width>
+         <height>171</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_26">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_158">
+          <item>
+           <widget class="QLabel" name="labelTypeTypeId">
+            <property name="text">
+             <string>TypeId</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBoxTypeTypeId">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_159">
+          <item>
+           <widget class="QLabel" name="labelTypeName">
+            <property name="text">
+             <string>Name</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEditTypeName"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="layoutWidget_49">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>190</y>
+         <width>471</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_161">
+        <item>
+         <widget class="QPushButton" name="pushButtonTypeAdd">
+          <property name="text">
+           <string>Add</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButtonTypeEdit">
+          <property name="text">
+           <string>Edit</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButtonTypeDelete">
+          <property name="text">
+           <string>Delete</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QTableView" name="tableViewTypes">
+       <property name="geometry">
+        <rect>
+         <x>490</x>
+         <y>10</y>
+         <width>771</width>
+         <height>661</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonTypeLoadData">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>620</y>
+         <width>471</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Load data</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tabPosition">
+      <attribute name="title">
+       <string>Position</string>
+      </attribute>
+      <widget class="QPushButton" name="pushButtonPositionLoadData">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>620</y>
+         <width>471</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Load data</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="layoutWidget_50">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>190</y>
+         <width>471</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_162">
+        <item>
+         <widget class="QPushButton" name="pushButtonPositionAdd">
+          <property name="text">
+           <string>Add</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButtonPositionEdit">
+          <property name="text">
+           <string>Edit</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButtonPositionDelete">
+          <property name="text">
+           <string>Delete</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="layoutWidget_51">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>471</width>
+         <height>171</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_27">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_160">
+          <item>
+           <widget class="QLabel" name="labelPositionPositionId">
+            <property name="text">
+             <string>PositionId</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBoxPositionPositionId">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_163">
+          <item>
+           <widget class="QLabel" name="labelPositionName">
+            <property name="text">
+             <string>Name</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEditPositionName"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QTableView" name="tableViewPosititions">
+       <property name="geometry">
+        <rect>
+         <x>490</x>
+         <y>10</y>
+         <width>771</width>
+         <height>661</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
+      </widget>
      </widget>
     </widget>
    </item>

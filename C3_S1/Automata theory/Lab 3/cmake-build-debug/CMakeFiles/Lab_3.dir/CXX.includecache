@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/git-clone/University/C3_S1/Automata theory/Lab 3/Hashtable.h
+Tokenizer.h
+C:/git-clone/University/C3_S1/Automata theory/Lab 3/Tokenizer.h
+
+C:/git-clone/University/C3_S1/Automata theory/Lab 3/Tokenizer.h
+utility
+-
+vector
+-
+string
+-
+
+C:/git-clone/University/C3_S1/Automata theory/Lab 3/main.cpp
+iostream
+-
+string
+-
+iomanip
+-
+unordered_set
+-
+Tokenizer.h
+C:/git-clone/University/C3_S1/Automata theory/Lab 3/Tokenizer.h
+Hashtable.h
+C:/git-clone/University/C3_S1/Automata theory/Lab 3/Hashtable.h
+
