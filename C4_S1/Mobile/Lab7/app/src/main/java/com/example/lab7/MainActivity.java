@@ -221,25 +221,26 @@ class DrawView extends View {
             final int w = displayMetrics.widthPixels;
             final int h = displayMetrics.heightPixels;
 
-            int i = 0, j = 0;
+            int i = -1, j = -1;
             if (x >= 0 && x <= w / 3.0f) i = 0;
             if (x >= w / 3.0f + 10.0f && x <= 2.0f * w / 3.0f + 10) i = 1;
-            if (x >= 2.0f * w / 3.0f + 20) i = 2;
+            if (x >= 2.0f * w / 3.0f + 20 && x <= width) i = 2;
 
             if (y >= 0 && y <= w / 3.0f) j = 0;
             if (y >= w / 3.0f + 10.0f && y <= 2.0f * w / 3.0f + 10) j = 1;
-            if (y >= 2.0f * w / 3.0f + 20) j = 2;
+            if (y >= 2.0f * w / 3.0f + 20 && y <= width) j = 2;
 
-            if (game.get(i, j) == 0) {
-                game.set(i, j);
-                game.changePLayer();
+            if (i != -1 && j != -1) {
+                if (game.get(i, j) == 0) {
+                    game.set(i, j);
+                    game.changePLayer();
 
-                if (MainActivity.soundState)
-                    MainActivity.soundPool.play(MainActivity.click, 1, 1, 1, 0, 1);
+                    if (MainActivity.soundState)
+                        MainActivity.soundPool.play(MainActivity.click, 1, 1, 1, 0, 1);
 
-                invalidate();
+                    invalidate();
 
-
+                }
             }
         }
         return true;
