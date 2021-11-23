@@ -1,0 +1,3 @@
+C:/git-clone/University/C3_S1/Automata theory/Lab 2/cmake-build-debug/CMakeFiles/Lab_2.dir
+C:/git-clone/University/C3_S1/Automata theory/Lab 2/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/git-clone/University/C3_S1/Automata theory/Lab 2/cmake-build-debug/CMakeFiles/rebuild_cache.dir

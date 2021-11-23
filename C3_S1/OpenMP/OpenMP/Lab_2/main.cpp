@@ -8,7 +8,7 @@
 void task_1()
 {
 	printf_s("\nThis is the output of program #1!\n\n");
-	constexpr int_fast32_t numOfIterations{ INT32_MAX };
+	constexpr int_fast32_t numOfIterations{ std::numeric_limits<int>::max() };
 
 	double firstNum{};
 	double secondNum{};
@@ -153,7 +153,7 @@ void task_5()
 	int n{ 10 };
 
 	printf_s("Sequential area. n = %d\n", n);
-	
+
 #pragma  omp parallel num_threads(2), firstprivate(n)
 	{
 		printf_s("\tParallel area. ThreadId: %d. n = %d\n",
@@ -164,7 +164,7 @@ void task_5()
 		printf_s("\tParallel area. ThreadId: %d. n = %d\n",
 			omp_get_thread_num(), n);
 	}
-	
+
 	printf_s("Sequential area. n = %d\n", n);
 
 }
@@ -184,7 +184,7 @@ void task_6()
 	{
 		arr.at(omp_get_thread_num()) = 1;
 	}
-	
+
 	std::cout << "\nArray after parallel area: \n";
 	for (size_t i = 0; i < arr.size(); ++i)
 	{
@@ -200,7 +200,7 @@ void task_7()
 	omp_set_dynamic(true);
 #pragma omp parallel reduction(+:reduction)
 	{
-		reduction = 1;
+		reduction += 1;
 		printf_s("\tThreadId: %d, var = %d\n",
 			omp_get_thread_num(), reduction);
 	}
@@ -233,8 +233,8 @@ int main(int argc, char* argv[])
 	//task_4();
 	//task_5();
 	//task_6();
-	task_7();
-	task_8();
-	
+	//task_7();
+	//task_8();
+
 	return 0;
 }

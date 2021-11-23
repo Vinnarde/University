@@ -33,7 +33,15 @@ class Ui_Tables
 public:
     QGridLayout *gridLayout;
     QTabWidget *tabWidget;
-    QWidget *tab;
+    QWidget *tabHome;
+    QTableView *tableViewViews;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
+    QPushButton *pushButtonBookPopularityReport;
+    QPushButton *pushButtonDetailedBookReport;
+    QPushButton *pushButtonExpiredBooks;
+    QPushButton *pushButtonEmployeeReport;
+    QWidget *tabBook;
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout_9;
@@ -64,7 +72,7 @@ public:
     QPushButton *pushButtonBookEdit_2;
     QPushButton *pushButtonBookDelete_2;
     QPushButton *pushButtonLoadDataBooks;
-    QWidget *tab_2;
+    QWidget *tabStudent;
     QTableView *tableViewStudents;
     QWidget *layoutWidget_3;
     QHBoxLayout *horizontalLayout_24;
@@ -95,7 +103,7 @@ public:
     QHBoxLayout *horizontalLayout_23;
     QLabel *labelStudentSex;
     QComboBox *comboBoxStudentSex;
-    QWidget *tab_3;
+    QWidget *tabBorrows;
     QTableView *tableViewBorrows;
     QWidget *layoutWidget_24;
     QVBoxLayout *verticalLayout_16;
@@ -122,9 +130,104 @@ public:
     QPushButton *pushButtonBorrowsGiveBook;
     QPushButton *pushButtonBorrowsReturnBook;
     QPushButton *pushButtonBorrowsLoadData;
-    QWidget *tab_13;
-    QWidget *tab_14;
-    QWidget *tab_15;
+    QWidget *tabEmployee;
+    QPushButton *pushButtonEmployeeLoadData;
+    QTableView *tableViewEmployees;
+    QWidget *layoutWidget_12;
+    QHBoxLayout *horizontalLayout_57;
+    QPushButton *pushButtonEmployeeAdd;
+    QPushButton *pushButtonEmployeeEdit;
+    QPushButton *pushButtonEmployeeDelete;
+    QWidget *layoutWidget_13;
+    QVBoxLayout *verticalLayout_8;
+    QHBoxLayout *horizontalLayout_58;
+    QLabel *labeEmployeeEmpId;
+    QComboBox *comboBoxEmployeeEmpId;
+    QHBoxLayout *horizontalLayout_59;
+    QLabel *labelEmployeeFirstName;
+    QLineEdit *lineEditEmployeeFirstName;
+    QHBoxLayout *horizontalLayout_60;
+    QLabel *labelEmployeeSurname;
+    QLineEdit *lineEditEmployeeSurname;
+    QHBoxLayout *horizontalLayout_61;
+    QLabel *labelEmployeePhone;
+    QLineEdit *lineEditEmployeePhone;
+    QHBoxLayout *horizontalLayout_62;
+    QLabel *labelEmployeeSalary;
+    QLineEdit *lineEditEmployeeSalary;
+    QHBoxLayout *horizontalLayout_66;
+    QLabel *labelEmployeePositionId;
+    QComboBox *comboBoxEmployeePositionId;
+    QWidget *tabAuthor;
+    QTableView *tableViewAuthors;
+    QWidget *layoutWidget_14;
+    QHBoxLayout *horizontalLayout_85;
+    QPushButton *pushButtonAuthorAdd;
+    QPushButton *pushButtonAuthorEdit;
+    QPushButton *pushButtonAuthorDelete;
+    QPushButton *pushButtonAuthorLoadData;
+    QWidget *layoutWidget_15;
+    QVBoxLayout *verticalLayout_12;
+    QHBoxLayout *horizontalLayout_86;
+    QLabel *labelAuthorAuthorId;
+    QComboBox *comboBoxAuthorAuthorId;
+    QHBoxLayout *horizontalLayout_87;
+    QLabel *labelAuthorFirstName;
+    QLineEdit *lineEditAuthorFirstName;
+    QHBoxLayout *horizontalLayout_88;
+    QLabel *labelAuthorSurname;
+    QLineEdit *lineEditAuthorSurname;
+    QWidget *tabPublisher;
+    QPushButton *pushButtonPublisherLoadData;
+    QWidget *layoutWidget_16;
+    QHBoxLayout *horizontalLayout_89;
+    QPushButton *pushButtonPublisherAdd;
+    QPushButton *pushButtonPublisherEdit;
+    QPushButton *pushButtonPublisherDelete;
+    QWidget *layoutWidget_17;
+    QVBoxLayout *verticalLayout_13;
+    QHBoxLayout *horizontalLayout_90;
+    QLabel *labelPublisherPublisherId;
+    QComboBox *comboBoxPublisherPublisherId;
+    QHBoxLayout *horizontalLayout_91;
+    QLabel *labelPublisherName;
+    QLineEdit *lineEditPublisherName;
+    QHBoxLayout *horizontalLayout_92;
+    QLabel *labelPublisherAddress;
+    QLineEdit *lineEditPublisherAddress;
+    QTableView *tableViewPublishers;
+    QWidget *tabType;
+    QWidget *layoutWidget_48;
+    QVBoxLayout *verticalLayout_26;
+    QHBoxLayout *horizontalLayout_158;
+    QLabel *labelTypeTypeId;
+    QComboBox *comboBoxTypeTypeId;
+    QHBoxLayout *horizontalLayout_159;
+    QLabel *labelTypeName;
+    QLineEdit *lineEditTypeName;
+    QWidget *layoutWidget_49;
+    QHBoxLayout *horizontalLayout_161;
+    QPushButton *pushButtonTypeAdd;
+    QPushButton *pushButtonTypeEdit;
+    QPushButton *pushButtonTypeDelete;
+    QTableView *tableViewTypes;
+    QPushButton *pushButtonTypeLoadData;
+    QWidget *tabPosition;
+    QPushButton *pushButtonPositionLoadData;
+    QWidget *layoutWidget_50;
+    QHBoxLayout *horizontalLayout_162;
+    QPushButton *pushButtonPositionAdd;
+    QPushButton *pushButtonPositionEdit;
+    QPushButton *pushButtonPositionDelete;
+    QWidget *layoutWidget_51;
+    QVBoxLayout *verticalLayout_27;
+    QHBoxLayout *horizontalLayout_160;
+    QLabel *labelPositionPositionId;
+    QComboBox *comboBoxPositionPositionId;
+    QHBoxLayout *horizontalLayout_163;
+    QLabel *labelPositionName;
+    QLineEdit *lineEditPositionName;
+    QTableView *tableViewPosititions;
 
     void setupUi(QDialog *Tables)
     {
@@ -138,9 +241,43 @@ public:
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         tabWidget = new QTabWidget(Tables);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tab = new QWidget();
-        tab->setObjectName(QString::fromUtf8("tab"));
-        layoutWidget = new QWidget(tab);
+        tabWidget->setTabBarAutoHide(false);
+        tabHome = new QWidget();
+        tabHome->setObjectName(QString::fromUtf8("tabHome"));
+        tableViewViews = new QTableView(tabHome);
+        tableViewViews->setObjectName(QString::fromUtf8("tableViewViews"));
+        tableViewViews->setGeometry(QRect(490, 0, 771, 661));
+        tableViewViews->setAutoFillBackground(true);
+        verticalLayoutWidget = new QWidget(tabHome);
+        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(50, 180, 381, 231));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        pushButtonBookPopularityReport = new QPushButton(verticalLayoutWidget);
+        pushButtonBookPopularityReport->setObjectName(QString::fromUtf8("pushButtonBookPopularityReport"));
+
+        verticalLayout->addWidget(pushButtonBookPopularityReport);
+
+        pushButtonDetailedBookReport = new QPushButton(verticalLayoutWidget);
+        pushButtonDetailedBookReport->setObjectName(QString::fromUtf8("pushButtonDetailedBookReport"));
+
+        verticalLayout->addWidget(pushButtonDetailedBookReport);
+
+        pushButtonExpiredBooks = new QPushButton(verticalLayoutWidget);
+        pushButtonExpiredBooks->setObjectName(QString::fromUtf8("pushButtonExpiredBooks"));
+
+        verticalLayout->addWidget(pushButtonExpiredBooks);
+
+        pushButtonEmployeeReport = new QPushButton(verticalLayoutWidget);
+        pushButtonEmployeeReport->setObjectName(QString::fromUtf8("pushButtonEmployeeReport"));
+
+        verticalLayout->addWidget(pushButtonEmployeeReport);
+
+        tabWidget->addTab(tabHome, QString());
+        tabBook = new QWidget();
+        tabBook->setObjectName(QString::fromUtf8("tabBook"));
+        layoutWidget = new QWidget(tabBook);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
         layoutWidget->setGeometry(QRect(1, 2, 481, 411));
         verticalLayout_2 = new QVBoxLayout(layoutWidget);
@@ -264,11 +401,11 @@ public:
 
         verticalLayout_2->addLayout(horizontalLayout_15);
 
-        tableViewBooks = new QTableView(tab);
+        tableViewBooks = new QTableView(tabBook);
         tableViewBooks->setObjectName(QString::fromUtf8("tableViewBooks"));
         tableViewBooks->setGeometry(QRect(490, -10, 771, 661));
         tableViewBooks->setAutoFillBackground(true);
-        layoutWidget_2 = new QWidget(tab);
+        layoutWidget_2 = new QWidget(tabBook);
         layoutWidget_2->setObjectName(QString::fromUtf8("layoutWidget_2"));
         layoutWidget_2->setGeometry(QRect(0, 430, 481, 51));
         horizontalLayout_16 = new QHBoxLayout(layoutWidget_2);
@@ -289,18 +426,18 @@ public:
 
         horizontalLayout_16->addWidget(pushButtonBookDelete_2);
 
-        pushButtonLoadDataBooks = new QPushButton(tab);
+        pushButtonLoadDataBooks = new QPushButton(tabBook);
         pushButtonLoadDataBooks->setObjectName(QString::fromUtf8("pushButtonLoadDataBooks"));
         pushButtonLoadDataBooks->setGeometry(QRect(10, 610, 471, 41));
         pushButtonLoadDataBooks->setFont(font);
-        tabWidget->addTab(tab, QString());
-        tab_2 = new QWidget();
-        tab_2->setObjectName(QString::fromUtf8("tab_2"));
-        tableViewStudents = new QTableView(tab_2);
+        tabWidget->addTab(tabBook, QString());
+        tabStudent = new QWidget();
+        tabStudent->setObjectName(QString::fromUtf8("tabStudent"));
+        tableViewStudents = new QTableView(tabStudent);
         tableViewStudents->setObjectName(QString::fromUtf8("tableViewStudents"));
         tableViewStudents->setGeometry(QRect(490, 0, 771, 661));
         tableViewStudents->setAutoFillBackground(true);
-        layoutWidget_3 = new QWidget(tab_2);
+        layoutWidget_3 = new QWidget(tabStudent);
         layoutWidget_3->setObjectName(QString::fromUtf8("layoutWidget_3"));
         layoutWidget_3->setGeometry(QRect(10, 360, 471, 51));
         horizontalLayout_24 = new QHBoxLayout(layoutWidget_3);
@@ -321,13 +458,13 @@ public:
 
         horizontalLayout_24->addWidget(pushButtonStudentDelete);
 
-        pushButtonStudentLoadData = new QPushButton(tab_2);
+        pushButtonStudentLoadData = new QPushButton(tabStudent);
         pushButtonStudentLoadData->setObjectName(QString::fromUtf8("pushButtonStudentLoadData"));
         pushButtonStudentLoadData->setGeometry(QRect(10, 620, 471, 41));
         pushButtonStudentLoadData->setFont(font);
-        layoutWidget1 = new QWidget(tab_2);
+        layoutWidget1 = new QWidget(tabStudent);
         layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(7, 20, 471, 321));
+        layoutWidget1->setGeometry(QRect(7, 20, 471, 340));
         verticalLayout_3 = new QVBoxLayout(layoutWidget1);
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
@@ -444,14 +581,14 @@ public:
 
         verticalLayout_3->addLayout(horizontalLayout_23);
 
-        tabWidget->addTab(tab_2, QString());
-        tab_3 = new QWidget();
-        tab_3->setObjectName(QString::fromUtf8("tab_3"));
-        tableViewBorrows = new QTableView(tab_3);
+        tabWidget->addTab(tabStudent, QString());
+        tabBorrows = new QWidget();
+        tabBorrows->setObjectName(QString::fromUtf8("tabBorrows"));
+        tableViewBorrows = new QTableView(tabBorrows);
         tableViewBorrows->setObjectName(QString::fromUtf8("tableViewBorrows"));
         tableViewBorrows->setGeometry(QRect(493, 0, 771, 661));
         tableViewBorrows->setAutoFillBackground(true);
-        layoutWidget_24 = new QWidget(tab_3);
+        layoutWidget_24 = new QWidget(tabBorrows);
         layoutWidget_24->setObjectName(QString::fromUtf8("layoutWidget_24"));
         layoutWidget_24->setGeometry(QRect(10, 10, 471, 321));
         verticalLayout_16 = new QVBoxLayout(layoutWidget_24);
@@ -559,7 +696,7 @@ public:
 
         verticalLayout_16->addLayout(horizontalLayout_127);
 
-        layoutWidget_25 = new QWidget(tab_3);
+        layoutWidget_25 = new QWidget(tabBorrows);
         layoutWidget_25->setObjectName(QString::fromUtf8("layoutWidget_25"));
         layoutWidget_25->setGeometry(QRect(3, 360, 481, 51));
         horizontalLayout_128 = new QHBoxLayout(layoutWidget_25);
@@ -575,27 +712,460 @@ public:
 
         horizontalLayout_128->addWidget(pushButtonBorrowsReturnBook);
 
-        pushButtonBorrowsLoadData = new QPushButton(tab_3);
+        pushButtonBorrowsLoadData = new QPushButton(tabBorrows);
         pushButtonBorrowsLoadData->setObjectName(QString::fromUtf8("pushButtonBorrowsLoadData"));
         pushButtonBorrowsLoadData->setGeometry(QRect(10, 620, 471, 41));
         pushButtonBorrowsLoadData->setFont(font);
-        tabWidget->addTab(tab_3, QString());
-        tab_13 = new QWidget();
-        tab_13->setObjectName(QString::fromUtf8("tab_13"));
-        tabWidget->addTab(tab_13, QString());
-        tab_14 = new QWidget();
-        tab_14->setObjectName(QString::fromUtf8("tab_14"));
-        tabWidget->addTab(tab_14, QString());
-        tab_15 = new QWidget();
-        tab_15->setObjectName(QString::fromUtf8("tab_15"));
-        tabWidget->addTab(tab_15, QString());
+        tabWidget->addTab(tabBorrows, QString());
+        tabEmployee = new QWidget();
+        tabEmployee->setObjectName(QString::fromUtf8("tabEmployee"));
+        pushButtonEmployeeLoadData = new QPushButton(tabEmployee);
+        pushButtonEmployeeLoadData->setObjectName(QString::fromUtf8("pushButtonEmployeeLoadData"));
+        pushButtonEmployeeLoadData->setGeometry(QRect(10, 610, 471, 41));
+        pushButtonEmployeeLoadData->setFont(font);
+        tableViewEmployees = new QTableView(tabEmployee);
+        tableViewEmployees->setObjectName(QString::fromUtf8("tableViewEmployees"));
+        tableViewEmployees->setGeometry(QRect(493, 10, 771, 661));
+        tableViewEmployees->setAutoFillBackground(true);
+        layoutWidget_12 = new QWidget(tabEmployee);
+        layoutWidget_12->setObjectName(QString::fromUtf8("layoutWidget_12"));
+        layoutWidget_12->setGeometry(QRect(10, 340, 471, 51));
+        horizontalLayout_57 = new QHBoxLayout(layoutWidget_12);
+        horizontalLayout_57->setObjectName(QString::fromUtf8("horizontalLayout_57"));
+        horizontalLayout_57->setContentsMargins(0, 0, 0, 0);
+        pushButtonEmployeeAdd = new QPushButton(layoutWidget_12);
+        pushButtonEmployeeAdd->setObjectName(QString::fromUtf8("pushButtonEmployeeAdd"));
+
+        horizontalLayout_57->addWidget(pushButtonEmployeeAdd);
+
+        pushButtonEmployeeEdit = new QPushButton(layoutWidget_12);
+        pushButtonEmployeeEdit->setObjectName(QString::fromUtf8("pushButtonEmployeeEdit"));
+
+        horizontalLayout_57->addWidget(pushButtonEmployeeEdit);
+
+        pushButtonEmployeeDelete = new QPushButton(layoutWidget_12);
+        pushButtonEmployeeDelete->setObjectName(QString::fromUtf8("pushButtonEmployeeDelete"));
+
+        horizontalLayout_57->addWidget(pushButtonEmployeeDelete);
+
+        layoutWidget_13 = new QWidget(tabEmployee);
+        layoutWidget_13->setObjectName(QString::fromUtf8("layoutWidget_13"));
+        layoutWidget_13->setGeometry(QRect(10, 10, 471, 321));
+        verticalLayout_8 = new QVBoxLayout(layoutWidget_13);
+        verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
+        verticalLayout_8->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_58 = new QHBoxLayout();
+        horizontalLayout_58->setObjectName(QString::fromUtf8("horizontalLayout_58"));
+        labeEmployeeEmpId = new QLabel(layoutWidget_13);
+        labeEmployeeEmpId->setObjectName(QString::fromUtf8("labeEmployeeEmpId"));
+
+        horizontalLayout_58->addWidget(labeEmployeeEmpId);
+
+        comboBoxEmployeeEmpId = new QComboBox(layoutWidget_13);
+        comboBoxEmployeeEmpId->setObjectName(QString::fromUtf8("comboBoxEmployeeEmpId"));
+        sizePolicy.setHeightForWidth(comboBoxEmployeeEmpId->sizePolicy().hasHeightForWidth());
+        comboBoxEmployeeEmpId->setSizePolicy(sizePolicy);
+
+        horizontalLayout_58->addWidget(comboBoxEmployeeEmpId);
+
+
+        verticalLayout_8->addLayout(horizontalLayout_58);
+
+        horizontalLayout_59 = new QHBoxLayout();
+        horizontalLayout_59->setObjectName(QString::fromUtf8("horizontalLayout_59"));
+        labelEmployeeFirstName = new QLabel(layoutWidget_13);
+        labelEmployeeFirstName->setObjectName(QString::fromUtf8("labelEmployeeFirstName"));
+
+        horizontalLayout_59->addWidget(labelEmployeeFirstName);
+
+        lineEditEmployeeFirstName = new QLineEdit(layoutWidget_13);
+        lineEditEmployeeFirstName->setObjectName(QString::fromUtf8("lineEditEmployeeFirstName"));
+
+        horizontalLayout_59->addWidget(lineEditEmployeeFirstName);
+
+
+        verticalLayout_8->addLayout(horizontalLayout_59);
+
+        horizontalLayout_60 = new QHBoxLayout();
+        horizontalLayout_60->setObjectName(QString::fromUtf8("horizontalLayout_60"));
+        labelEmployeeSurname = new QLabel(layoutWidget_13);
+        labelEmployeeSurname->setObjectName(QString::fromUtf8("labelEmployeeSurname"));
+
+        horizontalLayout_60->addWidget(labelEmployeeSurname);
+
+        lineEditEmployeeSurname = new QLineEdit(layoutWidget_13);
+        lineEditEmployeeSurname->setObjectName(QString::fromUtf8("lineEditEmployeeSurname"));
+
+        horizontalLayout_60->addWidget(lineEditEmployeeSurname);
+
+
+        verticalLayout_8->addLayout(horizontalLayout_60);
+
+        horizontalLayout_61 = new QHBoxLayout();
+        horizontalLayout_61->setObjectName(QString::fromUtf8("horizontalLayout_61"));
+        labelEmployeePhone = new QLabel(layoutWidget_13);
+        labelEmployeePhone->setObjectName(QString::fromUtf8("labelEmployeePhone"));
+
+        horizontalLayout_61->addWidget(labelEmployeePhone);
+
+        lineEditEmployeePhone = new QLineEdit(layoutWidget_13);
+        lineEditEmployeePhone->setObjectName(QString::fromUtf8("lineEditEmployeePhone"));
+
+        horizontalLayout_61->addWidget(lineEditEmployeePhone);
+
+
+        verticalLayout_8->addLayout(horizontalLayout_61);
+
+        horizontalLayout_62 = new QHBoxLayout();
+        horizontalLayout_62->setObjectName(QString::fromUtf8("horizontalLayout_62"));
+        labelEmployeeSalary = new QLabel(layoutWidget_13);
+        labelEmployeeSalary->setObjectName(QString::fromUtf8("labelEmployeeSalary"));
+
+        horizontalLayout_62->addWidget(labelEmployeeSalary);
+
+        lineEditEmployeeSalary = new QLineEdit(layoutWidget_13);
+        lineEditEmployeeSalary->setObjectName(QString::fromUtf8("lineEditEmployeeSalary"));
+
+        horizontalLayout_62->addWidget(lineEditEmployeeSalary);
+
+
+        verticalLayout_8->addLayout(horizontalLayout_62);
+
+        horizontalLayout_66 = new QHBoxLayout();
+        horizontalLayout_66->setObjectName(QString::fromUtf8("horizontalLayout_66"));
+        labelEmployeePositionId = new QLabel(layoutWidget_13);
+        labelEmployeePositionId->setObjectName(QString::fromUtf8("labelEmployeePositionId"));
+
+        horizontalLayout_66->addWidget(labelEmployeePositionId);
+
+        comboBoxEmployeePositionId = new QComboBox(layoutWidget_13);
+        comboBoxEmployeePositionId->setObjectName(QString::fromUtf8("comboBoxEmployeePositionId"));
+        sizePolicy.setHeightForWidth(comboBoxEmployeePositionId->sizePolicy().hasHeightForWidth());
+        comboBoxEmployeePositionId->setSizePolicy(sizePolicy);
+
+        horizontalLayout_66->addWidget(comboBoxEmployeePositionId);
+
+
+        verticalLayout_8->addLayout(horizontalLayout_66);
+
+        tabWidget->addTab(tabEmployee, QString());
+        tabAuthor = new QWidget();
+        tabAuthor->setObjectName(QString::fromUtf8("tabAuthor"));
+        tableViewAuthors = new QTableView(tabAuthor);
+        tableViewAuthors->setObjectName(QString::fromUtf8("tableViewAuthors"));
+        tableViewAuthors->setGeometry(QRect(490, 10, 771, 661));
+        tableViewAuthors->setAutoFillBackground(true);
+        layoutWidget_14 = new QWidget(tabAuthor);
+        layoutWidget_14->setObjectName(QString::fromUtf8("layoutWidget_14"));
+        layoutWidget_14->setGeometry(QRect(10, 190, 471, 51));
+        horizontalLayout_85 = new QHBoxLayout(layoutWidget_14);
+        horizontalLayout_85->setObjectName(QString::fromUtf8("horizontalLayout_85"));
+        horizontalLayout_85->setContentsMargins(0, 0, 0, 0);
+        pushButtonAuthorAdd = new QPushButton(layoutWidget_14);
+        pushButtonAuthorAdd->setObjectName(QString::fromUtf8("pushButtonAuthorAdd"));
+
+        horizontalLayout_85->addWidget(pushButtonAuthorAdd);
+
+        pushButtonAuthorEdit = new QPushButton(layoutWidget_14);
+        pushButtonAuthorEdit->setObjectName(QString::fromUtf8("pushButtonAuthorEdit"));
+
+        horizontalLayout_85->addWidget(pushButtonAuthorEdit);
+
+        pushButtonAuthorDelete = new QPushButton(layoutWidget_14);
+        pushButtonAuthorDelete->setObjectName(QString::fromUtf8("pushButtonAuthorDelete"));
+
+        horizontalLayout_85->addWidget(pushButtonAuthorDelete);
+
+        pushButtonAuthorLoadData = new QPushButton(tabAuthor);
+        pushButtonAuthorLoadData->setObjectName(QString::fromUtf8("pushButtonAuthorLoadData"));
+        pushButtonAuthorLoadData->setGeometry(QRect(10, 620, 471, 41));
+        pushButtonAuthorLoadData->setFont(font);
+        layoutWidget_15 = new QWidget(tabAuthor);
+        layoutWidget_15->setObjectName(QString::fromUtf8("layoutWidget_15"));
+        layoutWidget_15->setGeometry(QRect(10, 10, 471, 171));
+        verticalLayout_12 = new QVBoxLayout(layoutWidget_15);
+        verticalLayout_12->setObjectName(QString::fromUtf8("verticalLayout_12"));
+        verticalLayout_12->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_86 = new QHBoxLayout();
+        horizontalLayout_86->setObjectName(QString::fromUtf8("horizontalLayout_86"));
+        labelAuthorAuthorId = new QLabel(layoutWidget_15);
+        labelAuthorAuthorId->setObjectName(QString::fromUtf8("labelAuthorAuthorId"));
+
+        horizontalLayout_86->addWidget(labelAuthorAuthorId);
+
+        comboBoxAuthorAuthorId = new QComboBox(layoutWidget_15);
+        comboBoxAuthorAuthorId->setObjectName(QString::fromUtf8("comboBoxAuthorAuthorId"));
+        sizePolicy.setHeightForWidth(comboBoxAuthorAuthorId->sizePolicy().hasHeightForWidth());
+        comboBoxAuthorAuthorId->setSizePolicy(sizePolicy);
+
+        horizontalLayout_86->addWidget(comboBoxAuthorAuthorId);
+
+
+        verticalLayout_12->addLayout(horizontalLayout_86);
+
+        horizontalLayout_87 = new QHBoxLayout();
+        horizontalLayout_87->setObjectName(QString::fromUtf8("horizontalLayout_87"));
+        labelAuthorFirstName = new QLabel(layoutWidget_15);
+        labelAuthorFirstName->setObjectName(QString::fromUtf8("labelAuthorFirstName"));
+
+        horizontalLayout_87->addWidget(labelAuthorFirstName);
+
+        lineEditAuthorFirstName = new QLineEdit(layoutWidget_15);
+        lineEditAuthorFirstName->setObjectName(QString::fromUtf8("lineEditAuthorFirstName"));
+
+        horizontalLayout_87->addWidget(lineEditAuthorFirstName);
+
+
+        verticalLayout_12->addLayout(horizontalLayout_87);
+
+        horizontalLayout_88 = new QHBoxLayout();
+        horizontalLayout_88->setObjectName(QString::fromUtf8("horizontalLayout_88"));
+        labelAuthorSurname = new QLabel(layoutWidget_15);
+        labelAuthorSurname->setObjectName(QString::fromUtf8("labelAuthorSurname"));
+
+        horizontalLayout_88->addWidget(labelAuthorSurname);
+
+        lineEditAuthorSurname = new QLineEdit(layoutWidget_15);
+        lineEditAuthorSurname->setObjectName(QString::fromUtf8("lineEditAuthorSurname"));
+
+        horizontalLayout_88->addWidget(lineEditAuthorSurname);
+
+
+        verticalLayout_12->addLayout(horizontalLayout_88);
+
+        tabWidget->addTab(tabAuthor, QString());
+        tabPublisher = new QWidget();
+        tabPublisher->setObjectName(QString::fromUtf8("tabPublisher"));
+        pushButtonPublisherLoadData = new QPushButton(tabPublisher);
+        pushButtonPublisherLoadData->setObjectName(QString::fromUtf8("pushButtonPublisherLoadData"));
+        pushButtonPublisherLoadData->setGeometry(QRect(10, 620, 471, 41));
+        pushButtonPublisherLoadData->setFont(font);
+        layoutWidget_16 = new QWidget(tabPublisher);
+        layoutWidget_16->setObjectName(QString::fromUtf8("layoutWidget_16"));
+        layoutWidget_16->setGeometry(QRect(10, 190, 471, 51));
+        horizontalLayout_89 = new QHBoxLayout(layoutWidget_16);
+        horizontalLayout_89->setObjectName(QString::fromUtf8("horizontalLayout_89"));
+        horizontalLayout_89->setContentsMargins(0, 0, 0, 0);
+        pushButtonPublisherAdd = new QPushButton(layoutWidget_16);
+        pushButtonPublisherAdd->setObjectName(QString::fromUtf8("pushButtonPublisherAdd"));
+
+        horizontalLayout_89->addWidget(pushButtonPublisherAdd);
+
+        pushButtonPublisherEdit = new QPushButton(layoutWidget_16);
+        pushButtonPublisherEdit->setObjectName(QString::fromUtf8("pushButtonPublisherEdit"));
+
+        horizontalLayout_89->addWidget(pushButtonPublisherEdit);
+
+        pushButtonPublisherDelete = new QPushButton(layoutWidget_16);
+        pushButtonPublisherDelete->setObjectName(QString::fromUtf8("pushButtonPublisherDelete"));
+
+        horizontalLayout_89->addWidget(pushButtonPublisherDelete);
+
+        layoutWidget_17 = new QWidget(tabPublisher);
+        layoutWidget_17->setObjectName(QString::fromUtf8("layoutWidget_17"));
+        layoutWidget_17->setGeometry(QRect(10, 10, 471, 171));
+        verticalLayout_13 = new QVBoxLayout(layoutWidget_17);
+        verticalLayout_13->setObjectName(QString::fromUtf8("verticalLayout_13"));
+        verticalLayout_13->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_90 = new QHBoxLayout();
+        horizontalLayout_90->setObjectName(QString::fromUtf8("horizontalLayout_90"));
+        labelPublisherPublisherId = new QLabel(layoutWidget_17);
+        labelPublisherPublisherId->setObjectName(QString::fromUtf8("labelPublisherPublisherId"));
+
+        horizontalLayout_90->addWidget(labelPublisherPublisherId);
+
+        comboBoxPublisherPublisherId = new QComboBox(layoutWidget_17);
+        comboBoxPublisherPublisherId->setObjectName(QString::fromUtf8("comboBoxPublisherPublisherId"));
+        sizePolicy.setHeightForWidth(comboBoxPublisherPublisherId->sizePolicy().hasHeightForWidth());
+        comboBoxPublisherPublisherId->setSizePolicy(sizePolicy);
+
+        horizontalLayout_90->addWidget(comboBoxPublisherPublisherId);
+
+
+        verticalLayout_13->addLayout(horizontalLayout_90);
+
+        horizontalLayout_91 = new QHBoxLayout();
+        horizontalLayout_91->setObjectName(QString::fromUtf8("horizontalLayout_91"));
+        labelPublisherName = new QLabel(layoutWidget_17);
+        labelPublisherName->setObjectName(QString::fromUtf8("labelPublisherName"));
+
+        horizontalLayout_91->addWidget(labelPublisherName);
+
+        lineEditPublisherName = new QLineEdit(layoutWidget_17);
+        lineEditPublisherName->setObjectName(QString::fromUtf8("lineEditPublisherName"));
+
+        horizontalLayout_91->addWidget(lineEditPublisherName);
+
+
+        verticalLayout_13->addLayout(horizontalLayout_91);
+
+        horizontalLayout_92 = new QHBoxLayout();
+        horizontalLayout_92->setObjectName(QString::fromUtf8("horizontalLayout_92"));
+        labelPublisherAddress = new QLabel(layoutWidget_17);
+        labelPublisherAddress->setObjectName(QString::fromUtf8("labelPublisherAddress"));
+
+        horizontalLayout_92->addWidget(labelPublisherAddress);
+
+        lineEditPublisherAddress = new QLineEdit(layoutWidget_17);
+        lineEditPublisherAddress->setObjectName(QString::fromUtf8("lineEditPublisherAddress"));
+
+        horizontalLayout_92->addWidget(lineEditPublisherAddress);
+
+
+        verticalLayout_13->addLayout(horizontalLayout_92);
+
+        tableViewPublishers = new QTableView(tabPublisher);
+        tableViewPublishers->setObjectName(QString::fromUtf8("tableViewPublishers"));
+        tableViewPublishers->setGeometry(QRect(490, 10, 771, 661));
+        tableViewPublishers->setAutoFillBackground(true);
+        tabWidget->addTab(tabPublisher, QString());
+        tabType = new QWidget();
+        tabType->setObjectName(QString::fromUtf8("tabType"));
+        layoutWidget_48 = new QWidget(tabType);
+        layoutWidget_48->setObjectName(QString::fromUtf8("layoutWidget_48"));
+        layoutWidget_48->setGeometry(QRect(10, 10, 471, 171));
+        verticalLayout_26 = new QVBoxLayout(layoutWidget_48);
+        verticalLayout_26->setObjectName(QString::fromUtf8("verticalLayout_26"));
+        verticalLayout_26->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_158 = new QHBoxLayout();
+        horizontalLayout_158->setObjectName(QString::fromUtf8("horizontalLayout_158"));
+        labelTypeTypeId = new QLabel(layoutWidget_48);
+        labelTypeTypeId->setObjectName(QString::fromUtf8("labelTypeTypeId"));
+
+        horizontalLayout_158->addWidget(labelTypeTypeId);
+
+        comboBoxTypeTypeId = new QComboBox(layoutWidget_48);
+        comboBoxTypeTypeId->setObjectName(QString::fromUtf8("comboBoxTypeTypeId"));
+        sizePolicy.setHeightForWidth(comboBoxTypeTypeId->sizePolicy().hasHeightForWidth());
+        comboBoxTypeTypeId->setSizePolicy(sizePolicy);
+
+        horizontalLayout_158->addWidget(comboBoxTypeTypeId);
+
+
+        verticalLayout_26->addLayout(horizontalLayout_158);
+
+        horizontalLayout_159 = new QHBoxLayout();
+        horizontalLayout_159->setObjectName(QString::fromUtf8("horizontalLayout_159"));
+        labelTypeName = new QLabel(layoutWidget_48);
+        labelTypeName->setObjectName(QString::fromUtf8("labelTypeName"));
+
+        horizontalLayout_159->addWidget(labelTypeName);
+
+        lineEditTypeName = new QLineEdit(layoutWidget_48);
+        lineEditTypeName->setObjectName(QString::fromUtf8("lineEditTypeName"));
+
+        horizontalLayout_159->addWidget(lineEditTypeName);
+
+
+        verticalLayout_26->addLayout(horizontalLayout_159);
+
+        layoutWidget_49 = new QWidget(tabType);
+        layoutWidget_49->setObjectName(QString::fromUtf8("layoutWidget_49"));
+        layoutWidget_49->setGeometry(QRect(10, 190, 471, 51));
+        horizontalLayout_161 = new QHBoxLayout(layoutWidget_49);
+        horizontalLayout_161->setObjectName(QString::fromUtf8("horizontalLayout_161"));
+        horizontalLayout_161->setContentsMargins(0, 0, 0, 0);
+        pushButtonTypeAdd = new QPushButton(layoutWidget_49);
+        pushButtonTypeAdd->setObjectName(QString::fromUtf8("pushButtonTypeAdd"));
+
+        horizontalLayout_161->addWidget(pushButtonTypeAdd);
+
+        pushButtonTypeEdit = new QPushButton(layoutWidget_49);
+        pushButtonTypeEdit->setObjectName(QString::fromUtf8("pushButtonTypeEdit"));
+
+        horizontalLayout_161->addWidget(pushButtonTypeEdit);
+
+        pushButtonTypeDelete = new QPushButton(layoutWidget_49);
+        pushButtonTypeDelete->setObjectName(QString::fromUtf8("pushButtonTypeDelete"));
+
+        horizontalLayout_161->addWidget(pushButtonTypeDelete);
+
+        tableViewTypes = new QTableView(tabType);
+        tableViewTypes->setObjectName(QString::fromUtf8("tableViewTypes"));
+        tableViewTypes->setGeometry(QRect(490, 10, 771, 661));
+        tableViewTypes->setAutoFillBackground(true);
+        pushButtonTypeLoadData = new QPushButton(tabType);
+        pushButtonTypeLoadData->setObjectName(QString::fromUtf8("pushButtonTypeLoadData"));
+        pushButtonTypeLoadData->setGeometry(QRect(10, 620, 471, 41));
+        pushButtonTypeLoadData->setFont(font);
+        tabWidget->addTab(tabType, QString());
+        tabPosition = new QWidget();
+        tabPosition->setObjectName(QString::fromUtf8("tabPosition"));
+        pushButtonPositionLoadData = new QPushButton(tabPosition);
+        pushButtonPositionLoadData->setObjectName(QString::fromUtf8("pushButtonPositionLoadData"));
+        pushButtonPositionLoadData->setGeometry(QRect(10, 620, 471, 41));
+        pushButtonPositionLoadData->setFont(font);
+        layoutWidget_50 = new QWidget(tabPosition);
+        layoutWidget_50->setObjectName(QString::fromUtf8("layoutWidget_50"));
+        layoutWidget_50->setGeometry(QRect(10, 190, 471, 51));
+        horizontalLayout_162 = new QHBoxLayout(layoutWidget_50);
+        horizontalLayout_162->setObjectName(QString::fromUtf8("horizontalLayout_162"));
+        horizontalLayout_162->setContentsMargins(0, 0, 0, 0);
+        pushButtonPositionAdd = new QPushButton(layoutWidget_50);
+        pushButtonPositionAdd->setObjectName(QString::fromUtf8("pushButtonPositionAdd"));
+
+        horizontalLayout_162->addWidget(pushButtonPositionAdd);
+
+        pushButtonPositionEdit = new QPushButton(layoutWidget_50);
+        pushButtonPositionEdit->setObjectName(QString::fromUtf8("pushButtonPositionEdit"));
+
+        horizontalLayout_162->addWidget(pushButtonPositionEdit);
+
+        pushButtonPositionDelete = new QPushButton(layoutWidget_50);
+        pushButtonPositionDelete->setObjectName(QString::fromUtf8("pushButtonPositionDelete"));
+
+        horizontalLayout_162->addWidget(pushButtonPositionDelete);
+
+        layoutWidget_51 = new QWidget(tabPosition);
+        layoutWidget_51->setObjectName(QString::fromUtf8("layoutWidget_51"));
+        layoutWidget_51->setGeometry(QRect(10, 10, 471, 171));
+        verticalLayout_27 = new QVBoxLayout(layoutWidget_51);
+        verticalLayout_27->setObjectName(QString::fromUtf8("verticalLayout_27"));
+        verticalLayout_27->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_160 = new QHBoxLayout();
+        horizontalLayout_160->setObjectName(QString::fromUtf8("horizontalLayout_160"));
+        labelPositionPositionId = new QLabel(layoutWidget_51);
+        labelPositionPositionId->setObjectName(QString::fromUtf8("labelPositionPositionId"));
+
+        horizontalLayout_160->addWidget(labelPositionPositionId);
+
+        comboBoxPositionPositionId = new QComboBox(layoutWidget_51);
+        comboBoxPositionPositionId->setObjectName(QString::fromUtf8("comboBoxPositionPositionId"));
+        sizePolicy.setHeightForWidth(comboBoxPositionPositionId->sizePolicy().hasHeightForWidth());
+        comboBoxPositionPositionId->setSizePolicy(sizePolicy);
+
+        horizontalLayout_160->addWidget(comboBoxPositionPositionId);
+
+
+        verticalLayout_27->addLayout(horizontalLayout_160);
+
+        horizontalLayout_163 = new QHBoxLayout();
+        horizontalLayout_163->setObjectName(QString::fromUtf8("horizontalLayout_163"));
+        labelPositionName = new QLabel(layoutWidget_51);
+        labelPositionName->setObjectName(QString::fromUtf8("labelPositionName"));
+
+        horizontalLayout_163->addWidget(labelPositionName);
+
+        lineEditPositionName = new QLineEdit(layoutWidget_51);
+        lineEditPositionName->setObjectName(QString::fromUtf8("lineEditPositionName"));
+
+        horizontalLayout_163->addWidget(lineEditPositionName);
+
+
+        verticalLayout_27->addLayout(horizontalLayout_163);
+
+        tableViewPosititions = new QTableView(tabPosition);
+        tableViewPosititions->setObjectName(QString::fromUtf8("tableViewPosititions"));
+        tableViewPosititions->setGeometry(QRect(490, 10, 771, 661));
+        tableViewPosititions->setAutoFillBackground(true);
+        tabWidget->addTab(tabPosition, QString());
 
         gridLayout->addWidget(tabWidget, 0, 1, 1, 1);
 
 
         retranslateUi(Tables);
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(Tables);
@@ -604,6 +1174,11 @@ public:
     void retranslateUi(QDialog *Tables)
     {
         Tables->setWindowTitle(QCoreApplication::translate("Tables", "Dialog", nullptr));
+        pushButtonBookPopularityReport->setText(QCoreApplication::translate("Tables", "Book's popularity", nullptr));
+        pushButtonDetailedBookReport->setText(QCoreApplication::translate("Tables", "Book's report", nullptr));
+        pushButtonExpiredBooks->setText(QCoreApplication::translate("Tables", "Employee Report", nullptr));
+        pushButtonEmployeeReport->setText(QCoreApplication::translate("Tables", "Expired Books", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tabHome), QCoreApplication::translate("Tables", "\342\214\202", nullptr));
         labelBookTypeId_2->setText(QCoreApplication::translate("Tables", "TypeId", nullptr));
         labelBookName_2->setText(QCoreApplication::translate("Tables", "Name", nullptr));
         labelBookPageCount_2->setText(QCoreApplication::translate("Tables", "Page count", nullptr));
@@ -615,7 +1190,7 @@ public:
         pushButtonBookEdit_2->setText(QCoreApplication::translate("Tables", "Edit", nullptr));
         pushButtonBookDelete_2->setText(QCoreApplication::translate("Tables", "Delete", nullptr));
         pushButtonLoadDataBooks->setText(QCoreApplication::translate("Tables", "Load data", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("Tables", "Book", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tabBook), QCoreApplication::translate("Tables", "Book", nullptr));
         pushButtonStudentAdd->setText(QCoreApplication::translate("Tables", "Add", nullptr));
         pushButtonStudentEdit->setText(QCoreApplication::translate("Tables", "Edit", nullptr));
         pushButtonStudentDelete->setText(QCoreApplication::translate("Tables", "Delete", nullptr));
@@ -628,7 +1203,7 @@ public:
         labelStudentBirthDate->setText(QCoreApplication::translate("Tables", "Birth date", nullptr));
         dateEditStudentBirthDate->setDisplayFormat(QCoreApplication::translate("Tables", "yyyy.MM.dd", nullptr));
         labelStudentSex->setText(QCoreApplication::translate("Tables", "Sex", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("Tables", "Student", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tabStudent), QCoreApplication::translate("Tables", "Student", nullptr));
         labelBorrowsBorrowId->setText(QCoreApplication::translate("Tables", "BorrowId", nullptr));
         labelBorrowsStudentId->setText(QCoreApplication::translate("Tables", "StudentId", nullptr));
         labelBorrowsBookId->setText(QCoreApplication::translate("Tables", "BookId", nullptr));
@@ -640,10 +1215,48 @@ public:
         pushButtonBorrowsGiveBook->setText(QCoreApplication::translate("Tables", "Give book", nullptr));
         pushButtonBorrowsReturnBook->setText(QCoreApplication::translate("Tables", "Return book", nullptr));
         pushButtonBorrowsLoadData->setText(QCoreApplication::translate("Tables", "Load data", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab_3), QCoreApplication::translate("Tables", "Borrows", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab_13), QCoreApplication::translate("Tables", "Page", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab_14), QCoreApplication::translate("Tables", "Page", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab_15), QCoreApplication::translate("Tables", "Page", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tabBorrows), QCoreApplication::translate("Tables", "Borrows", nullptr));
+        pushButtonEmployeeLoadData->setText(QCoreApplication::translate("Tables", "Load data", nullptr));
+        pushButtonEmployeeAdd->setText(QCoreApplication::translate("Tables", "Add", nullptr));
+        pushButtonEmployeeEdit->setText(QCoreApplication::translate("Tables", "Edit", nullptr));
+        pushButtonEmployeeDelete->setText(QCoreApplication::translate("Tables", "Delete", nullptr));
+        labeEmployeeEmpId->setText(QCoreApplication::translate("Tables", "EmployeeId", nullptr));
+        labelEmployeeFirstName->setText(QCoreApplication::translate("Tables", "First name", nullptr));
+        labelEmployeeSurname->setText(QCoreApplication::translate("Tables", "Surname", nullptr));
+        labelEmployeePhone->setText(QCoreApplication::translate("Tables", "Phone", nullptr));
+        labelEmployeeSalary->setText(QCoreApplication::translate("Tables", "Salary", nullptr));
+        labelEmployeePositionId->setText(QCoreApplication::translate("Tables", "Position", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tabEmployee), QCoreApplication::translate("Tables", "Employee", nullptr));
+        pushButtonAuthorAdd->setText(QCoreApplication::translate("Tables", "Add", nullptr));
+        pushButtonAuthorEdit->setText(QCoreApplication::translate("Tables", "Edit", nullptr));
+        pushButtonAuthorDelete->setText(QCoreApplication::translate("Tables", "Delete", nullptr));
+        pushButtonAuthorLoadData->setText(QCoreApplication::translate("Tables", "Load data", nullptr));
+        labelAuthorAuthorId->setText(QCoreApplication::translate("Tables", "AuthorId", nullptr));
+        labelAuthorFirstName->setText(QCoreApplication::translate("Tables", "First name", nullptr));
+        labelAuthorSurname->setText(QCoreApplication::translate("Tables", "Surname", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tabAuthor), QCoreApplication::translate("Tables", "Author", nullptr));
+        pushButtonPublisherLoadData->setText(QCoreApplication::translate("Tables", "Load data", nullptr));
+        pushButtonPublisherAdd->setText(QCoreApplication::translate("Tables", "Add", nullptr));
+        pushButtonPublisherEdit->setText(QCoreApplication::translate("Tables", "Edit", nullptr));
+        pushButtonPublisherDelete->setText(QCoreApplication::translate("Tables", "Delete", nullptr));
+        labelPublisherPublisherId->setText(QCoreApplication::translate("Tables", "PublisherId", nullptr));
+        labelPublisherName->setText(QCoreApplication::translate("Tables", "Name", nullptr));
+        labelPublisherAddress->setText(QCoreApplication::translate("Tables", "Address", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tabPublisher), QCoreApplication::translate("Tables", "Publisher", nullptr));
+        labelTypeTypeId->setText(QCoreApplication::translate("Tables", "TypeId", nullptr));
+        labelTypeName->setText(QCoreApplication::translate("Tables", "Name", nullptr));
+        pushButtonTypeAdd->setText(QCoreApplication::translate("Tables", "Add", nullptr));
+        pushButtonTypeEdit->setText(QCoreApplication::translate("Tables", "Edit", nullptr));
+        pushButtonTypeDelete->setText(QCoreApplication::translate("Tables", "Delete", nullptr));
+        pushButtonTypeLoadData->setText(QCoreApplication::translate("Tables", "Load data", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tabType), QCoreApplication::translate("Tables", "Type", nullptr));
+        pushButtonPositionLoadData->setText(QCoreApplication::translate("Tables", "Load data", nullptr));
+        pushButtonPositionAdd->setText(QCoreApplication::translate("Tables", "Add", nullptr));
+        pushButtonPositionEdit->setText(QCoreApplication::translate("Tables", "Edit", nullptr));
+        pushButtonPositionDelete->setText(QCoreApplication::translate("Tables", "Delete", nullptr));
+        labelPositionPositionId->setText(QCoreApplication::translate("Tables", "PositionId", nullptr));
+        labelPositionName->setText(QCoreApplication::translate("Tables", "Name", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tabPosition), QCoreApplication::translate("Tables", "Position", nullptr));
     } // retranslateUi
 
 };

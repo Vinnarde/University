@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="279dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/table"
+                tools:srcCompat="@drawable/table" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Цвет столещницы:" />
+
+            <RadioGroup
+                android:id="@+id/tableColor"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/radioButtonColorBlack"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Черный" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonColorWhite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Белый" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonColorWhiteOak"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Белый дуб" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Размер столещницы" />
+
+            <RadioGroup
+                android:id="@+id/tableSize"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/radioButtonSize10060"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="100x60 см" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonSize12060"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="120х60 см" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonSize14075"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="140х75 см" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Цвет ножек:" />
+
+            <RadioGroup
+                android:id="@+id/legColor"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/radioButtonLegColorBlack"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Черный" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonLegColorWhite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Белый" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonLegColorWhiteOak"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Белый дуб" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Размер ножек:" />
+
+            <RadioGroup
+                android:id="@+id/legSize"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/radioButtonLegSize70"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="70 см" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonLegSizeAjustable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Регулирующиеся" />
+            </RadioGroup>
+
+            <CheckBox
+                android:id="@+id/checkBoxBetterPackage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Усиленная упаковка" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:barrierDirection="top"
+                app:constraint_referenced_ids="checkBoxBetterPackage" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="functionForButton"
+                android:text="Готово" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

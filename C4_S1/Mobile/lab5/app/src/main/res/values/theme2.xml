@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="theme2" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+<!--        <item name="android:textColor">#ff404040</item>-->
+<!--        <item name="android:background">#fff0f0f0</item>-->
+<!--        <item name="android:textSize">20sp</item>-->
+
+        <item name="colorPrimary">#ff404040</item>
+        <item name="colorPrimaryVariant">#ff404040</item>
+        <item name="colorOnPrimary">#fff0f0f0</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#fff0f0f0</item>
+        <item name="colorSecondaryVariant">#fff0f0f0</item>
+        <item name="colorOnSecondary">#fff0f0f0</item>
+        <!-- Status bar color. -->
+<!--        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>-->
+        <!-- Customize your theme here. -->
+        <item name="android:textSize">24sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">#fff0f0f0</item>
+<!--        <item name="android:textColor">@color/green_light</item>-->
+
+        <item name="android:background">#ff404040</item>
+
+
+    </style>
+</resources>

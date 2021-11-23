@@ -1,0 +1,3 @@
+C:/git-clone/University/C4_S1/Information security/Lab 5 - IDEA/cmake-build-debug/CMakeFiles/Lab_5___IDEA.dir
+C:/git-clone/University/C4_S1/Information security/Lab 5 - IDEA/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/git-clone/University/C4_S1/Information security/Lab 5 - IDEA/cmake-build-debug/CMakeFiles/rebuild_cache.dir

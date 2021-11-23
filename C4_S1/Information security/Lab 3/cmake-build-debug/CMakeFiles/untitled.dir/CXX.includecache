@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/git-clone/University/C4_S1/Information security/Lab 3/main.cpp
+codecvt
+-
+iostream
+-
+fstream
+-
+string
+-
+unordered_set
+-
+cwctype
+-
+algorithm
+-
+unordered_map
+-
+array
+-
+random
+-
+chrono
+-
+

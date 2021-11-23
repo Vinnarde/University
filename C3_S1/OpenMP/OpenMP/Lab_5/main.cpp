@@ -125,7 +125,7 @@ void partition(std::vector<int>& arr, int low, int high, int& outLeftPivot, int&
 	while (iterator <= rightIndex)
 	{
 		// if elements are less than the left pivot
-		if (arr[iterator] < leftPivot) 
+		if (arr[iterator] < leftPivot)
 		{
 			std::swap(arr[iterator], arr[leftIndex]);
 			leftIndex++;
@@ -139,12 +139,12 @@ void partition(std::vector<int>& arr, int low, int high, int& outLeftPivot, int&
 			{
 				rightIndex--;
 			}
-			
+
 			std::swap(arr[iterator], arr[rightIndex]);
-			
+
 			rightIndex--;
-			
-			if (arr[iterator] < leftPivot) 
+
+			if (arr[iterator] < leftPivot)
 			{
 				std::swap(arr[iterator], arr[leftIndex]);
 				leftIndex++;
@@ -235,6 +235,7 @@ void task_1()
 
 	std::cout << "Sections.\n" << "Time taken: " << endPoint - startPoint << " seconds\n";
 
+
 	startPoint = omp_get_wtime();
 
 	mergeSort(resultVector);
@@ -243,7 +244,7 @@ void task_1()
 
 	std::cout << "Merge sort.\n" << "Time taken: " << endPoint - startPoint << " seconds\n";
 
-	std::cout << "Is sorted: " << isSorted(resultVector, ascending) << '\n';
+	std::cout << "Is sorted: " << std::boolalpha << isSorted(resultVector, ascending) << '\n';
 
 	startPoint = omp_get_wtime();
 
@@ -255,12 +256,12 @@ void task_1()
 
 	startPoint = omp_get_wtime();
 
-	//quickSort(resultVector);
-	dualPivotQuickSort(resultVector, 0, resultVector.size() - 1);
+	quickSort(resultVector);
+	//dualPivotQuickSort(resultVector, 0, resultVector.size() - 1);
 
 	endPoint = omp_get_wtime();
 
-	std::cout << "Is sorted: " << isSorted(resultVector, ascending) << '\n';
+	std::cout << "Is sorted: " << std::boolalpha << isSorted(resultVector, ascending) << '\n';
 	std::cout << "Quick sort.\n" << "Time taken: " << endPoint - startPoint << " seconds\n";
 }
 
