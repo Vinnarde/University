@@ -15,10 +15,10 @@ void test() {
     IDEA subject;
 
     std::cout << std::hex;
-    std::clog << std::hex;
+    std::cout << std::hex;
 
     std::ofstream ofs("logfile.txt");
-    std::clog.rdbuf(ofs.rdbuf());
+    std::cout.rdbuf(ofs.rdbuf());
 
     std::ofstream coutOutput("errors.txt");
     std::cout.rdbuf(coutOutput.rdbuf());

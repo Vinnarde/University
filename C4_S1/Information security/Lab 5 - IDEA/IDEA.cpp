@@ -31,7 +31,7 @@ void IDEA::makeKeys() {
         if (i != 0 && i % 8 == 0) {
             // cycle shift 25 bits to left
             tempKey = (tempKey << 25 | tempKey >> (128 - 25));
-            std::cout << "Temp key = " << tempKey << '\n';
+//            std::cout << "Temp key = " << tempKey << '\n';
             temp = tempKey;
         }
         // first 16 bits of temp(128-bit)
@@ -79,15 +79,15 @@ std::string IDEA::decode(const std::string &text) {
 uint64_t IDEA::_encode(uint64_t block) {
     uint64_t result{};
 
-    std::clog << "Key: " << mainKey << '\n';
-    std::clog << "Source block: " << block;
+    std::cout << "Key: " << mainKey << '\n';
+    std::cout << "Source block: " << block;
     uint32_t parts[4];
     for (int i = 3; i >= 0; --i) {
         parts[i] = block & 0xffff;
         block >>= 16;
     }
 
-    std::clog << "\nEncode keys: \n"
+    std::cout << "\nEncode keys: \n";
 
     for (int round = 0; round < 8; ++round) {
 
@@ -150,7 +150,7 @@ uint64_t IDEA::_encode(uint64_t block) {
     }
 
 
-    std::clog << "\t\t\t|\t";
+    std::cout << "\t\t|\t";
     for (int i = 0; i < 4; ++i) {
         result += parts[i];
         std::cout << std::hex << std::setw(4) << std::setfill('0') << parts[i] << ' ';
@@ -159,8 +159,8 @@ uint64_t IDEA::_encode(uint64_t block) {
     }
 
 
-    std::clog << "\nEncode keys end!\n";
-    std::clog << "Encoded block: " << result << "\n\n";
+    std::cout << "\nEncode keys end!\n";
+    std::cout << "Encoded block: " << result << "\n\n";
 
     return result;
 }
@@ -241,23 +241,20 @@ uint64_t IDEA::_decode(uint64_t block) {
     parts[2] = (parts[2] + k[2]) % 0x10000;
     parts[3] = (parts[3] * k[3]) % 0x10001;
 
-<<<<<<< Updated upstream
+
     std::cout << "\t\t|\t";
-=======
-    std::clog << "\t\t\t|\t";
->>>>>>> Stashed changes
+
     for (int i = 0; i < 4; ++i) {
         result += parts[i];
         std::cout << std::hex << std::setw(4) << std::setfill('0') << parts[i] << ' ';
         if (i != 3)
             result <<= 16;
     }
-<<<<<<< Updated upstream
+
     std::cout << "\nDecode keys end!\n\n";
-=======
-    std::clog << "\nDecode keys end!\n";
-    std::clog << "Decoded block: " << result << "\n\n";
->>>>>>> Stashed changes
+
+    std::cout << "Decoded block: " << result << "\n\n";
+
     return result;
 }
 
