@@ -5,6 +5,16 @@ public class Game {
 
     int player = 1;
 
+    boolean run = true;
+
+    public boolean getRun() {
+        return run;
+    }
+
+    public void setRun(boolean val) {
+        run = val;
+    }
+
     public void set(int x, int y) {
         a[x][y] = player;
     }
@@ -12,7 +22,6 @@ public class Game {
     public int get(int x, int y) {
         return a[x][y];
     }
-
 
     public void changePLayer() {
         if (player == 1)
@@ -55,8 +64,12 @@ public class Game {
             }
         }
 
-        if (result != 0)
+        if (state == 0 &&result != 0) {
             state = 9; // draw
+        }
+
+        if (state != 0)
+            run = false;
 
         return state;
     }

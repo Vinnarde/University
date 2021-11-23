@@ -86,12 +86,8 @@ uint64_t IDEA::_encode(uint64_t block) {
         parts[i] = block & 0xffff;
         block >>= 16;
     }
-<<<<<<< Updated upstream
-    std::cout << "\nEncode keys: \n";
-=======
 
-    std::clog << "\nEncode keys: \n";
->>>>>>> Stashed changes
+    std::clog << "\nEncode keys: \n"
 
     for (int round = 0; round < 8; ++round) {
 
@@ -153,11 +149,8 @@ uint64_t IDEA::_encode(uint64_t block) {
         std::cout << std::setw(4) << std::setfill('0') << std::hex << keys[48 + i] << ' ';
     }
 
-<<<<<<< Updated upstream
-    std::cout << "\t\t|\t";
-=======
+
     std::clog << "\t\t\t|\t";
->>>>>>> Stashed changes
     for (int i = 0; i < 4; ++i) {
         result += parts[i];
         std::cout << std::hex << std::setw(4) << std::setfill('0') << parts[i] << ' ';
@@ -166,12 +159,8 @@ uint64_t IDEA::_encode(uint64_t block) {
     }
 
 
-<<<<<<< Updated upstream
-    std::cout << "\nEncode keys end!\n\n";
-=======
     std::clog << "\nEncode keys end!\n";
     std::clog << "Encoded block: " << result << "\n\n";
->>>>>>> Stashed changes
 
     return result;
 }
