@@ -29,6 +29,11 @@ public class Game {
 
     public void setAttempts(int attempts) {
         this.attempts += attempts;
+
+        if (this.attempts <= 0) {
+            this.attempts = 0;
+            setRun(false);
+        }
     }
 
     public boolean isRun() {
@@ -47,9 +52,6 @@ public class Game {
     Game() {
         reset();
     }
-
-
-
 
     public void reset() {
         score = 0;
@@ -88,8 +90,8 @@ public class Game {
     public void generateMap() {
 
         // 0 = nothing = 25%
-        // 1 = dubovik = 25%
-        // 2 = opyata  = 20%
+        // 1 = dubovik = 30%
+        // 2 = opyata  = 25%
         // 3 = shoe    = 10%
         // 4 = capcan  = 10%
         // 5 = 10mushr = 10%
@@ -101,18 +103,16 @@ public class Game {
 
                 int value = random.nextInt(100);
 
-                if (value < 25)
+                if (value < 35)
                     map[i][j] = 0;
-                else if (value < 50)
+                else if (value < 60)
                     map[i][j] = 1;
-                else if (value < 70)
-                    map[i][j] = 2;
                 else if (value < 80)
-                    map[i][j] = 3;
+                    map[i][j] = 2;
                 else if (value < 90)
-                    map[i][j] = 4;
+                    map[i][j] = 3;
                 else
-                    map[i][j] = 5;
+                    map[i][j] = 4;
             }
         }
     }

@@ -27,7 +27,7 @@ public class Chapter1 {
         var input = new Scanner(System.in);
         var angle = input.nextInt();
 
-        System.out.printf("Mod %% 360 is %d\n", angle % 360);
+        System.out.printf("Mod %% 360 is %d\n", (angle % 360) > 0 ? angle % 360 : (angle % 360 + 360));
         System.out.printf("Math.floorMod(angle, 360) is %d\n", Math.floorMod(angle, 360));
     }
 
@@ -41,7 +41,6 @@ public class Chapter1 {
 
         System.out.printf("Largest using ?: %d\n", (a >= b) ? ((a >= c) ? a : c) : ((b >= c) ? b : c));
         System.out.printf("Largest using Math.max: %d\n", Math.max(a, Math.max(b, c)));
-
     }
 
 }

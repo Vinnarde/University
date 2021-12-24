@@ -35,7 +35,6 @@ public class Chapter2 {
         }
     }
 
-
     private static LinkedHashMap<DayOfWeek, String> buildDayAbbrev() {
         var result = new LinkedHashMap<DayOfWeek, String>(7);
         result.put(DayOfWeek.SUNDAY, "Sun");
