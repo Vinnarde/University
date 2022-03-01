@@ -4,22 +4,13 @@ set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
 
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
-  )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/git-clone/University/C3_S1/Automata theory/Lab 3/Hashtable.cpp" "C:/git-clone/University/C3_S1/Automata theory/Lab 3/cmake-build-debug/CMakeFiles/Lab_3.dir/Hashtable.cpp.obj"
-  "C:/git-clone/University/C3_S1/Automata theory/Lab 3/Tokenizer.cpp" "C:/git-clone/University/C3_S1/Automata theory/Lab 3/cmake-build-debug/CMakeFiles/Lab_3.dir/Tokenizer.cpp.obj"
-  "C:/git-clone/University/C3_S1/Automata theory/Lab 3/main.cpp" "C:/git-clone/University/C3_S1/Automata theory/Lab 3/cmake-build-debug/CMakeFiles/Lab_3.dir/main.cpp.obj"
-  )
-set(CMAKE_CXX_COMPILER_ID "MSVC")
-
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
   )
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/git-clone/University/C3_S1/Automata theory/Lab 3/Hashtable.cpp" "CMakeFiles/Lab_3.dir/Hashtable.cpp.obj" "gcc" "CMakeFiles/Lab_3.dir/Hashtable.cpp.obj.d"
+  "C:/git-clone/University/C3_S1/Automata theory/Lab 3/Tokenizer.cpp" "CMakeFiles/Lab_3.dir/Tokenizer.cpp.obj" "gcc" "CMakeFiles/Lab_3.dir/Tokenizer.cpp.obj.d"
+  "C:/git-clone/University/C3_S1/Automata theory/Lab 3/main.cpp" "CMakeFiles/Lab_3.dir/main.cpp.obj" "gcc" "CMakeFiles/Lab_3.dir/main.cpp.obj.d"
   )
 
 # Targets to which this target links.

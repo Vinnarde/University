@@ -1,0 +1,189 @@
+﻿<div class="container">
+    <h1>Teachers</h1>
+
+    <div class="panel panel-default">
+        <form id="teacherForm" class="panel-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="firstName">First name</label>
+                    <input type="text" name="firstName" id="firstName" class="form-control">
+                </div>
+                <div class="col-md-4">
+                    <label for="middleName">Middle name</label>
+                    <input type="text" name="middleName" id="middleName" class="form-control">
+                </div>
+                <div class="col-md-4">
+                    <label for="lastName">Last name</label>
+                    <input type="text" name="lastName" id="lastName" class="form-control">
+                </div>
+            </div>
+            <div class="row mt-10">
+                <div class="col-md-4">
+                    <label for="degreeId">Degree</label>
+                    <select name="degreeId" id="degreeId" class="form-control">
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="photo">Photo</label>
+                    <input type="file" id="photo" name="photo" accept="image/jpeg">
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary" type="submit">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table id="table" class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>First name</th>
+                    <th>Middle name</th>
+                    <th>Last name</th>
+                    <th>Degree</th>
+                    <th>Photo</th>
+                    <th style="width: 150px;">Actions</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    var TeacherToEdit = null;
+    var Teachers = [];
+    var Degrees = [];
+
+    $(function () {
+        getTeachers();
+        getDegrees();
+        $("#teacherForm").submit(updateTeacher);
+    });
+
+
+    function getTeachers() {
+        $.get("/api/teachers")
+            .then((res) => {
+                Teachers = res;
+                fillTable(res);
+            })
+    }
+
+    function getDegrees() {
+        $.get("/api/degrees")
+            .then((res) => {
+                Degrees = res;
+                fillDegreesDropdown(res);
+            });
+    }
+
+    function fillTable(teachers) {
+        $("#table td").parent().remove();
+        let $table = $("#table");
+
+        for (let item of teachers) {
+            let img = (item.photo !== null) ? `<img src='data:image/jpeg;base64, ${item.photo}'>` : "[NO PHOTO]";
+            let editBtn = $(`<button class='btn'>Edit</button>`);
+            editBtn.click(() => editTeacher(item));
+            let deleteBtn = $(`<button class='btn'>Delete</button>`);
+            deleteBtn.click(() => deleteTeacher(item));
+            let actionsCell = $("<td></td>");
+            actionsCell.append(editBtn);
+            actionsCell.append(deleteBtn);
+            let row = $(`
+                <tr>
+                    <td>${item.id}</td>
+                    <td>${item.firstName}</td>
+                    <td>${item.middleName}</td>
+                    <td>${item.lastName}</td>
+                    <td>${item.degree.title}</td>
+                    <td class='photo-cell'>${img}</td>
+                </tr>
+            `);
+            row.append(actionsCell);
+            $table.append(row);
+        }
+    }
+
+    function fillDegreesDropdown(degrees) {
+        var $select = $("#degreeId");
+        $select.empty();
+
+        for (let item of degrees) {
+            $select.append(`<option value='${item.id}'>${item.title}</option>`);
+        }
+    }
+
+    function editTeacher(teacher) {
+        TeacherToEdit = teacher;
+        $("#firstName").val(teacher.firstName);
+        $("#middleName").val(teacher.middleName);
+        $("#lastName").val(teacher.lastName);
+        $(`#degreeId option[value=${teacher.degreeId}]`).attr('selected', 'selected');
+    }
+
+    async function updateTeacher(e) {
+        e.preventDefault();
+        var isNew = !TeacherToEdit;
+
+        let teacher = isNew ? {} : TeacherToEdit;
+        const url = "/api/teachers/" + (isNew ? "" : teacher.id);
+        const method = isNew ? "POST" : "PUT";
+
+        if (!$("#firstName").val() ||
+            !$("#middleName").val() ||
+            !$("#lastName").val() ||
+            !$("#degreeId").val())
+        {
+            alert("Fill all the fields!");
+        }
+        else {
+            teacher.firstName = $('#firstName').val();
+            teacher.middleName = $('#middleName').val();
+            teacher.lastName = $('#lastName').val();
+            teacher.degreeId = $('#degreeId').val();
+
+            delete teacher.degree; // bug in api
+            let photo = $('#photo').prop('files')[0];
+            if (photo) {
+                teacher.photo = await toBase64(photo);
+                teacher.photo = teacher.photo.replace('data:image/jpeg;base64,', '');
+            }
+
+            $.ajax({
+                url,
+                method,
+                data: JSON.stringify(teacher),
+                contentType: 'application/json'
+            })
+                .then(() => {
+                    getTeachers();
+                    $('#teacherForm input').val('');
+                    TeacherToEdit = undefined;
+                });
+        }
+    }
+
+    const toBase64 = file => new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+    });
+
+    function deleteTeacher(teacher) {
+        if (confirm("Are you sure to delete this record?")) {
+            $.ajax({
+                url: '/api/teachers/' + teacher.id,
+                type: 'DELETE'
+            }).then(() => getTeachers());
+        }
+    }
+
+</script>
+

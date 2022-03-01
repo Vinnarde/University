@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JobServiceSerializable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Employees>
+    <Employee>
+      <EmployeeId>1</EmployeeId>
+      <FirstName>Беркут</FirstName>
+      <LastName>Вадим</LastName>
+      <Patronymic>Александрович</Patronymic>
+      <Salary>35000</Salary>
+    </Employee>
+    <Employee>
+      <EmployeeId>2</EmployeeId>
+      <FirstName>Тестовый</FirstName>
+      <LastName>работник</LastName>
+      <Patronymic>8 лабы</Patronymic>
+      <Salary>100</Salary>
+    </Employee>
+  </Employees>
+  <TypeOfWorks>
+    <TypeOfWork>
+      <TypeOfWorkId>1</TypeOfWorkId>
+      <PaymentPerDay>0</PaymentPerDay>
+      <Description>Сдавать долги</Description>
+    </TypeOfWork>
+    <TypeOfWork>
+      <TypeOfWorkId>2</TypeOfWorkId>
+      <PaymentPerDay>100</PaymentPerDay>
+      <Description>Учиться</Description>
+    </TypeOfWork>
+  </TypeOfWorks>
+  <Job>
+    <JobSerializable>
+      <Employee>1</Employee>
+      <TypeOfWork>100</TypeOfWork>
+      <StartDate>0001-01-01T00:00:00</StartDate>
+      <EndDate>0001-01-01T00:00:00</EndDate>
+    </JobSerializable>
+    <JobSerializable>
+      <Employee>2</Employee>
+      <TypeOfWork>100</TypeOfWork>
+      <StartDate>0001-01-01T00:00:00</StartDate>
+      <EndDate>0001-01-01T00:00:00</EndDate>
+    </JobSerializable>
+  </Job>
+</JobServiceSerializable>

@@ -1,0 +1,107 @@
+﻿<div class="container">
+
+    <h1>Degrees</h1>
+
+    <div class="row">
+        <div class="col-lg-5">
+            <div class="panel panel-default">
+                <form id="degreeForm" class="panel-body">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input name="title" id="title" class="form-control" />
+                    </div>
+                    <div class="form-group text-right">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-7">
+            <ul class="list-group degrees">
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+
+    var DegreeToEdit = null;
+    var Degrees = [];
+
+    $(function () {
+        getDegrees();
+        $("#degreeForm").submit(updateDegree);
+    });
+
+
+    function getDegrees() {
+        $.get("/api/degrees")
+            .then((res) => {
+                Degrees = res;
+                fillDegreesList(Degrees);
+            })
+    }
+
+    function fillDegreesList(degrees) {
+        $list = $(".degrees");
+        $list.empty();
+
+        for (let item of degrees) {
+            let delBtn = $(`<button class="btn btn-sm btn-danger pull-right btn-del">Delete</button>`);
+            delBtn.click(() => deleteDegree(item));
+            let editBtn = $(`<button class="btn btn-sm btn-primary pull-right btn-edit">Edit</button>`);
+            editBtn.click(() => editDegree(item));
+
+            let li = $(`<li class="list-group-item"></li>`);
+            li.append(delBtn);
+            li.append(editBtn);
+            li.append(item.title);
+
+            $list.append(li);
+        }
+    }
+
+    function editDegree(degree) {
+        DegreeToEdit = degree;
+        $("#title").val(degree.title);
+    }
+
+    function deleteDegree(degree) {
+        if (confirm("Are you sure to remove this record?")) {
+            $.ajax({
+                url: '/api/degrees/' + degree.id,
+                type: 'DELETE'
+            }).then(() => getDegrees());
+        }
+    }
+
+    function updateDegree(e) {
+        e.preventDefault();
+
+        var isNew = !DegreeToEdit;
+        var degree = isNew ? {} : DegreeToEdit;
+        const url = "/api/degrees/" + (isNew ? "" : degree.id);
+        const method = isNew ? "POST" : "PUT";
+
+        if ($("#title").val()) {
+            degree.title = $("#title").val();
+
+            $.ajax({
+                url, method,
+                data: JSON.stringify(degree),
+                contentType: 'application/json'
+            })
+                .then(() => {
+                    getDegrees();
+                    $('#degreeForm input').val('');
+                    DegreeToEdit = undefined;
+                });
+        } else {
+            alert("Fill all the fields!");
+        }
+
+    }
+
+</script>

@@ -1,0 +1,101 @@
+﻿<Window x:Class="Lab13.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Lab13"
+        Title="MainWindow" 
+        Height="450" Width="800" 
+        Loaded="Window_Loaded"
+        KeyDown="Window_KeyDown">
+    <Window.Resources>
+        <local:Lab13DataSet x:Key="lab13DataSet"/>
+        <CollectionViewSource x:Key="teachersViewSource" Source="{Binding teachers, Source={StaticResource lab13DataSet}}"/>
+        <CollectionViewSource x:Key="degreesViewSource" Source="{Binding degrees, Source={StaticResource lab13DataSet}}"/>
+        <ContextMenu x:Key="PhotoMenu">
+            <MenuItem Header="Remove photo" Click="RemovePhoto_Click"/>
+            <MenuItem Header="Upload new" Click="UploadPhoto_Click"/>
+        </ContextMenu>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource teachersViewSource}">
+        <TabControl>
+            <TabItem Header="Teachers">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                        <Button x:Name="DeleteRecord" 
+                                Margin="10,10,0,10" Padding="15,0" 
+                                Click="DeleteRecord_Click">
+                            Delete
+                        </Button>
+                        <Button x:Name="UploadPhoto" 
+                                Margin="10,10,0,10" Padding="15,0" 
+                                Click="UploadPhoto_Click">
+                            Upload a photo
+                        </Button>
+                        <Button x:Name="RemovePhoto" 
+                                Margin="10,10,0,10" Padding="15,0" 
+                                Click="RemovePhoto_Click">
+                            Remove photo
+                        </Button>
+                    </StackPanel>
+
+                    <DataGrid x:Name="TeachersGrid" 
+                            Grid.Row="1" Grid.Column="0"
+                            AutoGenerateColumns="False"
+                            ItemsSource="{Binding}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="FirstnameColumn" 
+                                Binding="{Binding first_name}" 
+                                Header="First name" Width="SizeToCells"/>
+                            <DataGridTextColumn x:Name="LastnameColumn" 
+                                Binding="{Binding last_name}" 
+                                Header="Last name" Width="SizeToCells"/>
+                            <DataGridTextColumn x:Name="MiddlenameColumn" 
+                                Binding="{Binding middle_name}" 
+                                Header="Middle name" Width="SizeToCells"/>
+                            <DataGridComboBoxColumn x:Name="DegreeComboColumn"
+                                Width="SizeToCells"
+                                Header="Degree"
+                                ItemsSource="{Binding Source={StaticResource degreesViewSource}}"
+                                SelectedValueBinding="{Binding degree}"
+                                SelectedValuePath="id"
+                                DisplayMemberPath="title"/>
+                            <DataGridTemplateColumn Header="Image" IsReadOnly="True" Width="100">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Height="20" Source="{Binding photo}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                    <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                        <Label x:Name="PhotoLabel" ContextMenu="{StaticResource PhotoMenu}">
+                            Photo:
+                        </Label>
+                        <Image x:Name="PhotoImage" 
+                               Source="{Binding photo}" 
+                               ContextMenu="{StaticResource PhotoMenu}"/>
+                    </StackPanel>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Degrees">
+                <DataGrid x:Name="DegreesDataGrid" AutoGenerateColumns="False" Grid.ColumnSpan="4" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource degreesViewSource}}" RowDetailsVisibilityMode="VisibleWhenSelected">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="titleColumn" Binding="{Binding title}" Header="title" Width="SizeToCells"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

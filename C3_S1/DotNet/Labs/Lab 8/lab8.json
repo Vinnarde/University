@@ -1,0 +1,48 @@
+{
+  "Employees": [
+    {
+      "EmployeeId": 1,
+      "FirstName": "Беркут",
+      "LastName": "Вадим",
+      "Patronymic": "Александрович",
+      "Salary": 35000.0,
+      "IsValid": true
+    },
+    {
+      "EmployeeId": 2,
+      "FirstName": "Тестовый",
+      "LastName": "работник",
+      "Patronymic": "8 лабы",
+      "Salary": 100.0,
+      "IsValid": true
+    }
+  ],
+  "TypeOfWorks": [
+    {
+      "TypeOfWorkId": 1,
+      "PaymentPerDay": 0,
+      "Description": "Сдавать долги",
+      "IsValid": true
+    },
+    {
+      "TypeOfWorkId": 2,
+      "PaymentPerDay": 100,
+      "Description": "Учиться",
+      "IsValid": true
+    }
+  ],
+  "Job": [
+    {
+      "Employee": 1,
+      "TypeOfWork": 100,
+      "StartDate": "0001-01-01T00:00:00",
+      "EndDate": "0001-01-01T00:00:00"
+    },
+    {
+      "Employee": 2,
+      "TypeOfWork": 100,
+      "StartDate": "0001-01-01T00:00:00",
+      "EndDate": "0001-01-01T00:00:00"
+    }
+  ]
+}

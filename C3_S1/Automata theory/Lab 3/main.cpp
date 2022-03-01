@@ -5,6 +5,7 @@
 
 #include "Tokenizer.h"
 #include "Hashtable.h"
+#include "HashMap.h"
 
 using namespace simpleparser;
 
@@ -38,7 +39,7 @@ void printTable(const std::unordered_set<syntaxToken, syntaxTokenHasher> &table)
 
 int main() {
     std::unordered_set<syntaxToken, syntaxTokenHasher> table;
-    Hashtable myTable;
+    HashMap<std::string, syntaxToken>myTable;
 
     while (true) {
         std::cout << "> ";
@@ -64,7 +65,7 @@ int main() {
                 token.mKind == IdentifierToken) {
 
                 table.insert(token);
-                myTable.insert(token.mText, &token);
+                myTable.insert(token.mText, token);
             }
         }
 
@@ -89,7 +90,7 @@ int main() {
 
         printTable(table);
         std::cout << output << '\n';
-        myTable.print();
+        myTable.display();
         table.erase(table.begin(),table.end());
 
     }
